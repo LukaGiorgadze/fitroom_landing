@@ -66,6 +66,7 @@
               href="#download"
               class="store-button"
               data-waitlist-trigger
+              data-waitlist-source="appstore-header"
               aria-label="Fitroom on the App Store"
               ><img src="/appstore.svg" alt="Download on the App Store"
             /></a>
@@ -73,6 +74,7 @@
               href="#download"
               class="store-button"
               data-waitlist-trigger
+              data-waitlist-source="googleplay-header"
               aria-label="Fitroom on Google Play"
               ><img src="/playstore.svg" alt="Get it on Google Play"
             /></a>
@@ -649,12 +651,14 @@
             href="#top"
             class="store-button"
             data-waitlist-trigger
+            data-waitlist-source="appstore-footer"
             aria-label="Fitroom on the App Store"
             ><img src="/appstore.svg" alt="Download on the App Store" /></a
           ><a
             href="#top"
             class="store-button"
             data-waitlist-trigger
+            data-waitlist-source="googleplay-footer"
             aria-label="Fitroom on Google Play"
             ><img src="/playstore.svg" alt="Get it on Google Play"
           /></a>
@@ -711,6 +715,7 @@
                 inputmode="email"
                 autocomplete="email"
                 placeholder="Email address"
+                aria-describedby="waitlist-status"
                 maxlength="254"
                 required
               />
@@ -726,6 +731,19 @@
               Welcome to the waitlist. We’ll send your 3-month Pro offer at
               launch.
             </p>
+          </div>
+          <div class="waitlist-visual waitlist-mobile-visual" data-waitlist-stage>
+            <img
+              class="waitlist-preview-current"
+              src="/screenshots/home.png"
+              alt="Fitroom home nutrition dashboard"
+            />
+            <img
+              class="waitlist-preview-next"
+              src="/screenshots/home.png"
+              alt=""
+              aria-hidden="true"
+            />
           </div>
           <div class="waitlist-previews" aria-label="Fitroom app previews">
             <img
@@ -780,13 +798,13 @@
             />
           </div>
           <p
-            class="waitlist-status"
+            class="waitlist-status sr-only"
             id="waitlist-status"
             role="status"
             aria-live="polite"
           ></p>
         </div>
-        <div class="waitlist-visual">
+        <div class="waitlist-visual" data-waitlist-stage>
           <img
             id="waitlist-featured-preview"
             class="waitlist-preview-current"

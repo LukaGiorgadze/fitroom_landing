@@ -2,6 +2,14 @@ const fallbackWebhookBase64 =
   "aHR0cHM6Ly9kaXNjb3JkLmNvbS9hcGkvd2ViaG9va3MvMTUzODE2ODgwNjE4OTMxMDAyMy9QaVpLRTg0eWpjV01hNlp5MzNyeTBlSkpmOTlfcjdFX3EyU0xuWXoxdG1qOG5YWDltSnZZMDloV2t0cHlWc29kWmlZZQ==";
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const validSources = new Set([
+  "automatic-modal",
+  "appstore-header",
+  "appstore-footer",
+  "googleplay-header",
+  "googleplay-footer",
+  "manual-modal",
+]);
 
 async function readJsonBody(request) {
   if (request.body && typeof request.body === "object" && !Buffer.isBuffer(request.body)) {
@@ -55,9 +63,15 @@ export default async function waitlistHandler(request, response) {
   try {
     const body = await readJsonBody(request);
     const email = typeof body.email === "string" ? body.email.trim().toLowerCase() : "";
+    const source = typeof body.source === "string" ? body.source.trim() : "";
 
     if (!email || email.length > 254 || !emailPattern.test(email)) {
       sendJson(response, 400, { error: "Please enter a valid email address." });
+      return;
+    }
+
+    if (!validSources.has(source)) {
+      sendJson(response, 400, { error: "Unknown waitlist signup source." });
       return;
     }
 
@@ -73,6 +87,7 @@ export default async function waitlistHandler(request, response) {
             fields: [
               { name: "Email", value: email },
               { name: "Offer", value: "3 months free Fitroom Pro", inline: true },
+              { name: "Source", value: source, inline: true },
             ],
             timestamp: new Date().toISOString(),
           },

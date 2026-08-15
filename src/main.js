@@ -5,9 +5,13 @@ const emailInput = document.querySelector("#waitlist-email");
 const statusMessage = document.querySelector("#waitlist-status");
 const submitButton = form?.querySelector('button[type="submit"]');
 const successMessage = document.querySelector("#waitlist-success");
-const featuredPreview = document.querySelector("#waitlist-featured-preview");
-const nextFeaturedPreview = document.querySelector("#waitlist-featured-preview-next");
-const previewStage = featuredPreview?.parentElement;
+const previewStages = [...document.querySelectorAll("[data-waitlist-stage]")]
+  .map((stage) => ({
+    stage,
+    current: stage.querySelector(".waitlist-preview-current"),
+    next: stage.querySelector(".waitlist-preview-next"),
+  }))
+  .filter(({ current, next }) => current && next);
 const previewThumbnails = [...document.querySelectorAll(".waitlist-previews img")];
 
 if (
@@ -19,9 +23,27 @@ if (
   submitButton &&
   successMessage
 ) {
+  const joinedStorageKey = "fitroom.waitlist.joinedAt";
   let autoOpenTimer;
   let lastFocusedElement;
   let closeTimer;
+  let submissionSource = "automatic-modal";
+
+  const hasJoinedWaitlist = () => {
+    try {
+      return Boolean(window.localStorage.getItem(joinedStorageKey));
+    } catch {
+      return false;
+    }
+  };
+
+  const rememberWaitlistSignup = () => {
+    try {
+      window.localStorage.setItem(joinedStorageKey, new Date().toISOString());
+    } catch {
+      // The signup still succeeds when storage is unavailable or disabled.
+    }
+  };
 
   const clearAutoOpen = () => {
     if (autoOpenTimer) {
@@ -30,9 +52,10 @@ if (
     }
   };
 
-  const openModal = () => {
+  const openModal = (source = "automatic-modal") => {
     clearAutoOpen();
     window.clearTimeout(closeTimer);
+    submissionSource = source;
     lastFocusedElement = document.activeElement;
     modal.hidden = false;
     document.body.classList.add("modal-open");
@@ -61,10 +84,20 @@ if (
     statusMessage.dataset.state = state;
   };
 
+  const setEmailError = (hasError) => {
+    emailInput.classList.toggle("is-error", hasError);
+    emailInput.setAttribute("aria-invalid", String(hasError));
+  };
+
+  emailInput.addEventListener("input", () => {
+    setEmailError(false);
+    setStatus("");
+  });
+
   document.querySelectorAll("[data-waitlist-trigger]").forEach((trigger) => {
     trigger.addEventListener("click", (event) => {
       event.preventDefault();
-      openModal();
+      openModal(trigger.dataset.waitlistSource || "manual-modal");
     });
   });
 
@@ -100,9 +133,11 @@ if (
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
     setStatus("");
+    setEmailError(false);
 
     if (!emailInput.checkValidity()) {
       setStatus("Please enter a valid email address.", "error");
+      setEmailError(true);
       emailInput.focus();
       return;
     }
@@ -115,7 +150,10 @@ if (
       const response = await fetch("/api/waitlist", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: emailInput.value.trim() }),
+        body: JSON.stringify({
+          email: emailInput.value.trim(),
+          source: submissionSource,
+        }),
       });
       const result = await response.json().catch(() => ({}));
 
@@ -123,6 +161,8 @@ if (
         throw new Error(result.error || "Unable to join right now.");
       }
 
+      rememberWaitlistSignup();
+      setEmailError(false);
       form.reset();
       form.hidden = true;
       successMessage.hidden = false;
@@ -130,6 +170,7 @@ if (
     } catch (error) {
       submitButton.disabled = false;
       submitButton.textContent = originalButtonLabel;
+      setEmailError(true);
       setStatus(error.message || "Unable to join right now. Please try again.", "error");
     }
   });
@@ -138,21 +179,18 @@ if (
   let previewTransitionId = 0;
 
   const commitPreview = (source, alt) => {
-    previewStage.classList.add("is-resetting");
-    featuredPreview.src = source;
-    featuredPreview.alt = alt;
-    previewStage.classList.remove("is-crossfading");
-    void previewStage.offsetWidth;
-    previewStage.classList.remove("is-resetting");
+    previewStages.forEach(({ stage, current }) => {
+      stage.classList.add("is-resetting");
+      current.src = source;
+      current.alt = alt;
+      stage.classList.remove("is-crossfading");
+    });
+    void document.body.offsetWidth;
+    previewStages.forEach(({ stage }) => stage.classList.remove("is-resetting"));
   };
 
   const selectPreview = (thumbnail) => {
-    if (
-      !featuredPreview ||
-      !nextFeaturedPreview ||
-      !previewStage ||
-      thumbnail.classList.contains("is-active")
-    ) {
+    if (!previewStages.length || thumbnail.classList.contains("is-active")) {
       return;
     }
 
@@ -167,21 +205,27 @@ if (
       item.setAttribute("aria-pressed", String(isSelected));
     });
 
-    if (previewStage.classList.contains("is-crossfading")) {
+    const transitioningStage = previewStages.find(({ stage }) =>
+      stage.classList.contains("is-crossfading"),
+    );
+
+    if (transitioningStage) {
       commitPreview(
-        nextFeaturedPreview.src,
-        nextFeaturedPreview.dataset.alt || nextAlt,
+        transitioningStage.next.src,
+        transitioningStage.next.dataset.alt || nextAlt,
       );
     }
 
-    nextFeaturedPreview.src = nextSource;
-    nextFeaturedPreview.dataset.alt = nextAlt;
+    previewStages.forEach(({ next }) => {
+      next.src = nextSource;
+      next.dataset.alt = nextAlt;
+    });
 
     const beginCrossfade = () => {
       if (transitionId !== previewTransitionId) return;
 
       window.requestAnimationFrame(() => {
-        previewStage.classList.add("is-crossfading");
+        previewStages.forEach(({ stage }) => stage.classList.add("is-crossfading"));
       });
 
       previewSwapTimer = window.setTimeout(() => {
@@ -189,11 +233,11 @@ if (
       }, 340);
     };
 
-    if (nextFeaturedPreview.complete && nextFeaturedPreview.naturalWidth) {
-      beginCrossfade();
-    } else {
-      nextFeaturedPreview.addEventListener("load", beginCrossfade, { once: true });
-    }
+    Promise.all(
+      previewStages.map(({ next }) =>
+        typeof next.decode === "function" ? next.decode().catch(() => {}) : Promise.resolve(),
+      ),
+    ).then(beginCrossfade);
   };
 
   previewThumbnails.forEach((thumbnail) => {
@@ -207,7 +251,11 @@ if (
   });
 
   const scheduleAutoOpen = () => {
-    autoOpenTimer = window.setTimeout(openModal, 5000);
+    if (hasJoinedWaitlist()) return;
+    autoOpenTimer = window.setTimeout(
+      () => openModal("automatic-modal"),
+      5000,
+    );
   };
 
   if (document.readyState === "complete") {
