@@ -774,10 +774,10 @@ a {
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
   border-radius: 27px;
-  border: 1px solid rgba(255, 255, 255, 0.66);
-  background: rgba(255, 255, 255, 0.58);
-  -webkit-backdrop-filter: blur(14px) saturate(1.06);
-  backdrop-filter: blur(14px) saturate(1.06);
+  border: 0;
+  background: #fff;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
   box-shadow: 0 5px 20px rgba(35, 47, 77, 0.08);
 }
 .reference-tab-pill > span {
@@ -806,10 +806,10 @@ a {
   border-radius: 50%;
   display: grid;
   place-items: center;
-  border: 1px solid rgba(255, 255, 255, 0.66);
-  background: rgba(255, 255, 255, 0.58);
-  -webkit-backdrop-filter: blur(14px) saturate(1.06);
-  backdrop-filter: blur(14px) saturate(1.06);
+  border: 0;
+  background: #fff;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
   font-size: 26px;
   box-shadow: 0 5px 20px rgba(35, 47, 77, 0.08);
 }
@@ -3379,7 +3379,8 @@ footer > span {
   border-radius: inherit;
   background: #050609;
   opacity: 0;
-  visibility: hidden;
+  transition: opacity 360ms ease-in-out;
+  will-change: opacity;
   pointer-events: none;
 }
 .phone-boot-logo svg {
@@ -3390,7 +3391,32 @@ footer > span {
 }
 .phone-scene.is-booting .phone-boot-logo {
   opacity: 1;
+}
+.phone-launch-screen {
+  position: absolute;
+  z-index: 37;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  border-radius: inherit;
+  background: #fff;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.phone-launch-screen img {
+  display: block;
+  width: 116px;
+  height: 116px;
+  object-fit: contain;
+  opacity: 0;
+}
+.phone-scene.is-branding .phone-launch-screen {
+  opacity: 1;
   visibility: visible;
+}
+.phone-scene.is-branding .phone-launch-screen img {
+  animation: fitroomLaunchMark 1100ms ease-in-out both;
 }
 .phone-screen::after {
   content: "";
@@ -3470,41 +3496,74 @@ footer > span {
   animation: chassisTrace 1450ms 180ms ease-out backwards;
 }
 .phone-scene.is-assembling .phone-screen {
-  animation: screenMaterialize 720ms cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+  overflow: visible;
+  animation: screenMaterialize 820ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+.phone-scene.is-assembling .phone-screen > :not(.phone-boot-logo) {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+.phone-scene.is-assembling :is(
+    .reference-calorie-card,
+    .reference-macro-card,
+    .reference-nutrition-card,
+    .reference-tab-bar
+  ) {
+  z-index: 32;
+  will-change: transform, opacity;
+}
+.phone-scene.is-assembling .reference-calorie-card {
+  transform-origin: 0 50%;
+}
+.phone-scene.is-assembling .reference-macro-card:nth-child(1) {
+  transform-origin: 100% 50%;
+}
+.phone-scene.is-assembling .reference-macro-card:nth-child(2) {
+  transform-origin: 50% 100%;
+}
+.phone-scene.is-assembling .reference-macro-card:nth-child(3) {
+  transform-origin: 0 50%;
+}
+.phone-scene.is-assembling .reference-nutrition-card,
+.phone-scene.is-assembling .reference-tab-bar {
+  transform-origin: 50% 100%;
 }
 .phone-scene.is-assembling .phone-island {
-  animation: islandReveal 420ms 590ms ease-out backwards;
+  animation: islandReveal 520ms 500ms ease-out backwards;
 }
 .phone-scene.is-assembling .reference-status {
-  animation: hardwareDock 520ms 690ms cubic-bezier(0.18, 1.1, 0.4, 1)
+  z-index: 34;
+  animation: hardwareDock 700ms 590ms cubic-bezier(0.16, 1, 0.3, 1)
     backwards;
 }
 .phone-scene.is-assembling .phone-wordmark {
-  animation: dockFromLeft 620ms 790ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
+  z-index: 31;
+  animation: dockFromLeft 760ms 700ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
 }
 .phone-scene.is-assembling .reference-week {
-  animation: dockFromDepth 700ms 900ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
+  z-index: 30;
+  animation: dockFromDepth 860ms 790ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
 }
 .phone-scene.is-assembling .reference-week-rail path {
   stroke-dasharray: 210;
   animation: calendarRailDraw 850ms 1080ms ease-out backwards;
 }
 .phone-scene.is-assembling .reference-week .active > i {
-  animation: selectedNodeLock 560ms 1200ms cubic-bezier(0.14, 1.55, 0.36, 1)
+  animation: selectedNodeLock 560ms 1200ms cubic-bezier(0.16, 1, 0.3, 1)
     backwards;
 }
 .phone-scene.is-assembling .reference-calorie-card {
-  animation: dockFromRight 760ms 1040ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
+  animation: dockFromRight 940ms 960ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
 }
 .phone-scene.is-assembling .reference-macro-card:nth-child(1) {
-  animation: macroDockLeft 680ms 1260ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
+  animation: macroDockLeft 860ms 1180ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
 }
 .phone-scene.is-assembling .reference-macro-card:nth-child(2) {
-  animation: macroDockCenter 680ms 1370ms cubic-bezier(0.16, 1, 0.3, 1)
+  animation: macroDockCenter 880ms 1300ms cubic-bezier(0.16, 1, 0.3, 1)
     backwards;
 }
 .phone-scene.is-assembling .reference-macro-card:nth-child(3) {
-  animation: macroDockRight 680ms 1480ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
+  animation: macroDockRight 860ms 1420ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
 }
 .phone-scene.is-assembling .reference-pages {
   animation: detailFadeUp 480ms 1630ms ease-out backwards;
@@ -3513,13 +3572,13 @@ footer > span {
   animation: dockFromLeft 620ms 1700ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
 }
 .phone-scene.is-assembling .reference-nutrition-card {
-  animation: nutritionDock 760ms 1790ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
+  animation: nutritionDock 980ms 1750ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
 }
 .phone-scene.is-assembling .reference-meal-row {
   animation: detailFadeUp 540ms 2060ms ease-out backwards;
 }
 .phone-scene.is-assembling .reference-tab-bar {
-  animation: glassDock 720ms 2110ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
+  animation: glassDock 920ms 2130ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
 }
 .reference-ring {
   --ring-target: 0deg;
@@ -3547,7 +3606,7 @@ footer > span {
   --ring-target: 226.8deg;
 }
 .phone-scene.is-assembling .reference-ring {
-  animation: ringAssemble 880ms ease-out backwards;
+  animation: ringAssemble 420ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
 }
 .phone-scene.is-assembling .reference-ring-large {
   animation-delay: 1450ms;
@@ -3567,15 +3626,6 @@ footer > span {
 .phone-scene.is-assembling .assembly-field::after {
   animation: blueprintScan 1650ms 310ms cubic-bezier(0.25, 0.7, 0.25, 1) both;
 }
-.phone-scene.is-assembled .reference-week .active > i {
-  animation: selectedNodeBreathe 3.8s ease-in-out infinite;
-}
-.phone-scene.is-assembled .reference-calorie-card,
-.phone-scene.is-assembled .reference-macro-card,
-.phone-scene.is-assembled .reference-nutrition-card,
-.phone-scene.is-assembled .reference-tab-bar {
-  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
-}
 @keyframes phoneChassisBuild {
   0% {
     opacity: 0;
@@ -3589,12 +3639,10 @@ footer > span {
 @keyframes islandReveal {
   from {
     opacity: 0;
-    filter: blur(3px);
     transform: translateX(-50%);
   }
   to {
     opacity: 1;
-    filter: none;
     transform: translateX(-50%);
   }
 }
@@ -3617,140 +3665,129 @@ footer > span {
 @keyframes screenMaterialize {
   0% {
     opacity: 1;
-    filter: brightness(0.82) saturate(0.86);
-  }
-  45% {
-    opacity: 1;
-    filter: brightness(1.12) saturate(1.12);
+    transform: translateZ(-145px) scale(0.9);
   }
   100% {
     opacity: 1;
-    filter: none;
+    transform: none;
+  }
+}
+@keyframes fitroomLaunchMark {
+  0% {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  30%,
+  64% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.02);
   }
 }
 @keyframes hardwareDock {
   from {
     opacity: 0;
-    filter: blur(4px);
-    transform: translate3d(0, -28px, 170px) rotateX(-48deg) scale(0.72);
+    transform: translate3d(0, -118px, 360px) rotateX(-72deg) scale(0.58);
   }
   to {
     opacity: 1;
-    filter: none;
     transform: none;
   }
 }
 @keyframes dockFromLeft {
   from {
     opacity: 0;
-    filter: blur(4px);
-    transform: translate3d(-70px, 0, 150px) rotateY(34deg) scale(0.82);
+    transform: translate3d(-220px, -18px, 390px) rotateY(62deg) rotateZ(-9deg)
+      scale(0.64);
   }
   to {
     opacity: 1;
-    filter: none;
     transform: none;
   }
 }
 @keyframes dockFromRight {
   from {
     opacity: 0;
-    filter: blur(6px);
-    transform: translate3d(105px, -8px, 230px) rotateY(-34deg) rotateX(10deg)
-      scale(0.78);
-  }
-  72% {
-    opacity: 1;
-    transform: translate3d(-4px, 0, 16px) rotateY(2deg) scale(1.015);
+    transform: translate3d(255px, -24px, 440px) rotateY(-64deg) rotateX(18deg)
+      rotateZ(7deg) scale(0.62);
   }
   to {
     opacity: 1;
-    filter: none;
     transform: none;
   }
 }
 @keyframes dockFromDepth {
   from {
     opacity: 0;
-    filter: blur(5px);
-    transform: translate3d(0, -16px, 220px) rotateX(-34deg) scale(0.8);
+    transform: translate3d(0, -145px, 480px) rotateX(-72deg) scale(0.58);
   }
   to {
     opacity: 1;
-    filter: none;
     transform: none;
   }
 }
 @keyframes macroDockLeft {
   from {
     opacity: 0;
-    filter: blur(5px);
-    transform: translate3d(-88px, 38px, 210px) rotateY(32deg) rotateZ(-8deg)
-      scale(0.7);
+    transform: translate3d(-235px, 90px, 410px) rotateY(67deg) rotateZ(-18deg)
+      scale(0.54);
   }
   to {
     opacity: 1;
-    filter: none;
     transform: none;
   }
 }
 @keyframes macroDockCenter {
   from {
     opacity: 0;
-    filter: blur(5px);
-    transform: translate3d(0, 78px, 260px) rotateX(-36deg) scale(0.68);
+    transform: translate3d(0, 205px, 500px) rotateX(-72deg) rotateZ(8deg)
+      scale(0.52);
   }
   to {
     opacity: 1;
-    filter: none;
     transform: none;
   }
 }
 @keyframes macroDockRight {
   from {
     opacity: 0;
-    filter: blur(5px);
-    transform: translate3d(88px, 38px, 210px) rotateY(-32deg) rotateZ(8deg)
-      scale(0.7);
+    transform: translate3d(235px, 90px, 410px) rotateY(-67deg) rotateZ(18deg)
+      scale(0.54);
   }
   to {
     opacity: 1;
-    filter: none;
     transform: none;
   }
 }
 @keyframes nutritionDock {
   from {
     opacity: 0;
-    filter: blur(6px);
-    transform: translate3d(0, 112px, 230px) rotateX(-27deg) scale(0.82);
-  }
-  76% {
-    opacity: 1;
-    transform: translate3d(0, -4px, 14px) rotateX(2deg) scale(1.012);
+    transform: translate3d(-70px, 260px, 480px) rotateX(-62deg) rotateY(24deg)
+      rotateZ(-7deg) scale(0.56);
   }
   to {
     opacity: 1;
-    filter: none;
     transform: none;
   }
 }
 @keyframes glassDock {
   from {
     opacity: 0;
-    filter: blur(12px);
-    transform: translate3d(0, 76px, 280px) rotateX(-48deg) scale(0.76);
+    transform: translate3d(82px, 225px, 560px) rotateX(-76deg) rotateY(-24deg)
+      rotateZ(8deg) scale(0.5);
   }
   to {
     opacity: 1;
-    filter: none;
     transform: none;
   }
 }
 @keyframes detailFadeUp {
   from {
     opacity: 0;
-    transform: translate3d(0, 14px, 80px);
+    transform: translate3d(0, 54px, 190px) rotateX(-28deg) scale(0.78);
   }
   to {
     opacity: 1;
@@ -3771,10 +3808,6 @@ footer > span {
   from {
     opacity: 0;
     transform: scale(0.15) rotate(-90deg);
-  }
-  72% {
-    opacity: 1;
-    transform: scale(1.34) rotate(6deg);
   }
   to {
     opacity: 1;
@@ -3823,20 +3856,6 @@ footer > span {
   100% {
     opacity: 0;
     transform: translate3d(0, 640px, 60px);
-  }
-}
-@keyframes selectedNodeBreathe {
-  0%,
-  100% {
-    box-shadow:
-      0 0 0 7px #62b8aa,
-      0 0 0 12px rgba(255, 255, 255, 0.5);
-  }
-  50% {
-    box-shadow:
-      0 0 0 7px #62b8aa,
-      0 0 0 14px rgba(255, 255, 255, 0.68),
-      0 0 18px rgba(101, 214, 201, 0.3);
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -4002,7 +4021,7 @@ body.modal-open > .site-footer {
   max-width: 410px;
   margin: 20px 0 12px;
   color: var(--ink);
-  font-size: 38px;
+  font-size: 44px;
   font-weight: 600;
   letter-spacing: -0.045em;
   line-height: 1.06;

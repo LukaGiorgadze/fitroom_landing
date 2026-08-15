@@ -278,20 +278,28 @@ if (phoneScene && !reducedMotionQuery.matches) {
   phoneScene.prepend(assemblyField);
 
   let bootTimer;
+  let brandTimer;
   let assemblyTimer;
 
   const finishAssembly = () => {
-    phoneScene.classList.remove("is-booting", "is-assembling", "is-pending");
+    phoneScene.classList.remove(
+      "is-booting",
+      "is-branding",
+      "is-assembling",
+      "is-pending",
+    );
     phoneScene.classList.add("is-assembled");
   };
 
   const playAssembly = () => {
     window.clearTimeout(bootTimer);
+    window.clearTimeout(brandTimer);
     window.clearTimeout(assemblyTimer);
     phoneScene.classList.remove(
       "is-pending",
       "is-assembled",
       "is-booting",
+      "is-branding",
       "is-assembling",
     );
     void phoneScene.offsetWidth;
@@ -299,10 +307,15 @@ if (phoneScene && !reducedMotionQuery.matches) {
 
     bootTimer = window.setTimeout(() => {
       phoneScene.classList.remove("is-booting");
-      void phoneScene.offsetWidth;
-      phoneScene.classList.add("is-assembling");
-      assemblyTimer = window.setTimeout(finishAssembly, 2900);
-    }, 900);
+      phoneScene.classList.add("is-branding");
+
+      brandTimer = window.setTimeout(() => {
+        phoneScene.classList.remove("is-branding");
+        void phoneScene.offsetWidth;
+        phoneScene.classList.add("is-assembling");
+        assemblyTimer = window.setTimeout(finishAssembly, 3200);
+      }, 1100);
+    }, 850);
   };
 
   if ("IntersectionObserver" in window) {
