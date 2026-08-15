@@ -53,7 +53,7 @@ function AppStoreBadge({ dark = false }: { dark?: boolean }) {
 }
 
 function PhoneMockup() {
-  const days = [["M", "10"], ["T", "11"], ["W", "12"], ["T", "13"], ["F", "14"], ["S", "15"], ["S", "16"]];
+  const days = [["W", "12"], ["T", "13"], ["F", "14"], ["S", "15"], ["S", "16"], ["M", "17"], ["T", "18"]];
   return (
     <div className="phone-scene" aria-label="Fitroom app nutrition dashboard preview">
       <div className="orb orb-mint" /><div className="orb orb-violet" />
@@ -70,23 +70,63 @@ function PhoneMockup() {
       <div className="phone-shell">
         <div className="phone-screen">
           <div className="phone-island" />
-          <div className="app-header"><div><small>Today</small><strong>Good morning, Luka</strong></div><div className="avatar">L</div></div>
-          <div className="week-row">
-            {days.map(([day, date], index) => <span key={date} className={index === 4 ? "active" : ""}><small>{day}</small>{date}</span>)}
+          <div className="reference-phone">
+            <div className="reference-status">
+              <strong>11:51</strong>
+              <span className="status-cluster"><i className="status-signal" /><i className="status-wifi" /><i className="status-battery">46</i></span>
+            </div>
+
+            <div className="reference-wordmark">FITROOM</div>
+
+            <div className="reference-week">
+              {days.map(([day, date], index) => (
+                <span key={date} className={index === 3 ? "active" : ""}>
+                  <small>{day}</small><i /><b>{date}</b>
+                </span>
+              ))}
+            </div>
+
+            <div className="reference-calorie-card">
+              <div className="reference-calorie-copy">
+                <small>Calories left</small>
+                <strong>2,268</strong>
+                <span><i className="flame-mark">♨</i> Eaten&nbsp; <b>0 / 2,268 kcal</b></span>
+              </div>
+              <div className="reference-ring reference-ring-large"><span>0%</span></div>
+            </div>
+
+            <div className="reference-macros">
+              {[['0', '/120g', 'Protein'], ['0', '/305g', 'Carbs'], ['0', '/63g', 'Fat']].map(([value, goal, label]) => (
+                <div className="reference-macro-card" key={label}>
+                  <strong>{value}<small>{goal}</small></strong>
+                  <span>{label}</span>
+                  <div className="reference-ring reference-ring-small"><span>0%</span></div>
+                </div>
+              ))}
+            </div>
+
+            <div className="reference-pages"><i /><i /></div>
+
+            <div className="reference-nutrition-title"><strong>Nutrition</strong><span>Today</span></div>
+            <div className="reference-nutrition-card">
+              <strong>0 kcal</strong>
+              <div className="reference-empty-meal">
+                <span className="reference-scan-icon"><i /><i /><i /><i /></span>
+                <span className="reference-empty-lines"><i /><i /></span>
+                <span className="reference-mini-add">+</span>
+              </div>
+              <small>No foods logged<br />Start this day&apos;s meal log with +</small>
+            </div>
+
+            <div className="reference-tab-bar">
+              <div className="reference-tab-pill">
+                <span className="selected"><i className="home-icon"><b /></i><small>Home</small></span>
+                <span><i className="progress-icon"><b /><b /><b /></i><small>Progress</small></span>
+                <span><i className="profile-icon"><b /></i><small>Profile</small></span>
+              </div>
+              <span className="reference-add">+</span>
+            </div>
           </div>
-          <div className="calorie-card phone-card">
-            <div className="calorie-ring"><div><strong>1,346</strong><small>calories left</small></div></div>
-            <div className="calorie-numbers"><span><small>Eaten</small><strong>804</strong></span><span><small>Goal</small><strong>2,150</strong></span><span><small>Burned</small><strong>0</strong></span></div>
-          </div>
-          <div className="phone-section-title"><strong>Macros</strong><small>Daily goal</small></div>
-          <div className="macro-row">
-            <div className="macro-card protein"><span>Protein</span><strong>82<small> / 128g</small></strong><i><b /></i></div>
-            <div className="macro-card carbs"><span>Carbs</span><strong>96<small> / 242g</small></strong><i><b /></i></div>
-            <div className="macro-card fat"><span>Fat</span><strong>34<small> / 67g</small></strong><i><b /></i></div>
-          </div>
-          <div className="phone-section-title meal-title"><strong>Meals</strong><small>See all</small></div>
-          <div className="meal-row phone-card"><div className="meal-thumb"><span>🥑</span></div><div><strong>Avocado breakfast</strong><small>Avocado, eggs, greens</small></div><span><strong>482</strong><small>kcal</small></span></div>
-          <div className="tab-bar"><span className="selected"><i>⌂</i>Today</span><span><i>◫</i>Progress</span><span className="add">+</span><span><i>◎</i>Plan</span><span><i>○</i>Profile</span></div>
         </div>
       </div>
     </div>
