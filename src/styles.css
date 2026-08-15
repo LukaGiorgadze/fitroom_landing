@@ -476,13 +476,20 @@ a {
   grid-template-columns: repeat(7, 1fr);
 }
 .reference-week:before {
-  content: "";
+  display: none;
+}
+.reference-week-rail {
   position: absolute;
-  top: 28px;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: #e5eaf4;
+  z-index: 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  fill: none;
+  stroke: #e8edf6;
+  stroke-width: 1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 .reference-week span {
   position: relative;
@@ -491,6 +498,9 @@ a {
   grid-template-rows: 18px 20px 18px;
   justify-items: center;
   color: #c8cbd4;
+}
+.reference-week span:not(.active) {
+  transform: translateY(5px);
 }
 .reference-week small {
   font-size: 8px;
