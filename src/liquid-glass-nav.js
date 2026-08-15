@@ -6,7 +6,7 @@ const REFRACTION_CONFIG = Object.freeze({
   bezelWidth: 40,
   ior: 1.52,
   scaleRatio: 0.78,
-  blur: 1.6,
+  blur: 3,
   specularOpacity: 0.42,
   specularSaturation: 0.9,
   tintColor: "238,244,255",
@@ -399,6 +399,7 @@ const mountRefraction = (element) => {
 
 if (nav) {
   mountRefraction(nav);
+  const brand = nav.querySelector(".liquid-nav__brand");
   const menu = nav.querySelector("[data-liquid-nav-menu]");
   const indicator = nav.querySelector("[data-liquid-nav-indicator]");
   const items = [...nav.querySelectorAll("[data-liquid-nav-item]")];
@@ -406,6 +407,57 @@ if (nav) {
 
   let activeItem = items[0];
   let scrollFrame = 0;
+  let navStateFrame = 0;
+  let morphTimer = 0;
+  let expandedByUser = false;
+
+  const finishMorph = () => {
+    nav.classList.remove("is-morphing");
+  };
+
+  const setCollapsed = (shouldCollapse, animate = true) => {
+    window.clearTimeout(morphTimer);
+
+    if (shouldCollapse) {
+      if (nav.classList.contains("is-collapsed")) return;
+
+      if (animate && !reducedMotion.matches) {
+        nav.classList.add("is-morphing");
+        morphTimer = window.setTimeout(finishMorph, 640);
+      }
+      nav.classList.add("is-collapsed");
+      brand?.setAttribute("aria-label", "Expand navigation");
+      brand?.setAttribute("aria-expanded", "false");
+      return;
+    }
+
+    if (!nav.classList.contains("is-collapsed")) return;
+
+    if (animate && !reducedMotion.matches) {
+      nav.classList.add("is-morphing");
+      morphTimer = window.setTimeout(finishMorph, 640);
+    }
+    nav.classList.remove("is-collapsed");
+    brand?.setAttribute("aria-label", "Fitroom Calorie Tracker home");
+    brand?.setAttribute("aria-expanded", "true");
+  };
+
+  const syncNavState = () => {
+    navStateFrame = 0;
+
+    if (window.scrollY <= 100) {
+      expandedByUser = false;
+      setCollapsed(false);
+      return;
+    }
+
+    if (!expandedByUser) setCollapsed(true);
+  };
+
+  const scheduleNavStateSync = () => {
+    if (navStateFrame) return;
+    navStateFrame = window.requestAnimationFrame(syncNavState);
+  };
 
   const moveIndicator = (item, animate = true) => {
     if (!menu || !indicator || !item) return;
@@ -464,7 +516,16 @@ if (nav) {
     });
   });
 
+  brand?.addEventListener("click", (event) => {
+    if (!nav.classList.contains("is-collapsed")) return;
+
+    event.preventDefault();
+    expandedByUser = true;
+    setCollapsed(false);
+  });
+
   window.addEventListener("scroll", scheduleSectionSync, { passive: true });
+  window.addEventListener("scroll", scheduleNavStateSync, { passive: true });
   window.addEventListener("resize", () => moveIndicator(activeItem, false));
 
   if ("ResizeObserver" in window && menu) {
@@ -473,6 +534,7 @@ if (nav) {
 
   document.fonts?.ready.then(() => moveIndicator(activeItem, false));
   syncActiveSection();
+  setCollapsed(window.scrollY > 100, false);
 
   const canvas = nav.querySelector("[data-liquid-nav-canvas]");
 
@@ -582,6 +644,8 @@ if (nav) {
           gl.clearColor(0, 0, 0, 0);
 
           const resizeCanvas = () => {
+            if (nav.classList.contains("is-morphing")) return;
+
             const rect = nav.getBoundingClientRect();
             const ratio = Math.min(window.devicePixelRatio || 1, 2);
             const width = Math.max(1, Math.round(rect.width * ratio));
