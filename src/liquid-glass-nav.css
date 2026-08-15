@@ -8,7 +8,7 @@
 .liquid-nav {
   --liquid-collapsed-size: 78px;
   --liquid-indicator-x: 4px;
-  --liquid-indicator-w: calc(25% - 2px);
+  --liquid-indicator-w: calc(33.333% - 2px);
   --liquid-pointer-x: 50%;
   --liquid-pointer-y: 50%;
   position: fixed;
@@ -19,8 +19,11 @@
   grid-template-columns: minmax(160px, 1fr) minmax(460px, 580px) minmax(160px, 1fr);
   align-items: center;
   gap: 20px;
+  box-sizing: border-box;
   width: min(1180px, calc(100% - 28px));
   height: 78px;
+  min-height: 78px;
+  max-height: 78px;
   padding: 8px 12px;
   overflow: hidden;
   isolation: isolate;
@@ -72,15 +75,11 @@
   content: "";
   opacity: 0;
   pointer-events: none;
-  transform: scale(0.86);
-  transition:
-    opacity 0.24s ease,
-    transform 0.62s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 0.24s ease;
 }
 
 .liquid-nav.is-collapsed::before {
   opacity: 1;
-  transform: scale(1);
 }
 
 .liquid-nav::after {
@@ -182,10 +181,10 @@
 
 .liquid-nav__brand img {
   display: block;
-  width: 56px;
+  width: 54px;
   height: auto;
   aspect-ratio: 1 / 1;
-  flex: 0 0 56px;
+  flex: 0 0 54px;
   border-radius: 50%;
   object-fit: contain;
   filter: drop-shadow(0 6px 10px rgba(28, 39, 64, 0.1));
@@ -193,7 +192,7 @@
 
 .liquid-nav__menu {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   align-items: stretch;
   width: 100%;
   height: 56px;
@@ -388,6 +387,8 @@ body.modal-open > .liquid-nav {
     grid-template-columns: 1fr;
     width: calc(100% - 16px);
     height: 66px;
+    min-height: 66px;
+    max-height: 66px;
     padding: 5px;
   }
 

@@ -119,7 +119,7 @@ if (
 
     const focusableElements = [
       ...dialog.querySelectorAll('button, input, [tabindex="0"]'),
-    ].filter((element) => !element.disabled);
+    ].filter((element) => !element.disabled && element.getClientRects().length > 0);
     const firstElement = focusableElements[0];
     const lastElement = focusableElements.at(-1);
 
