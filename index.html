@@ -136,11 +136,18 @@
         </div>
 
         <div
-          class="phone-scene"
+          class="phone-scene is-booting"
           aria-label="Fitroom app nutrition dashboard preview"
         >
           <div class="phone-shell">
             <div class="phone-screen">
+              <div class="phone-boot-logo" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.09997 22C7.78997 22.05 6.79997 20.68 5.95997 19.47C4.24997 17 2.93997 12.45 4.69997 9.39C5.56997 7.87 7.12997 6.91 8.81997 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"
+                  />
+                </svg>
+              </div>
               <div class="phone-island" aria-hidden="true"></div>
               <div class="reference-status" aria-hidden="true">
                 <strong>18:17</strong>
@@ -185,41 +192,41 @@
               <div class="reference-calorie-card">
                 <div class="reference-calorie-copy">
                   <small>Calories left</small>
-                  <strong>1,168</strong>
+                  <strong>1,297</strong>
                   <span class="reference-eaten-row">
                     <svg viewBox="0 0 24 24" aria-hidden="true">
                       <path
                         d="M13.5 2.8c.5 3.7-2.7 4.8-2.1 8.1.4 2.2 2.5 2.3 3.2.8.9-1.8.3-3.8-.6-5.1 3.6 1.9 5.8 5.1 5 8.5-.7 3.3-3.5 5.7-7 5.7-3.9 0-7-3.1-7-7 0-2.9 1.6-5.3 4-7-.1 2.2.8 3.5 2 3.9-.8-3.4.6-6.1 2.5-7.9Z"
                       />
                     </svg>
-                    <em>Eaten</em><b>1,029 / 2,197 kcal</b>
+                    <em>Eaten</em><b>900 / 2,197 kcal</b>
                   </span>
                 </div>
-                <div class="reference-ring reference-ring-large progress-47">
-                  <span>47%</span>
+                <div class="reference-ring reference-ring-large progress-41">
+                  <span>41%</span>
                 </div>
               </div>
 
               <div class="reference-macros">
                 <div class="reference-macro-card">
-                  <strong>54<small> /135g</small></strong>
+                  <strong>47<small> /135g</small></strong>
                   <span>Protein</span>
-                  <div class="reference-ring reference-ring-small progress-40">
-                    <span>40%</span>
+                  <div class="reference-ring reference-ring-small progress-35">
+                    <span>35%</span>
                   </div>
                 </div>
                 <div class="reference-macro-card">
-                  <strong>113<small> /277g</small></strong>
+                  <strong>99<small> /277g</small></strong>
                   <span>Carbs</span>
-                  <div class="reference-ring reference-ring-small progress-41">
-                    <span>41%</span>
+                  <div class="reference-ring reference-ring-small progress-36">
+                    <span>36%</span>
                   </div>
                 </div>
                 <div class="reference-macro-card">
-                  <strong>39<small> /61g</small></strong>
+                  <strong>34<small> /61g</small></strong>
                   <span>Fat</span>
-                  <div class="reference-ring reference-ring-small progress-63">
-                    <span>63%</span>
+                  <div class="reference-ring reference-ring-small progress-56">
+                    <span>56%</span>
                   </div>
                 </div>
               </div>
@@ -233,18 +240,22 @@
               </div>
 
               <div class="reference-nutrition-card">
-                <strong>1,029 kcal</strong>
+                <strong>900 kcal</strong>
                 <div class="reference-meal-row">
                   <span class="reference-meal-time"
                     ><b>6:15</b><small>PM</small></span
                   >
-                  <span class="reference-meal-photo" aria-hidden="true"></span>
+                  <img
+                    class="reference-meal-photo"
+                    src="/assets/khinkali.webp"
+                    alt="Six khinkali on a plate"
+                  />
                   <b class="reference-meal-name">Khinkali</b>
-                  <strong class="reference-meal-total">1,029 kcal</strong>
+                  <strong class="reference-meal-total">900 kcal</strong>
                   <div class="reference-meal-details">
                     <i aria-hidden="true"></i>
-                    <span><b>Khinkali</b><small>7 piece</small></span>
-                    <strong>1,029 kcal</strong>
+                    <span><b>Khinkali</b><small>6 pieces</small></span>
+                    <strong>900 kcal</strong>
                   </div>
                 </div>
               </div>
@@ -321,7 +332,7 @@
           <article class="step-card">
             <div class="step-shot">
               <img
-                src="/how/snap-your-meal.jpg"
+                src="/how/snap-your-meal.webp"
                 width="1111"
                 height="1415"
                 alt="Fitroom meal scanner framing a khachapuri"
@@ -337,7 +348,7 @@
           <article class="step-card">
             <div class="step-shot">
               <img
-                src="/how/see-whats-inside.jpg"
+                src="/how/see-whats-inside.webp"
                 width="1122"
                 height="1402"
                 alt="Fitroom showing the calories and nutrition inside a scanned meal"
@@ -356,7 +367,7 @@
           <article class="step-card">
             <div class="step-shot">
               <img
-                src="/how/fix-with-ai.jpg"
+                src="/how/fix-with-ai.webp"
                 width="1264"
                 height="1568"
                 alt="Fitroom Fix with AI action highlighted on a meal result"
@@ -392,7 +403,7 @@
             </div>
             <div class="feature-preview preview-result">
               <img
-                src="/screenshots/meal-scan.png"
+                src="/screenshots/meal-scan.webp"
                 width="1206"
                 height="2622"
                 alt="Fitroom analyzed meal screen"
@@ -407,7 +418,7 @@
             </div>
             <div class="feature-preview preview-home">
               <img
-                src="/screenshots/home.png"
+                src="/screenshots/home.webp"
                 width="1206"
                 height="2622"
                 alt="Fitroom nutrition dashboard"
@@ -425,7 +436,7 @@
             </div>
             <div class="feature-preview preview-edit">
               <img
-                src="/screenshots/edit-meal.png"
+                src="/screenshots/edit-meal.webp"
                 width="1206"
                 height="2622"
                 alt="Fitroom meal editor"
@@ -443,7 +454,7 @@
             </div>
             <div class="feature-preview preview-progress">
               <img
-                src="/screenshots/progress.png"
+                src="/screenshots/progress.webp"
                 width="1206"
                 height="2622"
                 alt="Fitroom progress dashboard"
@@ -464,7 +475,7 @@
             <div class="screens-set">
               <figure class="screen-card">
                 <img
-                  src="/screenshots/home.png"
+                  src="/screenshots/home.webp"
                   width="1206"
                   height="2622"
                   alt="Fitroom daily nutrition home screen"
@@ -473,7 +484,7 @@
               </figure>
               <figure class="screen-card">
                 <img
-                  src="/screenshots/meal-scan.png"
+                  src="/screenshots/meal-scan.webp"
                   width="1206"
                   height="2622"
                   alt="Fitroom AI meal scanner identifying ingredients"
@@ -482,7 +493,7 @@
               </figure>
               <figure class="screen-card">
                 <img
-                  src="/screenshots/meal-result.png"
+                  src="/screenshots/meal-result.webp"
                   width="1206"
                   height="2622"
                   alt="Fitroom analyzed meal result with calories and macros"
@@ -491,7 +502,7 @@
               </figure>
               <figure class="screen-card">
                 <img
-                  src="/screenshots/edit-meal.png"
+                  src="/screenshots/edit-meal.webp"
                   width="1206"
                   height="2622"
                   alt="Fitroom edit meal screen"
@@ -500,7 +511,7 @@
               </figure>
               <figure class="screen-card">
                 <img
-                  src="/screenshots/edit-ingredient.png"
+                  src="/screenshots/edit-ingredient.webp"
                   width="1206"
                   height="2622"
                   alt="Fitroom edit ingredient screen"
@@ -509,7 +520,7 @@
               </figure>
               <figure class="screen-card">
                 <img
-                  src="/screenshots/progress.png"
+                  src="/screenshots/progress.webp"
                   width="1206"
                   height="2622"
                   alt="Fitroom weight progress screen"
@@ -518,7 +529,7 @@
               </figure>
               <figure class="screen-card">
                 <img
-                  src="/screenshots/goal.png"
+                  src="/screenshots/goal.webp"
                   width="1206"
                   height="2622"
                   alt="Fitroom personal goal and nutrition targets screen"
@@ -529,7 +540,7 @@
             <div class="screens-set" aria-hidden="true">
               <figure class="screen-card">
                 <img
-                  src="/screenshots/home.png"
+                  src="/screenshots/home.webp"
                   width="1206"
                   height="2622"
                   alt=""
@@ -538,7 +549,7 @@
               </figure>
               <figure class="screen-card">
                 <img
-                  src="/screenshots/meal-scan.png"
+                  src="/screenshots/meal-scan.webp"
                   width="1206"
                   height="2622"
                   alt=""
@@ -547,7 +558,7 @@
               </figure>
               <figure class="screen-card">
                 <img
-                  src="/screenshots/meal-result.png"
+                  src="/screenshots/meal-result.webp"
                   width="1206"
                   height="2622"
                   alt=""
@@ -556,7 +567,7 @@
               </figure>
               <figure class="screen-card">
                 <img
-                  src="/screenshots/edit-meal.png"
+                  src="/screenshots/edit-meal.webp"
                   width="1206"
                   height="2622"
                   alt=""
@@ -565,7 +576,7 @@
               </figure>
               <figure class="screen-card">
                 <img
-                  src="/screenshots/edit-ingredient.png"
+                  src="/screenshots/edit-ingredient.webp"
                   width="1206"
                   height="2622"
                   alt=""
@@ -574,7 +585,7 @@
               </figure>
               <figure class="screen-card">
                 <img
-                  src="/screenshots/progress.png"
+                  src="/screenshots/progress.webp"
                   width="1206"
                   height="2622"
                   alt=""
@@ -583,7 +594,7 @@
               </figure>
               <figure class="screen-card">
                 <img
-                  src="/screenshots/goal.png"
+                  src="/screenshots/goal.webp"
                   width="1206"
                   height="2622"
                   alt=""
@@ -745,19 +756,19 @@
           <div class="waitlist-visual waitlist-mobile-visual" data-waitlist-stage>
             <img
               class="waitlist-preview-current"
-              src="/screenshots/home.png"
+                src="/screenshots/home.webp"
               alt="Fitroom home nutrition dashboard"
             />
             <img
               class="waitlist-preview-next"
-              src="/screenshots/home.png"
+              src="/screenshots/home.webp"
               alt=""
               aria-hidden="true"
             />
           </div>
           <div class="waitlist-previews" aria-label="Fitroom app previews">
             <img
-              src="/screenshots/meal-scan.png"
+              src="/screenshots/meal-scan.webp"
               alt="Fitroom meal scanner"
               role="button"
               tabindex="0"
@@ -765,42 +776,42 @@
             />
             <img
               class="is-active"
-              src="/screenshots/home.png"
+              src="/screenshots/home.webp"
               alt="Fitroom home dashboard"
               role="button"
               tabindex="0"
               aria-pressed="true"
             />
             <img
-              src="/screenshots/meal-result.png"
+              src="/screenshots/meal-result.webp"
               alt="Fitroom meal analysis result"
               role="button"
               tabindex="0"
               aria-pressed="false"
             />
             <img
-              src="/screenshots/edit-meal.png"
+              src="/screenshots/edit-meal.webp"
               alt="Editing a meal in Fitroom"
               role="button"
               tabindex="0"
               aria-pressed="false"
             />
             <img
-              src="/screenshots/edit-ingredient.png"
+              src="/screenshots/edit-ingredient.webp"
               alt="Editing an ingredient in Fitroom"
               role="button"
               tabindex="0"
               aria-pressed="false"
             />
             <img
-              src="/screenshots/progress.png"
+              src="/screenshots/progress.webp"
               alt="Fitroom progress dashboard"
               role="button"
               tabindex="0"
               aria-pressed="false"
             />
             <img
-              src="/screenshots/goal.png"
+              src="/screenshots/goal.webp"
               alt="Setting a nutrition goal in Fitroom"
               role="button"
               tabindex="0"
@@ -818,13 +829,13 @@
           <img
             id="waitlist-featured-preview"
             class="waitlist-preview-current"
-            src="/screenshots/home.png"
+            src="/screenshots/home.webp"
             alt="Fitroom home nutrition dashboard"
           />
           <img
             id="waitlist-featured-preview-next"
             class="waitlist-preview-next"
-            src="/screenshots/home.png"
+            src="/screenshots/home.webp"
             alt=""
             aria-hidden="true"
           />

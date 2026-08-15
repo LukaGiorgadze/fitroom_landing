@@ -982,8 +982,17 @@ a {
 .progress-40 {
   --ring-progress: 144deg;
 }
+.progress-35 {
+  --ring-progress: 126deg;
+}
 .progress-41 {
   --ring-progress: 147.6deg;
+}
+.progress-36 {
+  --ring-progress: 129.6deg;
+}
+.progress-56 {
+  --ring-progress: 201.6deg;
 }
 .progress-63 {
   --ring-progress: 226.8deg;
@@ -1061,6 +1070,7 @@ a {
   border-radius: 9px;
   background: #fff;
   box-shadow: 0 3px 9px rgba(30, 38, 60, 0.04);
+  object-fit: cover;
 }
 .reference-meal-name {
   position: absolute;
@@ -3296,6 +3306,558 @@ footer > span {
   }
   .input-cycle > span:not(:first-child) {
     display: none;
+  }
+}
+
+/* Hero phone: exploded 3D assembly and interactive physical model. */
+@property --ring-progress {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0deg;
+}
+.phone-scene {
+  --light-x: 50%;
+  --light-y: 28%;
+  isolation: isolate;
+  perspective: 1400px;
+  touch-action: pan-y;
+}
+.phone-scene::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  left: 132px;
+  bottom: 3px;
+  width: 285px;
+  height: 74px;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse,
+    rgba(34, 48, 80, 0.3) 0%,
+    rgba(93, 120, 175, 0.12) 42%,
+    transparent 72%
+  );
+  filter: blur(13px);
+  opacity: 0.72;
+  transform: scale(1);
+  transition:
+    transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1),
+    opacity 0.5s ease;
+  pointer-events: none;
+}
+.phone-shell {
+  transform-origin: 50% 58%;
+  transform-style: preserve-3d;
+  will-change: transform;
+  transform: none;
+  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.phone-shell::before {
+  content: "";
+  position: absolute;
+  z-index: 24;
+  inset: -3px;
+  border: 1px solid rgba(139, 171, 255, 0.7);
+  border-radius: 50px;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.24),
+    0 0 30px rgba(119, 151, 255, 0.42),
+    inset 0 0 24px rgba(101, 214, 201, 0.12);
+  opacity: 0;
+  pointer-events: none;
+}
+.phone-screen {
+  perspective: 900px;
+  transform-style: preserve-3d;
+}
+.phone-boot-logo {
+  position: absolute;
+  z-index: 38;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  border-radius: inherit;
+  background: #050609;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.phone-boot-logo svg {
+  width: 47px;
+  height: 47px;
+  fill: #fff;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.12));
+}
+.phone-scene.is-booting .phone-boot-logo {
+  opacity: 1;
+  visibility: visible;
+}
+.phone-screen::after {
+  content: "";
+  position: absolute;
+  z-index: 40;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    radial-gradient(
+      circle at var(--light-x) var(--light-y),
+      rgba(255, 255, 255, 0.38),
+      transparent 24%
+    ),
+    linear-gradient(
+      118deg,
+      transparent 24%,
+      rgba(255, 255, 255, 0.1) 45%,
+      transparent 63%
+    );
+  mix-blend-mode: screen;
+  opacity: 0.24;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+.assembly-field {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  transform-style: preserve-3d;
+  pointer-events: none;
+}
+.assembly-field::before {
+  content: "";
+  position: absolute;
+  top: 28px;
+  left: 80px;
+  width: 385px;
+  height: 642px;
+  border: 1px solid rgba(119, 151, 255, 0.32);
+  border-radius: 62px;
+  background-image:
+    linear-gradient(rgba(119, 151, 255, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(101, 214, 201, 0.1) 1px, transparent 1px);
+  background-size: 24px 24px;
+  box-shadow:
+    0 0 46px rgba(119, 151, 255, 0.14),
+    inset 0 0 38px rgba(101, 214, 201, 0.08);
+  opacity: 0;
+  transform: translateZ(-120px) rotateY(-9deg) rotateX(4deg) scale(0.92);
+}
+.assembly-field::after {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  top: 28px;
+  left: 92px;
+  width: 360px;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(101, 214, 201, 0.92),
+    rgba(255, 255, 255, 0.95),
+    transparent
+  );
+  box-shadow:
+    0 0 13px rgba(101, 214, 201, 0.9),
+    0 0 32px rgba(119, 151, 255, 0.55);
+  opacity: 0;
+}
+.phone-scene.is-assembling .phone-shell {
+  transition: none;
+  animation: phoneChassisBuild 1250ms cubic-bezier(0.14, 0.88, 0.22, 1.04)
+    backwards;
+}
+.phone-scene.is-assembling .phone-shell::before {
+  animation: chassisTrace 1450ms 180ms ease-out backwards;
+}
+.phone-scene.is-assembling .phone-screen {
+  animation: screenMaterialize 720ms cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+}
+.phone-scene.is-assembling .phone-island {
+  animation: islandReveal 420ms 590ms ease-out backwards;
+}
+.phone-scene.is-assembling .reference-status {
+  animation: hardwareDock 520ms 690ms cubic-bezier(0.18, 1.1, 0.4, 1)
+    backwards;
+}
+.phone-scene.is-assembling .phone-wordmark {
+  animation: dockFromLeft 620ms 790ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+.phone-scene.is-assembling .reference-week {
+  animation: dockFromDepth 700ms 900ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+.phone-scene.is-assembling .reference-week-rail path {
+  stroke-dasharray: 210;
+  animation: calendarRailDraw 850ms 1080ms ease-out backwards;
+}
+.phone-scene.is-assembling .reference-week .active > i {
+  animation: selectedNodeLock 560ms 1200ms cubic-bezier(0.14, 1.55, 0.36, 1)
+    backwards;
+}
+.phone-scene.is-assembling .reference-calorie-card {
+  animation: dockFromRight 760ms 1040ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+.phone-scene.is-assembling .reference-macro-card:nth-child(1) {
+  animation: macroDockLeft 680ms 1260ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+.phone-scene.is-assembling .reference-macro-card:nth-child(2) {
+  animation: macroDockCenter 680ms 1370ms cubic-bezier(0.16, 1, 0.3, 1)
+    backwards;
+}
+.phone-scene.is-assembling .reference-macro-card:nth-child(3) {
+  animation: macroDockRight 680ms 1480ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+.phone-scene.is-assembling .reference-pages {
+  animation: detailFadeUp 480ms 1630ms ease-out backwards;
+}
+.phone-scene.is-assembling .reference-nutrition-title {
+  animation: dockFromLeft 620ms 1700ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+.phone-scene.is-assembling .reference-nutrition-card {
+  animation: nutritionDock 760ms 1790ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+.phone-scene.is-assembling .reference-meal-row {
+  animation: detailFadeUp 540ms 2060ms ease-out backwards;
+}
+.phone-scene.is-assembling .reference-tab-bar {
+  animation: glassDock 720ms 2110ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+.reference-ring {
+  --ring-target: 0deg;
+  --ring-progress: var(--ring-target);
+}
+.reference-ring-large {
+  --ring-target: 169.2deg;
+}
+.progress-40 {
+  --ring-target: 144deg;
+}
+.progress-35 {
+  --ring-target: 126deg;
+}
+.progress-41 {
+  --ring-target: 147.6deg;
+}
+.progress-36 {
+  --ring-target: 129.6deg;
+}
+.progress-56 {
+  --ring-target: 201.6deg;
+}
+.progress-63 {
+  --ring-target: 226.8deg;
+}
+.phone-scene.is-assembling .reference-ring {
+  animation: ringAssemble 880ms ease-out backwards;
+}
+.phone-scene.is-assembling .reference-ring-large {
+  animation-delay: 1450ms;
+}
+.phone-scene.is-assembling .reference-macro-card:nth-child(1) .reference-ring {
+  animation-delay: 1760ms;
+}
+.phone-scene.is-assembling .reference-macro-card:nth-child(2) .reference-ring {
+  animation-delay: 1870ms;
+}
+.phone-scene.is-assembling .reference-macro-card:nth-child(3) .reference-ring {
+  animation-delay: 1980ms;
+}
+.phone-scene.is-assembling .assembly-field::before {
+  animation: blueprintResolve 2100ms 80ms ease-out both;
+}
+.phone-scene.is-assembling .assembly-field::after {
+  animation: blueprintScan 1650ms 310ms cubic-bezier(0.25, 0.7, 0.25, 1) both;
+}
+.phone-scene.is-assembled .reference-week .active > i {
+  animation: selectedNodeBreathe 3.8s ease-in-out infinite;
+}
+.phone-scene.is-assembled .reference-calorie-card,
+.phone-scene.is-assembled .reference-macro-card,
+.phone-scene.is-assembled .reference-nutrition-card,
+.phone-scene.is-assembled .reference-tab-bar {
+  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes phoneChassisBuild {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes islandReveal {
+  from {
+    opacity: 0;
+    filter: blur(3px);
+    transform: translateX(-50%);
+  }
+  to {
+    opacity: 1;
+    filter: none;
+    transform: translateX(-50%);
+  }
+}
+@keyframes chassisTrace {
+  0% {
+    opacity: 0;
+    transform: scale(1.12);
+  }
+  28% {
+    opacity: 0.95;
+  }
+  72% {
+    opacity: 0.55;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+@keyframes screenMaterialize {
+  0% {
+    opacity: 1;
+    filter: brightness(0.82) saturate(0.86);
+  }
+  45% {
+    opacity: 1;
+    filter: brightness(1.12) saturate(1.12);
+  }
+  100% {
+    opacity: 1;
+    filter: none;
+  }
+}
+@keyframes hardwareDock {
+  from {
+    opacity: 0;
+    filter: blur(4px);
+    transform: translate3d(0, -28px, 170px) rotateX(-48deg) scale(0.72);
+  }
+  to {
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+}
+@keyframes dockFromLeft {
+  from {
+    opacity: 0;
+    filter: blur(4px);
+    transform: translate3d(-70px, 0, 150px) rotateY(34deg) scale(0.82);
+  }
+  to {
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+}
+@keyframes dockFromRight {
+  from {
+    opacity: 0;
+    filter: blur(6px);
+    transform: translate3d(105px, -8px, 230px) rotateY(-34deg) rotateX(10deg)
+      scale(0.78);
+  }
+  72% {
+    opacity: 1;
+    transform: translate3d(-4px, 0, 16px) rotateY(2deg) scale(1.015);
+  }
+  to {
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+}
+@keyframes dockFromDepth {
+  from {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translate3d(0, -16px, 220px) rotateX(-34deg) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+}
+@keyframes macroDockLeft {
+  from {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translate3d(-88px, 38px, 210px) rotateY(32deg) rotateZ(-8deg)
+      scale(0.7);
+  }
+  to {
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+}
+@keyframes macroDockCenter {
+  from {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translate3d(0, 78px, 260px) rotateX(-36deg) scale(0.68);
+  }
+  to {
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+}
+@keyframes macroDockRight {
+  from {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translate3d(88px, 38px, 210px) rotateY(-32deg) rotateZ(8deg)
+      scale(0.7);
+  }
+  to {
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+}
+@keyframes nutritionDock {
+  from {
+    opacity: 0;
+    filter: blur(6px);
+    transform: translate3d(0, 112px, 230px) rotateX(-27deg) scale(0.82);
+  }
+  76% {
+    opacity: 1;
+    transform: translate3d(0, -4px, 14px) rotateX(2deg) scale(1.012);
+  }
+  to {
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+}
+@keyframes glassDock {
+  from {
+    opacity: 0;
+    filter: blur(12px);
+    transform: translate3d(0, 76px, 280px) rotateX(-48deg) scale(0.76);
+  }
+  to {
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+}
+@keyframes detailFadeUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 14px, 80px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes calendarRailDraw {
+  from {
+    stroke-dashoffset: 210;
+    opacity: 0;
+  }
+  to {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+@keyframes selectedNodeLock {
+  from {
+    opacity: 0;
+    transform: scale(0.15) rotate(-90deg);
+  }
+  72% {
+    opacity: 1;
+    transform: scale(1.34) rotate(6deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes ringAssemble {
+  from {
+    --ring-progress: 0deg;
+    opacity: 0.25;
+    transform: rotate(-42deg) scale(0.76);
+  }
+  to {
+    --ring-progress: var(--ring-target);
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes blueprintResolve {
+  0% {
+    opacity: 0;
+    transform: translateZ(-150px) rotateY(-15deg) rotateX(7deg) scale(0.82);
+  }
+  22% {
+    opacity: 0.7;
+  }
+  72% {
+    opacity: 0.22;
+  }
+  100% {
+    opacity: 0;
+    transform: translateZ(-40px) rotateY(4deg) rotateX(0) scale(1.04);
+  }
+}
+@keyframes blueprintScan {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 0, 60px);
+  }
+  14% {
+    opacity: 0.92;
+  }
+  80% {
+    opacity: 0.62;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(0, 640px, 60px);
+  }
+}
+@keyframes selectedNodeBreathe {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 7px #62b8aa,
+      0 0 0 12px rgba(255, 255, 255, 0.5);
+  }
+  50% {
+    box-shadow:
+      0 0 0 7px #62b8aa,
+      0 0 0 14px rgba(255, 255, 255, 0.68),
+      0 0 18px rgba(101, 214, 201, 0.3);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .assembly-field {
+    display: none;
+  }
+  .phone-shell,
+  .phone-scene::before,
+  .phone-screen::after,
+  .reference-week .active > i {
+    animation: none !important;
+    transition: none !important;
+  }
+  .phone-shell {
+    transform: none;
+  }
+  .phone-boot-logo {
+    display: none;
+  }
+  .reference-ring {
+    --ring-progress: var(--ring-target);
   }
 }
 

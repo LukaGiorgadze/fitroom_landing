@@ -254,7 +254,7 @@ if (
     if (hasJoinedWaitlist()) return;
     autoOpenTimer = window.setTimeout(
       () => openModal("automatic-modal"),
-      5000,
+      15000,
     );
   };
 
@@ -262,5 +262,60 @@ if (
     scheduleAutoOpen();
   } else {
     window.addEventListener("load", scheduleAutoOpen, { once: true });
+  }
+}
+
+const phoneScene = document.querySelector(".phone-scene");
+const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+if (phoneScene && !reducedMotionQuery.matches) {
+  document.documentElement.classList.add("has-phone-assembly");
+
+  const assemblyField = document.createElement("div");
+  assemblyField.className = "assembly-field";
+  assemblyField.setAttribute("aria-hidden", "true");
+
+  phoneScene.prepend(assemblyField);
+
+  let bootTimer;
+  let assemblyTimer;
+
+  const finishAssembly = () => {
+    phoneScene.classList.remove("is-booting", "is-assembling", "is-pending");
+    phoneScene.classList.add("is-assembled");
+  };
+
+  const playAssembly = () => {
+    window.clearTimeout(bootTimer);
+    window.clearTimeout(assemblyTimer);
+    phoneScene.classList.remove(
+      "is-pending",
+      "is-assembled",
+      "is-booting",
+      "is-assembling",
+    );
+    void phoneScene.offsetWidth;
+    phoneScene.classList.add("is-booting");
+
+    bootTimer = window.setTimeout(() => {
+      phoneScene.classList.remove("is-booting");
+      void phoneScene.offsetWidth;
+      phoneScene.classList.add("is-assembling");
+      assemblyTimer = window.setTimeout(finishAssembly, 2900);
+    }, 900);
+  };
+
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (!entries.some((entry) => entry.isIntersecting)) return;
+        observer.disconnect();
+        playAssembly();
+      },
+      { threshold: 0.28 },
+    );
+    observer.observe(phoneScene);
+  } else {
+    playAssembly();
   }
 }
