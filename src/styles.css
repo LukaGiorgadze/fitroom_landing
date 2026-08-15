@@ -3239,10 +3239,20 @@ footer > span {
   .bento-progress {
     min-height: 620px;
   }
-  .feature-preview {
-    bottom: -108px;
+  .bento-card {
+    display: flex;
+    flex-direction: column;
+  }
+  .card-copy {
+    padding-bottom: 0;
+  }
+  .bento-card .feature-preview {
+    position: relative;
+    bottom: auto;
     width: min(76%, 310px);
     height: 470px;
+    margin-top: 40px;
+    flex: 0 0 470px;
   }
   .screens-marquee {
     margin-top: 38px;
@@ -4444,9 +4454,6 @@ body.modal-open > .site-footer {
 .waitlist-visual.is-resetting img {
   transition: none;
 }
-.waitlist-mobile-visual {
-  display: none;
-}
 .waitlist-modal.is-open .waitlist-dialog {
   transform: translateY(0) scale(1);
 }
@@ -4692,28 +4699,6 @@ body.modal-open > .site-footer {
   .waitlist-dialog > .waitlist-visual {
     display: none;
   }
-  .waitlist-mobile-visual {
-    display: block;
-    height: 300px;
-    min-height: 0;
-    margin-top: 20px;
-    border: 1px solid rgba(20, 22, 27, 0.07);
-    border-radius: 20px;
-    background:
-      radial-gradient(circle at 50% 45%, rgba(213, 164, 0, 0.1), transparent 45%),
-      #f6f7f8;
-  }
-  .waitlist-mobile-visual img {
-    inset: 14px auto auto 50%;
-    width: auto;
-    height: calc(100% - 28px);
-    max-width: calc(100% - 28px);
-    object-fit: contain;
-    object-position: center;
-    border-radius: 14px;
-    box-shadow: 0 16px 32px rgba(32, 36, 44, 0.16);
-    transform: translateX(-50%);
-  }
   .waitlist-previews {
     max-width: 100%;
     justify-content: center;
@@ -4722,7 +4707,7 @@ body.modal-open > .site-footer {
 
 @media (max-width: 560px) {
   .waitlist-modal {
-    align-items: end;
+    place-items: center;
     padding: 10px;
   }
   .waitlist-dialog {
@@ -4733,9 +4718,6 @@ body.modal-open > .site-footer {
   }
   .waitlist-content {
     padding: 30px 22px 24px;
-  }
-  .waitlist-mobile-visual {
-    height: 280px;
   }
   .waitlist-previews img {
     width: 66px;
