@@ -280,6 +280,9 @@ if (phoneScene && !reducedMotionQuery.matches) {
   let bootTimer;
   let brandTimer;
   let assemblyTimer;
+  let guideTimer;
+
+  const addMealButton = phoneScene.querySelector(".reference-add");
 
   const finishAssembly = () => {
     phoneScene.classList.remove(
@@ -289,18 +292,23 @@ if (phoneScene && !reducedMotionQuery.matches) {
       "is-pending",
     );
     phoneScene.classList.add("is-assembled");
+    guideTimer = window.setTimeout(() => {
+      phoneScene.classList.add("is-plus-guided");
+    }, 350);
   };
 
   const playAssembly = () => {
     window.clearTimeout(bootTimer);
     window.clearTimeout(brandTimer);
     window.clearTimeout(assemblyTimer);
+    window.clearTimeout(guideTimer);
     phoneScene.classList.remove(
       "is-pending",
       "is-assembled",
       "is-booting",
       "is-branding",
       "is-assembling",
+      "is-plus-guided",
     );
     void phoneScene.offsetWidth;
     phoneScene.classList.add("is-booting");
@@ -331,4 +339,9 @@ if (phoneScene && !reducedMotionQuery.matches) {
   } else {
     playAssembly();
   }
+
+  addMealButton?.addEventListener("click", () => {
+    window.clearTimeout(guideTimer);
+    phoneScene.classList.remove("is-plus-guided");
+  });
 }
