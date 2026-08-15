@@ -2475,6 +2475,18 @@ footer > span {
   width: 100%;
   height: auto;
 }
+.bento-scan .preview-result {
+  bottom: -72px;
+}
+.bento-dashboard .preview-home {
+  bottom: -88px;
+}
+.bento-edit .preview-edit {
+  bottom: -94px;
+}
+.bento-progress .preview-progress {
+  bottom: -32px;
+}
 .bento-card:hover .feature-preview {
   box-shadow: 0 28px 60px rgba(37, 50, 82, 0.16);
   transform: translateX(-50%) translateY(-10px);

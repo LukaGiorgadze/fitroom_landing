@@ -357,30 +357,43 @@ const mountRefraction = (element) => {
   element.prepend(tintLayer);
   element.prepend(refractionLayer);
 
-  let filterNode;
+  const filterCache = new Map();
   let rebuildTimer;
 
-  const rebuild = () => {
-    const width = Math.round(element.offsetWidth);
-    const height = Math.round(element.offsetHeight);
+  const rebuild = (targetWidth, targetHeight) => {
+    const width = Math.round(targetWidth ?? element.offsetWidth);
+    const height = Math.round(targetHeight ?? element.offsetHeight);
     if (width < 4 || height < 4) return;
 
-    const radius = Math.max(2, Math.min(height / 2, width / 2));
-    filterNode?.remove();
-    const filterId = `liquid-nav-refraction-${Math.random()
-      .toString(36)
-      .slice(2, 9)}`;
-    filterNode = buildRefractionFilter(
-      filterId,
-      width,
-      height,
-      radius,
-      REFRACTION_CONFIG,
-    );
-    ensureRefractionDefs().appendChild(filterNode);
+    const cacheKey = `${width}x${height}`;
+    let cachedFilter = filterCache.get(cacheKey);
 
-    refractionLayer.style.backdropFilter = `url(#${filterId})`;
-    refractionLayer.style.webkitBackdropFilter = `url(#${filterId})`;
+    if (!cachedFilter) {
+      const radius = Math.max(2, Math.min(height / 2, width / 2));
+      const filterId = `liquid-nav-refraction-${Math.random()
+        .toString(36)
+        .slice(2, 9)}`;
+      const filterNode = buildRefractionFilter(
+        filterId,
+        width,
+        height,
+        radius,
+        REFRACTION_CONFIG,
+      );
+      ensureRefractionDefs().appendChild(filterNode);
+      cachedFilter = { id: filterId, node: filterNode };
+      filterCache.set(cacheKey, cachedFilter);
+
+      if (filterCache.size > 4) {
+        const oldestKey = filterCache.keys().next().value;
+        const oldestFilter = filterCache.get(oldestKey);
+        oldestFilter?.node.remove();
+        filterCache.delete(oldestKey);
+      }
+    }
+
+    refractionLayer.style.backdropFilter = `url(#${cachedFilter.id})`;
+    refractionLayer.style.webkitBackdropFilter = `url(#${cachedFilter.id})`;
     tintLayer.style.backgroundColor = `rgba(${REFRACTION_CONFIG.tintColor}, ${REFRACTION_CONFIG.tintOpacity})`;
     tintLayer.style.boxShadow = `inset 0 0 ${REFRACTION_CONFIG.innerShadowBlur}px ${REFRACTION_CONFIG.innerShadowSpread}px ${REFRACTION_CONFIG.innerShadow}`;
   };
@@ -395,10 +408,12 @@ const mountRefraction = (element) => {
   }
   window.addEventListener("load", scheduleRebuild, { once: true });
   rebuild();
+
+  return { rebuild };
 };
 
 if (nav) {
-  mountRefraction(nav);
+  const refraction = mountRefraction(nav);
   const brand = nav.querySelector(".liquid-nav__brand");
   const menu = nav.querySelector("[data-liquid-nav-menu]");
   const indicator = nav.querySelector("[data-liquid-nav-indicator]");
@@ -410,6 +425,20 @@ if (nav) {
   let navStateFrame = 0;
   let morphTimer = 0;
   let expandedByUser = false;
+
+  const getExpandedNavSize = () => {
+    const viewportWidth = document.documentElement.clientWidth;
+
+    if (viewportWidth <= 720) {
+      return { width: viewportWidth - 16, height: 66 };
+    }
+
+    if (viewportWidth <= 980) {
+      return { width: viewportWidth - 20, height: 78 };
+    }
+
+    return { width: Math.min(1180, viewportWidth - 28), height: 78 };
+  };
 
   const finishMorph = () => {
     nav.classList.remove("is-morphing");
@@ -432,6 +461,9 @@ if (nav) {
     }
 
     if (!nav.classList.contains("is-collapsed")) return;
+
+    const expandedSize = getExpandedNavSize();
+    refraction.rebuild(expandedSize.width, expandedSize.height);
 
     if (animate && !reducedMotion.matches) {
       nav.classList.add("is-morphing");
