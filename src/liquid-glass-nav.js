@@ -406,7 +406,6 @@ if (nav) {
 
   let activeItem = items[0];
   let scrollFrame = 0;
-  let engagedTimer = 0;
 
   const moveIndicator = (item, animate = true) => {
     if (!menu || !indicator || !item) return;
@@ -459,39 +458,10 @@ if (nav) {
     scrollFrame = window.requestAnimationFrame(syncActiveSection);
   };
 
-  const engage = (duration = 420) => {
-    window.clearTimeout(engagedTimer);
-    nav.classList.add("is-engaged");
-    engagedTimer = window.setTimeout(() => {
-      nav.classList.remove("is-engaged");
-    }, duration);
-  };
-
   items.forEach((item) => {
-    item.addEventListener("pointerenter", () => moveIndicator(item));
-    item.addEventListener("focus", () => moveIndicator(item));
     item.addEventListener("click", () => {
       setActiveItem(item);
-      engage(520);
     });
-  });
-
-  menu?.addEventListener("pointerleave", () => moveIndicator(activeItem));
-  menu?.addEventListener("focusout", (event) => {
-    if (!menu.contains(event.relatedTarget)) moveIndicator(activeItem);
-  });
-
-  nav.addEventListener("pointermove", (event) => {
-    const rect = nav.getBoundingClientRect();
-    const x = ((event.clientX - rect.left) / rect.width) * 100;
-    const y = ((event.clientY - rect.top) / rect.height) * 100;
-    nav.style.setProperty("--liquid-pointer-x", `${x}%`);
-    nav.style.setProperty("--liquid-pointer-y", `${y}%`);
-  });
-  nav.addEventListener("pointerdown", () => engage(620));
-  nav.addEventListener("pointerleave", () => {
-    nav.style.setProperty("--liquid-pointer-x", "50%");
-    nav.style.setProperty("--liquid-pointer-y", "50%");
   });
 
   window.addEventListener("scroll", scheduleSectionSync, { passive: true });
@@ -654,10 +624,6 @@ if (nav) {
             pointerTarget.y = 0.5;
             energyTarget = 0;
           });
-          nav.addEventListener("pointerdown", () => {
-            energy = Math.min(1.35, energy + 0.42);
-          });
-
           document.addEventListener("visibilitychange", () => {
             window.cancelAnimationFrame(animationFrame);
             if (!document.hidden) {

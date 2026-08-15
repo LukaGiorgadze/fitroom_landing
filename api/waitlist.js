@@ -6,6 +6,7 @@ const validSources = new Set([
   "automatic-modal",
   "appstore-header",
   "appstore-footer",
+  "camera-modal",
   "googleplay-header",
   "googleplay-footer",
   "manual-modal",
