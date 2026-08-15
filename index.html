@@ -11,6 +11,7 @@
     <link rel="icon" type="image/png" href="/assets/fitroom-app-dark.png" />
     <link rel="apple-touch-icon" href="/assets/fitroom-app-dark.png" />
     <link rel="stylesheet" href="/src/styles.css" />
+    <script type="module" src="/src/main.js"></script>
     <title>Fitroom: Calorie Tracker</title>
   </head>
   <body>
@@ -21,11 +22,34 @@
       >
       <div class="nav-links">
         <a href="#how">How it works</a><a href="#features">Features</a>
-        <a href="#screens">App</a>
+        <a href="#screens">Screenshots</a>
       </div>
-      <a href="#download" class="nav-cta"
-        >Get the app <span aria-hidden="true">→</span></a
+      <a
+        href="https://fitroom.ge"
+        class="nav-partner"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Visit fitroom.ge"
       >
+        <span class="nav-partner-by">By</span>
+        <span class="nav-partner-mark" aria-hidden="true">
+          <img
+            class="nav-partner-laurel"
+            src="/assets/laurel-left.svg"
+            alt=""
+          />
+          <img
+            class="nav-partner-logo"
+            src="/assets/fitroom-logo-dark.png"
+            alt=""
+          />
+          <img
+            class="nav-partner-laurel nav-partner-laurel-right"
+            src="/assets/laurel-left.svg"
+            alt=""
+          />
+        </span>
+      </a>
     </nav>
 
     <main>
@@ -41,12 +65,14 @@
             <a
               href="#download"
               class="store-button"
+              data-waitlist-trigger
               aria-label="Fitroom on the App Store"
               ><img src="/appstore.svg" alt="Download on the App Store"
             /></a>
             <a
               href="#download"
               class="store-button"
+              data-waitlist-trigger
               aria-label="Fitroom on Google Play"
               ><img src="/playstore.svg" alt="Get it on Google Play"
             /></a>
@@ -107,96 +133,146 @@
           class="phone-scene"
           aria-label="Fitroom app nutrition dashboard preview"
         >
-          <div class="scan-float glass-card">
-            <span class="scan-float-icon">✦</span
-            ><span
-              ><strong>Meal analyzed</strong
-              ><small>4 foods identified</small></span
-            ><span class="scan-check">✓</span>
-          </div>
-          <div class="macro-float glass-card">
-            <span class="macro-float-dot"></span
-            ><span><small>Protein</small><strong>82g</strong></span
-            ><span class="macro-float-up">+18%</span>
-          </div>
           <div class="phone-shell">
             <div class="phone-screen">
-              <div class="phone-island"></div>
-              <div class="reference-status">
-                <strong>11:51</strong
-                ><span class="status-cluster"
-                  ><i class="status-signal"></i><i class="status-wifi"></i
-                  ><i class="status-battery">46</i></span
-                >
+              <div class="phone-island" aria-hidden="true"></div>
+              <div class="reference-status" aria-hidden="true">
+                <strong>18:17</strong>
+                <span class="status-cluster">
+                  <i class="status-dots"><b></b><b></b><b></b><b></b></i>
+                  <svg class="status-wifi-icon" viewBox="0 0 24 18">
+                    <path
+                      d="M2 6.7a15.5 15.5 0 0 1 20 0M5.6 10.5a10 10 0 0 1 12.8 0M9.2 14.1a4.4 4.4 0 0 1 5.6 0"
+                    />
+                    <circle cx="12" cy="16" r="1.25" />
+                  </svg>
+                  <i class="status-battery-icon"><b></b></i>
+                </span>
               </div>
+
               <img
                 class="phone-wordmark"
                 src="/assets/fitroom-logo-dark.png"
                 alt="Fitroom"
               />
-              <div class="reference-week">
-                <span><small>W</small><i></i><b>12</b></span
-                ><span><small>T</small><i></i><b>13</b></span
-                ><span><small>F</small><i></i><b>14</b></span
-                ><span class="active"><small>S</small><i></i><b>15</b></span
-                ><span><small>S</small><i></i><b>16</b></span
-                ><span><small>M</small><i></i><b>17</b></span
-                ><span><small>T</small><i></i><b>18</b></span>
+
+              <div class="reference-week" aria-label="Week of May 7 to 13">
+                <span><small>F</small><i></i><b>7</b></span>
+                <span><small>S</small><i></i><b>8</b></span>
+                <span><small>S</small><i></i><b>9</b></span>
+                <span class="active"><small>M</small><i></i><b>10</b></span>
+                <span><small>T</small><i></i><b>11</b></span>
+                <span><small>W</small><i></i><b>12</b></span>
+                <span><small>T</small><i></i><b>13</b></span>
               </div>
+
               <div class="reference-calorie-card">
                 <div class="reference-calorie-copy">
-                  <small>Calories left</small><strong>2,268</strong
-                  ><span>♨ &nbsp;Eaten&nbsp; <b>0 / 2,268 kcal</b></span>
+                  <small>Calories left</small>
+                  <strong>1,168</strong>
+                  <span class="reference-eaten-row">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path
+                        d="M13.5 2.8c.5 3.7-2.7 4.8-2.1 8.1.4 2.2 2.5 2.3 3.2.8.9-1.8.3-3.8-.6-5.1 3.6 1.9 5.8 5.1 5 8.5-.7 3.3-3.5 5.7-7 5.7-3.9 0-7-3.1-7-7 0-2.9 1.6-5.3 4-7-.1 2.2.8 3.5 2 3.9-.8-3.4.6-6.1 2.5-7.9Z"
+                      />
+                    </svg>
+                    <em>Eaten</em><b>1,029 / 2,197 kcal</b>
+                  </span>
                 </div>
-                <div class="reference-ring reference-ring-large">
-                  <span>0%</span>
+                <div class="reference-ring reference-ring-large progress-47">
+                  <span>47%</span>
                 </div>
               </div>
+
               <div class="reference-macros">
                 <div class="reference-macro-card">
-                  <strong>0<small>/120g</small></strong
-                  ><span>Protein</span>
-                  <div class="reference-ring reference-ring-small">
-                    <span>0%</span>
+                  <strong>54<small>/135g</small></strong>
+                  <span>Protein</span>
+                  <div class="reference-ring reference-ring-small progress-40">
+                    <span>40%</span>
                   </div>
                 </div>
                 <div class="reference-macro-card">
-                  <strong>0<small>/305g</small></strong
-                  ><span>Carbs</span>
-                  <div class="reference-ring reference-ring-small">
-                    <span>0%</span>
+                  <strong>113<small>/277g</small></strong>
+                  <span>Carbs</span>
+                  <div class="reference-ring reference-ring-small progress-41">
+                    <span>41%</span>
                   </div>
                 </div>
                 <div class="reference-macro-card">
-                  <strong>0<small>/63g</small></strong
-                  ><span>Fat</span>
-                  <div class="reference-ring reference-ring-small">
-                    <span>0%</span>
+                  <strong>39<small>/61g</small></strong>
+                  <span>Fat</span>
+                  <div class="reference-ring reference-ring-small progress-63">
+                    <span>63%</span>
                   </div>
                 </div>
               </div>
-              <div class="reference-pages"><i></i><i></i></div>
+
+              <div class="reference-pages" aria-hidden="true">
+                <i></i><i></i>
+              </div>
+
               <div class="reference-nutrition-title">
                 <strong>Nutrition</strong><span>Today</span>
               </div>
+
               <div class="reference-nutrition-card">
-                <strong>0 kcal</strong>
-                <div class="reference-empty-meal">
-                  <span class="reference-scan-icon">⌗</span
-                  ><span class="reference-empty-lines"><i></i><i></i></span
-                  ><span class="reference-mini-add">+</span>
+                <strong>1,029 kcal</strong>
+                <div class="reference-meal-row">
+                  <span class="reference-meal-time"
+                    ><b>6:15</b><small>PM</small></span
+                  >
+                  <span class="reference-meal-photo" aria-hidden="true"></span>
+                  <b class="reference-meal-name">Khinkali</b>
+                  <strong class="reference-meal-total">1,029 kcal</strong>
+                  <div class="reference-meal-details">
+                    <i aria-hidden="true"></i>
+                    <span><b>Khinkali</b><small>7 piece</small></span>
+                    <strong>1,029 kcal</strong>
+                  </div>
                 </div>
-                <small
-                  >No foods logged<br />Start this day’s meal log with +</small
-                >
               </div>
+
               <div class="reference-tab-bar">
                 <div class="reference-tab-pill">
-                  <span class="selected"><i>⌂</i><small>Home</small></span
-                  ><span><i>▥</i><small>Progress</small></span
-                  ><span><i>◎</i><small>Profile</small></span>
+                  <span class="selected">
+                    <svg
+                      class="reference-tab-icon"
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1V10Z"
+                      />
+                    </svg>
+                    <small>Home</small>
+                  </span>
+                  <span>
+                    <svg
+                      class="reference-tab-icon progress-icon"
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                    >
+                      <rect x="3" y="10" width="4" height="11" rx="1" />
+                      <rect x="10" y="6" width="4" height="15" rx="1" />
+                      <rect x="17" y="2" width="4" height="19" rx="1" />
+                    </svg>
+                    <small>Progress</small>
+                  </span>
+                  <span>
+                    <svg
+                      class="reference-tab-icon profile-icon"
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                    >
+                      <circle cx="12" cy="12" r="9" />
+                      <circle cx="12" cy="9" r="3" />
+                      <path d="M6.8 18c.8-2.7 2.7-4 5.2-4s4.4 1.3 5.2 4" />
+                    </svg>
+                    <small>Profile</small>
+                  </span>
                 </div>
-                <span class="reference-add">+</span>
+                <span class="reference-add" aria-label="Add meal">+</span>
               </div>
             </div>
           </div>
@@ -498,6 +574,53 @@
           </div>
         </div>
       </section>
+
+      <section class="trust-section" aria-labelledby="trust-title">
+        <div class="trust-shell">
+          <div class="trust-copy">
+            <h2 id="trust-title">Built on real fitness trust.</h2>
+            <p>
+              Fitroom Calorie Tracker comes from a team that has helped people
+              build healthier habits for years.
+            </p>
+          </div>
+
+          <div class="trust-card">
+            <span class="trust-byline">By fitroom.ge</span>
+            <div class="trust-logo-mark">
+              <img
+                class="trust-laurel trust-laurel-left"
+                src="/assets/laurel-left.svg"
+                alt=""
+                aria-hidden="true"
+              />
+              <img
+                class="trust-logo"
+                src="/assets/fitroom-logo-dark.png"
+                alt="Fitroom"
+                loading="lazy"
+              />
+              <img
+                class="trust-laurel trust-laurel-right"
+                src="/assets/laurel-left.svg"
+                alt=""
+                aria-hidden="true"
+              />
+            </div>
+            <p class="trust-detail">
+              <span class="trust-star" aria-hidden="true">★</span>
+              Trusted by over 100k fitness enthusiasts worldwide.
+            </p>
+            <a
+              class="trust-link"
+              href="https://fitroom.ge"
+              target="_blank"
+              rel="noopener noreferrer"
+              >fitroom.ge <span aria-hidden="true">↗</span></a
+            >
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer id="download" class="site-footer">
@@ -525,11 +648,13 @@
           <a
             href="#top"
             class="store-button"
+            data-waitlist-trigger
             aria-label="Fitroom on the App Store"
             ><img src="/appstore.svg" alt="Download on the App Store" /></a
           ><a
             href="#top"
             class="store-button"
+            data-waitlist-trigger
             aria-label="Fitroom on Google Play"
             ><img src="/playstore.svg" alt="Get it on Google Play"
           /></a>
@@ -539,9 +664,144 @@
         <span>© 2026 Fitroom</span>
         <nav aria-label="Footer navigation">
           <a href="#how">How it works</a><a href="#features">Features</a
-          ><a href="#screens">App</a>
+          ><a href="#screens">App</a
+          ><a
+            href="https://fitroom.ge"
+            target="_blank"
+            rel="noopener noreferrer"
+            >fitroom.ge <span aria-hidden="true">↗</span></a
+          >
         </nav>
       </div>
     </footer>
+
+    <div class="waitlist-modal" id="waitlist-modal" hidden>
+      <div class="waitlist-backdrop" data-waitlist-close></div>
+      <section
+        class="waitlist-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="waitlist-title"
+        aria-describedby="waitlist-description"
+        tabindex="-1"
+      >
+        <div class="waitlist-content">
+          <span class="waitlist-kicker"
+            ><svg viewBox="0 0 20 20" aria-hidden="true">
+              <path
+                d="M3 8h14v9H3V8Zm7 0v9M2 5h16v3H2V5Zm8 0H6.75A1.75 1.75 0 1 1 8.5 3.25L10 5Zm0 0h3.25A1.75 1.75 0 1 0 11.5 3.25L10 5Z"
+              />
+            </svg>
+            Early access offer</span
+          >
+          <h2 id="waitlist-title">
+            Get 3 months of <br />Fitroom <span>Pro</span> free.
+          </h2>
+          <p id="waitlist-description">
+            Join the waitlist and be among the first to turn every meal into
+            clear, effortless nutrition insights.
+          </p>
+          <div class="waitlist-form-slot">
+            <form class="waitlist-form" id="waitlist-form" novalidate>
+              <label class="sr-only" for="waitlist-email">Email address</label>
+              <input
+                id="waitlist-email"
+                name="email"
+                type="email"
+                inputmode="email"
+                autocomplete="email"
+                placeholder="Email address"
+                maxlength="254"
+                required
+              />
+              <button type="submit">Join the waitlist</button>
+            </form>
+            <p
+              class="waitlist-success"
+              id="waitlist-success"
+              role="status"
+              aria-live="polite"
+              hidden
+            >
+              Welcome to the waitlist. We’ll send your 3-month Pro offer at
+              launch.
+            </p>
+          </div>
+          <div class="waitlist-previews" aria-label="Fitroom app previews">
+            <img
+              src="/screenshots/meal-scan.png"
+              alt="Fitroom meal scanner"
+              role="button"
+              tabindex="0"
+              aria-pressed="false"
+            />
+            <img
+              class="is-active"
+              src="/screenshots/home.png"
+              alt="Fitroom home dashboard"
+              role="button"
+              tabindex="0"
+              aria-pressed="true"
+            />
+            <img
+              src="/screenshots/meal-result.png"
+              alt="Fitroom meal analysis result"
+              role="button"
+              tabindex="0"
+              aria-pressed="false"
+            />
+            <img
+              src="/screenshots/edit-meal.png"
+              alt="Editing a meal in Fitroom"
+              role="button"
+              tabindex="0"
+              aria-pressed="false"
+            />
+            <img
+              src="/screenshots/edit-ingredient.png"
+              alt="Editing an ingredient in Fitroom"
+              role="button"
+              tabindex="0"
+              aria-pressed="false"
+            />
+            <img
+              src="/screenshots/progress.png"
+              alt="Fitroom progress dashboard"
+              role="button"
+              tabindex="0"
+              aria-pressed="false"
+            />
+            <img
+              src="/screenshots/goal.png"
+              alt="Setting a nutrition goal in Fitroom"
+              role="button"
+              tabindex="0"
+              aria-pressed="false"
+            />
+          </div>
+          <p
+            class="waitlist-status"
+            id="waitlist-status"
+            role="status"
+            aria-live="polite"
+          ></p>
+        </div>
+        <div class="waitlist-visual">
+          <img
+            id="waitlist-featured-preview"
+            class="waitlist-preview-current"
+            src="/screenshots/home.png"
+            alt="Fitroom home nutrition dashboard"
+          />
+          <img
+            id="waitlist-featured-preview-next"
+            class="waitlist-preview-next"
+            src="/screenshots/home.png"
+            alt=""
+            aria-hidden="true"
+          />
+        </div>
+      </section>
+    </div>
   </body>
 </html>
