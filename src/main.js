@@ -52,6 +52,8 @@ if (
     }
   };
 
+  window.addEventListener("fitroom:demo-engaged", clearAutoOpen);
+
   const openModal = (source = "automatic-modal") => {
     clearAutoOpen();
     window.clearTimeout(closeTimer);
@@ -283,6 +285,8 @@ if (phoneScene && !reducedMotionQuery.matches) {
   let guideTimer;
 
   const addMealButton = phoneScene.querySelector(".reference-add");
+  const cameraScreen = phoneScene.querySelector(".meal-camera-screen");
+  const closeCameraButton = phoneScene.querySelector(".meal-camera-close");
 
   const finishAssembly = () => {
     phoneScene.classList.remove(
@@ -342,6 +346,14 @@ if (phoneScene && !reducedMotionQuery.matches) {
 
   addMealButton?.addEventListener("click", () => {
     window.clearTimeout(guideTimer);
+    window.dispatchEvent(new CustomEvent("fitroom:demo-engaged"));
     phoneScene.classList.remove("is-plus-guided");
+    phoneScene.classList.add("is-camera-open");
+    cameraScreen?.setAttribute("aria-hidden", "false");
+  });
+
+  closeCameraButton?.addEventListener("click", () => {
+    phoneScene.classList.remove("is-camera-open");
+    cameraScreen?.setAttribute("aria-hidden", "true");
   });
 }
