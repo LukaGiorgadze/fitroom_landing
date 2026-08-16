@@ -109,7 +109,11 @@
       "fitroom_home_nutrition_dashboard": "Fitroom home nutrition dashboard",
       "f": "F",
       "m": "M",
-      "w": "W"
+      "w": "W",
+      "sa": "S",
+      "su": "S",
+      "tu": "T",
+      "th": "T"
     },
     "privacyPolicy": {
       "privacy_policy_for_fitroom_calorie_tracker_the_fitroom_a": "Privacy Policy for Fitroom: Calorie Tracker, the Fitroom App, and related services.",
@@ -362,8 +366,6 @@
     "legal_footer_navigation": "Legal footer navigation",
     "2026_fitroom_all_rights_reserved": "© 2026 Fitroom. All rights reserved.",
     "fitroom_website_and_contact": "Fitroom website and contact",
-    "contact": "Contact",
-    "s": "S",
-    "t": "T"
+    "contact": "Contact"
   }
 }
