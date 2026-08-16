@@ -2794,12 +2794,15 @@ footer > span {
 .footer-main {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "brand app"
+    "socials stores";
   column-gap: 80px;
   row-gap: 36px;
-  align-items: center;
+  align-items: start;
 }
 .footer-brand {
-  align-self: start;
+  grid-area: brand;
 }
 .footer-logo {
   display: block;
@@ -2814,9 +2817,10 @@ footer > span {
   line-height: 25px;
 }
 .footer-socials {
+  grid-area: socials;
   display: flex;
   gap: 10px;
-  margin-top: 22px;
+  margin: 0;
 }
 .footer-socials a {
   display: grid;
@@ -2856,6 +2860,7 @@ footer > span {
   fill: currentColor;
 }
 .footer-app {
+  grid-area: app;
   display: flex;
   align-items: center;
   gap: 22px;
@@ -2879,7 +2884,7 @@ footer > span {
   line-height: 20px;
 }
 .footer-store-buttons {
-  grid-column: 2;
+  grid-area: stores;
 }
 .footer-store-buttons .store-button {
   background: transparent;
@@ -3310,7 +3315,12 @@ footer > span {
   }
   .footer-main {
     grid-template-columns: 1fr;
-    gap: 42px;
+    grid-template-areas:
+      "brand"
+      "socials"
+      "app"
+      "stores";
+    gap: 0;
   }
   .footer-logo {
     width: 180px;
@@ -3319,7 +3329,11 @@ footer > span {
     font-size: 16px;
     line-height: 22px;
   }
+  .footer-socials {
+    margin-top: 22px;
+  }
   .footer-app {
+    margin-top: 42px;
     gap: 16px;
   }
   .footer-app-icon {
@@ -3332,7 +3346,7 @@ footer > span {
     line-height: 30px;
   }
   .footer-store-buttons {
-    grid-column: 1;
+    margin-top: 42px;
     gap: 9px;
   }
   .footer-store-buttons .store-button img {
