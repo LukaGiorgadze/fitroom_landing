@@ -175,6 +175,12 @@ const pageContext = (locale, pageKey) => {
     routes,
     alternates,
     switchRoutes,
+    fonts: {
+      criticalMedium:
+        locale === "ka"
+          ? "/fonts/fira-go/FiraGO-Medium-Georgian.woff2"
+          : "/fonts/fira-go/FiraGO-Medium-Latin.woff2",
+    },
     seo: {
       canonical,
       ogLocale: languages[locale].ogLocale,

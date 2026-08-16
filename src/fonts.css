@@ -1,95 +1,104 @@
+/*
+ * FiraGO is split by script so English pages do not download the full
+ * multilingual font. Browsers fetch only the ranges used by page text.
+ */
+
 @font-face {
   font-family: "FiraGO";
-  src: url("/fonts/fira-go/FiraGO-ExtraLight.woff2") format("woff2");
+  src: url("/fonts/fira-go/FiraGO-ExtraLight-Latin.woff2") format("woff2");
   font-weight: 200;
   font-style: normal;
   font-display: swap;
+  unicode-range:
+    U+0000-00FF, U+2000-206F, U+20AC, U+2113, U+2122, U+2190-21FF, U+2212,
+    U+FEFF, U+FFFD;
 }
 
 @font-face {
   font-family: "FiraGO";
-  src: url("/fonts/fira-go/FiraGO-ExtraLightItalic.woff2") format("woff2");
+  src: url("/fonts/fira-go/FiraGO-ExtraLight-Georgian.woff2") format("woff2");
   font-weight: 200;
-  font-style: italic;
+  font-style: normal;
   font-display: swap;
+  unicode-range: U+10A0-10FF, U+1C90-1CBF, U+2D00-2D2F;
 }
 
 @font-face {
   font-family: "FiraGO";
-  src: url("/fonts/fira-go/FiraGO-Regular.woff2") format("woff2");
+  src: url("/fonts/fira-go/FiraGO-Regular-Latin.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
+  unicode-range:
+    U+0000-00FF, U+2000-206F, U+20AC, U+2113, U+2122, U+2190-21FF, U+2212,
+    U+FEFF, U+FFFD;
 }
 
 @font-face {
   font-family: "FiraGO";
-  src: url("/fonts/fira-go/FiraGO-Italic.woff2") format("woff2");
+  src: url("/fonts/fira-go/FiraGO-Regular-Georgian.woff2") format("woff2");
   font-weight: 400;
-  font-style: italic;
+  font-style: normal;
   font-display: swap;
+  unicode-range: U+10A0-10FF, U+1C90-1CBF, U+2D00-2D2F;
 }
 
 @font-face {
   font-family: "FiraGO";
-  src: url("/fonts/fira-go/FiraGO-Medium.woff2") format("woff2");
+  src: url("/fonts/fira-go/FiraGO-Medium-Latin.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
+  unicode-range:
+    U+0000-00FF, U+2000-206F, U+20AC, U+2113, U+2122, U+2190-21FF, U+2212,
+    U+FEFF, U+FFFD;
 }
 
 @font-face {
   font-family: "FiraGO";
-  src: url("/fonts/fira-go/FiraGO-MediumItalic.woff2") format("woff2");
+  src: url("/fonts/fira-go/FiraGO-Medium-Georgian.woff2") format("woff2");
   font-weight: 500;
-  font-style: italic;
+  font-style: normal;
   font-display: swap;
+  unicode-range: U+10A0-10FF, U+1C90-1CBF, U+2D00-2D2F;
 }
 
 @font-face {
   font-family: "FiraGO";
-  src: url("/fonts/fira-go/FiraGO-SemiBold.woff2") format("woff2");
+  src: url("/fonts/fira-go/FiraGO-SemiBold-Latin.woff2") format("woff2");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
+  unicode-range:
+    U+0000-00FF, U+2000-206F, U+20AC, U+2113, U+2122, U+2190-21FF, U+2212,
+    U+FEFF, U+FFFD;
 }
 
 @font-face {
   font-family: "FiraGO";
-  src: url("/fonts/fira-go/FiraGO-SemiBoldItalic.woff2") format("woff2");
+  src: url("/fonts/fira-go/FiraGO-SemiBold-Georgian.woff2") format("woff2");
   font-weight: 600;
-  font-style: italic;
+  font-style: normal;
   font-display: swap;
+  unicode-range: U+10A0-10FF, U+1C90-1CBF, U+2D00-2D2F;
 }
 
 @font-face {
   font-family: "FiraGO";
-  src: url("/fonts/fira-go/FiraGO-Bold.woff2") format("woff2");
+  src: url("/fonts/fira-go/FiraGO-Bold-Latin.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
+  unicode-range:
+    U+0000-00FF, U+2000-206F, U+20AC, U+2113, U+2122, U+2190-21FF, U+2212,
+    U+FEFF, U+FFFD;
 }
 
 @font-face {
   font-family: "FiraGO";
-  src: url("/fonts/fira-go/FiraGO-BoldItalic.woff2") format("woff2");
+  src: url("/fonts/fira-go/FiraGO-Bold-Georgian.woff2") format("woff2");
   font-weight: 700;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "FiraGO";
-  src: url("/fonts/fira-go/FiraGO-ExtraBold.woff2") format("woff2");
-  font-weight: 800;
   font-style: normal;
   font-display: swap;
-}
-
-@font-face {
-  font-family: "FiraGO";
-  src: url("/fonts/fira-go/FiraGO-ExtraBoldItalic.woff2") format("woff2");
-  font-weight: 800;
-  font-style: italic;
-  font-display: swap;
+  unicode-range: U+10A0-10FF, U+1C90-1CBF, U+2D00-2D2F;
 }

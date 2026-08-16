@@ -1,0 +1,26 @@
+/en/
+  Link: </fonts/fira-go/FiraGO-Medium-Latin.woff2>; rel=preload; as=font; type="font/woff2"; crossorigin
+
+/ka/
+  Link: </fonts/fira-go/FiraGO-Medium-Georgian.woff2>; rel=preload; as=font; type="font/woff2"; crossorigin
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/screenshots/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/how/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/reviews/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/appstore.svg
+  Cache-Control: public, max-age=31536000, immutable
+
+/playstore.svg
+  Cache-Control: public, max-age=31536000, immutable

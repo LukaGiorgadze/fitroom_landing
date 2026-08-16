@@ -30,6 +30,19 @@ function waitlistApi() {
   };
 }
 
+function prioritizeStylesheets(html) {
+  const stylesheetPattern =
+    /    (?:<style>[\s\S]*?<\/style>|<link rel="stylesheet"[^>]*>)\n?/g;
+  const stylesheets = html.match(stylesheetPattern);
+  if (!stylesheets?.length) return html;
+
+  const withoutStylesheets = html.replace(stylesheetPattern, "");
+  return withoutStylesheets.replace(
+    "    <script type=\"module\"",
+    `${stylesheets.map((tag) => tag.trimEnd()).join("\n")}\n    <script type=\"module\"`,
+  );
+}
+
 function staticLocalization() {
   const developmentRedirects = new Map([
     ["/", "/en/"],
@@ -101,13 +114,26 @@ function staticLocalization() {
     },
     generateBundle(_outputOptions, bundle) {
       const builtTemplates = new Map();
+      const i18nStylesheet = Object.values(bundle).find(
+        (asset) =>
+          asset.type === "asset" &&
+          /^assets\/i18n-[^/]+\.css$/.test(asset.fileName),
+      );
 
       for (const [pageKey, page] of Object.entries(pages)) {
         const asset = bundle[page.bundleFile];
         if (!asset || asset.type !== "asset") {
           throw new Error(`Missing built HTML template: ${page.bundleFile}`);
         }
-        builtTemplates.set(pageKey, String(asset.source));
+        let builtTemplate = String(asset.source);
+        if (pageKey === "home" && i18nStylesheet) {
+          builtTemplate = builtTemplate.replace(
+            /<link rel="stylesheet" crossorigin href="\/assets\/i18n-[^"]+\.css">/,
+            `<style>${String(i18nStylesheet.source)}</style>`,
+          );
+        }
+        builtTemplate = prioritizeStylesheets(builtTemplate);
+        builtTemplates.set(pageKey, builtTemplate);
         if (pageKey === "home") asset.source = createRootRedirect();
         else delete bundle[page.bundleFile];
       }
