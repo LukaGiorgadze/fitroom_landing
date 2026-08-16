@@ -9,8 +9,8 @@
   --surface-subtle: rgba(247, 248, 250, 0.94);
   --surface-glass: rgba(255, 255, 255, 0.84);
   --ink: #14161b;
-  --muted: #777d87;
-  --soft-text: #aeb3bc;
+  --muted: #626a76;
+  --soft-text: #666e7a;
   --hairline: #e6e8ec;
   --border-card: rgba(225, 228, 233, 0.92);
   --border-subtle: rgba(20, 22, 27, 0.06);
@@ -1349,7 +1349,7 @@ a {
   text-transform: uppercase;
   font-feature-settings: "case" on;
   letter-spacing: 0.11em;
-  color: #8b92a0;
+  color: var(--muted);
   font-size: 10px;
 }
 .section-heading h2,
@@ -1364,7 +1364,7 @@ a {
 .section-heading > p,
 .split-heading > p {
   margin: 0;
-  color: #7a8291;
+  color: var(--muted);
   font-size: 17px;
   line-height: 1.6;
 }
@@ -1407,7 +1407,7 @@ a {
   position: absolute;
   top: 29px;
   right: 28px;
-  color: #c6ccd7;
+  color: var(--soft-text);
   font-size: 10px;
   letter-spacing: 0.08em;
 }
@@ -1420,7 +1420,7 @@ a {
 .steps-grid p {
   margin: 0;
   max-width: 270px;
-  color: #7c8493;
+  color: var(--muted);
   font-size: 14px;
   line-height: 1.65;
 }
@@ -1477,7 +1477,7 @@ a {
 .card-copy p {
   margin: 0;
   max-width: 440px;
-  color: #7c8493;
+  color: var(--muted);
   font-size: 14px;
   line-height: 1.62;
 }
@@ -1850,7 +1850,7 @@ a {
 .screens-heading > p {
   max-width: 480px;
   margin: 0 0 5px;
-  color: #7a8291;
+  color: var(--muted);
   font-size: 17px;
   line-height: 1.6;
 }
@@ -2693,7 +2693,7 @@ footer > span {
 }
 .faq-kicker {
   margin: 0 0 18px;
-  color: #8b92a0;
+  color: var(--muted);
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.12em;
@@ -2783,7 +2783,7 @@ footer > span {
   align-items: center;
 }
 .trust-kicker {
-  color: #8b92a0;
+  color: var(--muted);
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.13em;
@@ -2801,7 +2801,7 @@ footer > span {
 .trust-copy p {
   max-width: 510px;
   margin: 0;
-  color: #7a8291;
+  color: var(--muted);
   font-size: 17px;
   line-height: 1.6;
 }
@@ -2822,7 +2822,7 @@ footer > span {
   text-align: center;
 }
 .trust-byline {
-  color: #8d94a2;
+  color: var(--muted);
   font-size: 18px;
 }
 .trust-logo-mark {
@@ -2849,7 +2849,7 @@ footer > span {
 .trust-detail {
   max-width: 460px;
   margin: 0;
-  color: #858d9c;
+  color: var(--muted);
   font-size: 18px;
   line-height: 1.55;
 }

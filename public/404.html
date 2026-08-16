@@ -30,8 +30,14 @@
         color: #14161b;
       }
 
-      main {
+      .page-shell {
         width: min(680px, 100%);
+        display: grid;
+        gap: 22px;
+      }
+
+      main {
+        width: 100%;
         padding: clamp(36px, 7vw, 72px);
         border: 1px solid rgba(20, 22, 27, 0.08);
         border-radius: 36px;
@@ -46,7 +52,7 @@
         border-radius: 50%;
       }
 
-      p:first-of-type {
+      .error-label {
         margin: 28px 0 10px;
         color: #7a8291;
         font-size: 13px;
@@ -64,54 +70,215 @@
 
       .message {
         margin: 20px auto 0;
+        max-width: 500px;
         color: #6f7785;
         font-size: 17px;
         line-height: 1.65;
       }
 
-      nav {
-        margin-top: 34px;
+      .sitemap-navigation {
+        width: 100%;
+        padding: 18px 20px;
+        border: 1px solid rgba(20, 22, 27, 0.08);
+        border-radius: 24px;
+        background: rgba(255, 255, 255, 0.72);
+        box-shadow: 0 16px 36px rgba(32, 36, 44, 0.08);
+        text-align: center;
+      }
+
+      .navigation-title {
+        margin: 0 0 14px;
+        color: #737b89;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .sitemap-links {
+        margin: 0;
+        padding: 0;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 12px;
+        gap: 9px;
+        list-style: none;
       }
 
-      a {
-        padding: 13px 20px;
+      .sitemap-links li {
+        display: flex;
+      }
+
+      .sitemap-links a,
+      noscript a {
+        padding: 11px 16px;
         border: 1px solid #dfe3ea;
         border-radius: 999px;
+        background: rgba(255, 255, 255, 0.78);
         color: #20242c;
-        font-size: 14px;
+        font-size: 13px;
         font-weight: 700;
         text-decoration: none;
+        transition:
+          background-color 0.2s ease,
+          border-color 0.2s ease,
+          color 0.2s ease,
+          transform 0.2s ease;
       }
 
-      a:first-child {
+      .sitemap-links a.is-primary {
         border-color: #111318;
         background: #111318;
         color: #fff;
       }
 
-      a:focus-visible {
+      .sitemap-links a:hover {
+        border-color: #bfc5cf;
+        transform: translateY(-1px);
+      }
+
+      .sitemap-links a:focus-visible,
+      noscript a:focus-visible {
         outline: 3px solid #68707c;
         outline-offset: 4px;
+      }
+
+      .navigation-status,
+      noscript p {
+        margin: 0;
+        color: #737b89;
+        font-size: 14px;
+      }
+
+      @media (max-width: 520px) {
+        body {
+          padding: 14px;
+        }
+
+        .page-shell {
+          gap: 14px;
+        }
+
+        main {
+          border-radius: 28px;
+        }
+
+        .sitemap-navigation {
+          padding: 16px;
+          border-radius: 20px;
+        }
+
+        .sitemap-links li,
+        .sitemap-links a {
+          width: 100%;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .sitemap-links a,
+        noscript a {
+          transition: none;
+        }
       }
     </style>
   </head>
   <body>
-    <main>
-      <img src="/assets/fitroom-app-dark.png" alt="Fitroom" />
-      <p>Error 404</p>
-      <h1>Page not found</h1>
-      <p class="message">
-        This address does not exist. Choose your language to return to Fitroom.<br />
-        ეს გვერდი ვერ მოიძებნა. აირჩიე ენა Fitroom-ზე დასაბრუნებლად.
-      </p>
-      <nav aria-label="Return to Fitroom">
-        <a href="/en/" hreflang="en">English</a>
-        <a href="/ka/" hreflang="ka" lang="ka">ქართული</a>
+    <div class="page-shell">
+      <main>
+        <img src="/assets/fitroom-app-dark.png" alt="Fitroom" />
+        <p class="error-label">Error 404</p>
+        <h1>Page not found</h1>
+        <p class="message">
+          This address does not exist. Use the navigation below to return to
+          Fitroom.
+        </p>
+      </main>
+
+      <nav class="sitemap-navigation" aria-labelledby="navigation-title">
+        <p id="navigation-title" class="navigation-title">Explore Fitroom</p>
+        <ul id="sitemap-links" class="sitemap-links"></ul>
+        <p id="navigation-status" class="navigation-status" role="status">
+          Loading pages…
+        </p>
+        <noscript>
+          <p>JavaScript is required to load navigation from the sitemap.</p>
+        </noscript>
       </nav>
-    </main>
+    </div>
+
+    <script>
+      const sitemapLinks = document.querySelector("#sitemap-links");
+      const navigationStatus = document.querySelector("#navigation-status");
+      const languageLabels = { en: "English", ka: "Georgian" };
+      const pageLabels = {
+        "": "Home",
+        "privacy-policy": "Privacy Policy",
+        "terms-of-use": "Terms of Use",
+      };
+
+      const humanize = (value) =>
+        value
+          .split("-")
+          .filter(Boolean)
+          .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+          .join(" ");
+
+      const labelForPath = (pathname) => {
+        const segments = pathname.split("/").filter(Boolean);
+        const locale = segments.shift() || "";
+        const slug = segments.join("/");
+        const language = languageLabels[locale] || locale.toUpperCase();
+        const page = pageLabels[slug] || humanize(slug);
+        return [language, page].filter(Boolean).join(" · ");
+      };
+
+      const loadSitemapNavigation = async () => {
+        try {
+          const response = await fetch("/sitemap.xml", {
+            headers: { Accept: "application/xml, text/xml" },
+          });
+          if (!response.ok) throw new Error("Unable to load sitemap");
+
+          const sitemap = new DOMParser().parseFromString(
+            await response.text(),
+            "application/xml",
+          );
+          if (sitemap.querySelector("parsererror")) {
+            throw new Error("Invalid sitemap XML");
+          }
+
+          const allowedOrigins = new Set([
+            window.location.origin,
+            "https://app.fitroom.ge",
+          ]);
+          const seenPaths = new Set();
+
+          sitemap.querySelectorAll("url > loc").forEach((location) => {
+            const sitemapUrl = new URL(location.textContent.trim());
+            const href = `${sitemapUrl.pathname}${sitemapUrl.search}${sitemapUrl.hash}`;
+            if (!allowedOrigins.has(sitemapUrl.origin) || seenPaths.has(href)) return;
+            seenPaths.add(href);
+
+            const item = document.createElement("li");
+            const link = document.createElement("a");
+            const locale = sitemapUrl.pathname.split("/").filter(Boolean)[0];
+            link.href = href;
+            link.textContent = labelForPath(sitemapUrl.pathname);
+            if (languageLabels[locale]) link.hreflang = locale;
+            if (sitemapUrl.pathname === "/en/") link.className = "is-primary";
+            item.append(link);
+            sitemapLinks.append(item);
+          });
+
+          if (!seenPaths.size) throw new Error("Sitemap contains no pages");
+          navigationStatus.hidden = true;
+        } catch {
+          navigationStatus.textContent =
+            "Navigation is temporarily unavailable. Please try again.";
+        }
+      };
+
+      loadSitemapNavigation();
+    </script>
   </body>
 </html>
