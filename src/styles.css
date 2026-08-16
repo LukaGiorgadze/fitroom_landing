@@ -2264,7 +2264,7 @@ footer > span {
   gap: 15px;
 }
 .review-top p,
-.review-source {
+.review-bottom {
   margin: 0;
 }
 .review-top p {
@@ -2308,11 +2308,11 @@ footer > span {
   color: var(--ink);
   font-size: 14px;
 }
-.review-source {
+.review-bottom {
   color: var(--muted);
   font-size: 13px;
 }
-.review-source strong {
+.review-bottom strong {
   color: var(--ink);
   font-weight: 500;
 }
@@ -3256,18 +3256,6 @@ footer > span {
   }
   .screens-marquee {
     margin-top: 38px;
-    padding: 52px 0 48px;
-  }
-  .screens-marquee:before,
-  .screens-marquee:after {
-    width: 24px;
-  }
-  .screens-set {
-    gap: 14px;
-    padding-right: 14px;
-  }
-  .screen-card {
-    flex-basis: min(74vw, 280px);
   }
   .screen-card figcaption {
     right: 11px;
@@ -3319,6 +3307,46 @@ footer > span {
     justify-content: flex-end;
   }
 }
+@media (max-width: 760px), (hover: none) and (pointer: coarse) {
+  .screens-marquee {
+    --mobile-screen-width: min(74vw, 280px);
+    padding: 44px calc((100vw - var(--mobile-screen-width)) / 2) 38px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-padding-inline: calc((100vw - var(--mobile-screen-width)) / 2);
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-inline: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    backdrop-filter: none;
+  }
+  .screens-marquee::-webkit-scrollbar {
+    display: none;
+  }
+  .screens-marquee:before,
+  .screens-marquee:after {
+    display: none;
+  }
+  .screens-reel {
+    width: max-content;
+    animation: none;
+    transform: none;
+    will-change: auto;
+  }
+  .screens-set {
+    gap: 14px;
+    padding-right: 0;
+  }
+  .screens-set[aria-hidden="true"] {
+    display: none;
+  }
+  .screens-marquee .screen-card {
+    flex: 0 0 var(--mobile-screen-width);
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    transform: none;
+  }
+}
 @media (max-width: 760px) {
   .hero-reviews {
     margin-top: 28px;
@@ -3347,7 +3375,7 @@ footer > span {
   .review-rating > span {
     font-size: 13px;
   }
-  .review-source {
+  .review-bottom {
     font-size: 12px;
   }
   .input-cycle {
