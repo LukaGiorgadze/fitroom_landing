@@ -77,10 +77,25 @@ const decodeHtml = (value) =>
     );
 
 const normalizeText = (value) => decodeHtml(value).replace(/\s+/g, " ").trim();
+const translatableShortTokens = new Set(["F", "M", "W", "S", "T"]);
+const isFixedToken = (value) =>
+  !translatableShortTokens.has(value) &&
+  (!/[\p{L}]{2,}/u.test(value) ||
+    /^[A-Z]{1,3}$/.test(value) ||
+    /^[\d\s.,/%:+-]+(?:kcal|g|kg|lb|cm)?$/i.test(value) ||
+    /^(?:[^\s@]+@[^\s@]+|(?:https?:\/\/)?[\w.-]+\.[a-z]{2,})$/i.test(value));
 const isContent = (value) =>
   value &&
   !value.includes("{{") &&
-  /[\p{L}\p{N}]/u.test(value);
+  !isFixedToken(value);
+
+const encodeHtml = (value) =>
+  String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
 
 const getTagName = (token) => token.match(/^<\/?\s*([\w-]+)/)?.[1]?.toLowerCase();
 const isClosingTag = (token) => /^<\//.test(token);
@@ -161,6 +176,17 @@ const setCatalogValue = (catalog, key, value) => {
   target[leaf] = value;
 };
 
+const deleteCatalogValue = (catalog, key) => {
+  const segments = key.split(".");
+  const leaf = segments.pop();
+  let target = catalog;
+  for (const segment of segments) {
+    target = target?.[segment];
+    if (!target || typeof target !== "object") return;
+  }
+  delete target[leaf];
+};
+
 const slugify = (value) => {
   const slug = value
     .normalize("NFKD")
@@ -176,8 +202,25 @@ const slugify = (value) => {
 const loadCatalog = async (file) =>
   existsSync(file) ? JSON.parse(await readFile(file, "utf8")) : {};
 
+const englishCatalog = await loadCatalog(englishFile);
+const hardcodedByKey = new Map(
+  [...flattenCatalog(englishCatalog)].flatMap(([value, key]) =>
+    isContent(value) ? [] : [[key, value]],
+  ),
+);
+
+for (const key of hardcodedByKey.keys()) deleteCatalogValue(englishCatalog, key);
+
+const restoreHardcodedValues = (html) =>
+  html.replace(/\{\{([\w.]+)\}\}/g, (placeholder, key) =>
+    hardcodedByKey.has(key) ? encodeHtml(hardcodedByKey.get(key)) : placeholder,
+  );
+
 const sources = await Promise.all(
-  pages.map(async (page) => ({ ...page, html: await readFile(page.file, "utf8") })),
+  pages.map(async (page) => ({
+    ...page,
+    html: restoreHardcodedValues(await readFile(page.file, "utf8")),
+  })),
 );
 const occurrences = sources.flatMap(({ html, key }) => collectPage(html, key));
 const stats = new Map();
@@ -189,7 +232,6 @@ for (const occurrence of occurrences) {
   stats.set(occurrence.value, entry);
 }
 
-const englishCatalog = await loadCatalog(englishFile);
 const existingKeysByValue = flattenCatalog(englishCatalog);
 const usedKeys = new Set(existingKeysByValue.values());
 const keyByValue = new Map(existingKeysByValue);
@@ -280,6 +322,7 @@ if (!existsSync(georgianFile)) {
   await writeFile(georgianFile, `${JSON.stringify(englishCatalog, null, 2)}\n`);
 } else {
   const georgianCatalog = await loadCatalog(georgianFile);
+  for (const key of hardcodedByKey.keys()) deleteCatalogValue(georgianCatalog, key);
   for (const [value, key] of keyByValue) {
     const existingValue = key
       .split(".")
@@ -289,4 +332,6 @@ if (!existsSync(georgianFile)) {
   await writeFile(georgianFile, `${JSON.stringify(georgianCatalog, null, 2)}\n`);
 }
 
-console.log(`Extracted ${keyByValue.size} localized strings.`);
+console.log(
+  `Extracted ${keyByValue.size} localized strings; kept ${hardcodedByKey.size} fixed tokens in HTML.`,
+);
