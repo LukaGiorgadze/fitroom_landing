@@ -1,37 +1,47 @@
 <!doctype html>
-<html lang="en">
+<html lang="{{locale}}">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#f8faff" />
     <meta
       name="description"
-      content="Snap your food, track calories and macros, and move toward your goal with Fitroom."
+      content="{{pages.home.snap_your_food_track_calories_and_macros_and_move_toward}}"
     />
-    <meta property="og:image" content="/assets/og-image.webp" />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="{{seo.canonical}}" />
+    <link rel="alternate" hreflang="en" href="{{alternates.en}}" />
+    <link rel="alternate" hreflang="ka" href="{{alternates.ka}}" />
+    <link rel="alternate" hreflang="x-default" href="{{alternates.en}}" />
+    <meta property="og:url" content="{{seo.canonical}}" />
+    <meta property="og:locale" content="{{seo.ogLocale}}" />
+    <meta property="og:locale:alternate" content="{{seo.alternateOgLocale}}" />
+    <meta property="og:image" content="https://app.fitroom.ge/assets/og-image.webp" />
     <meta property="og:image:type" content="image/webp" />
     <meta property="og:image:width" content="1536" />
     <meta property="og:image:height" content="1024" />
     <meta
       property="og:image:alt"
-      content="Fitroom AI Calorie Tracker app and food scanner"
+      content="{{common.fitroom_ai_calorie_tracker_app_and_food_scanner}}"
     />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="/assets/og-image.webp" />
+    <meta name="twitter:image" content="https://app.fitroom.ge/assets/og-image.webp" />
     <meta
       name="twitter:image:alt"
-      content="Fitroom AI Calorie Tracker app and food scanner"
+      content="{{common.fitroom_ai_calorie_tracker_app_and_food_scanner}}"
     />
     <link rel="icon" type="image/png" href="/assets/fitroom-app-dark.png" />
     <link rel="apple-touch-icon" href="/assets/fitroom-app-dark.png" />
     <link rel="stylesheet" href="/src/styles.css" />
     <link rel="stylesheet" href="/src/liquid-glass-nav.css" />
+    <link rel="stylesheet" href="/src/i18n.css" />
+    <script type="module" src="/src/i18n.js"></script>
     <script type="module" src="/src/liquid-glass-nav.js"></script>
     <script type="module" src="/src/main.js"></script>
-    <title>Fitroom: Calorie Tracker</title>
+    <title>{{common.fitroom_calorie_tracker}}</title>
   </head>
-  <body>
-    <nav class="liquid-nav" data-liquid-nav aria-label="Main navigation">
+  <body data-locale="{{locale}}">
+    <nav class="liquid-nav" data-liquid-nav aria-label="{{pages.home.main_navigation}}">
       <canvas
         class="liquid-nav__webgl"
         data-liquid-nav-canvas
@@ -41,10 +51,12 @@
       <a
         href="#top"
         class="liquid-nav__brand"
-        aria-label="Fitroom Calorie Tracker home"
+        aria-label="{{common.fitroom_calorie_tracker_home}}"
+        data-expanded-label="{{common.fitroom_calorie_tracker_home}}"
+        data-collapsed-label="{{pages.home.expand_navigation}}"
       >
         <img src="/assets/fitroom-app-dark.png" alt="" />
-        <span>Calorie Tracker</span>
+        <span>{{pages.home.calorie_tracker}}</span>
       </a>
 
       <div class="liquid-nav__menu" data-liquid-nav-menu>
@@ -60,8 +72,8 @@
           data-section="how"
           aria-current="location"
         >
-          <span class="liquid-nav__label-long">How it works</span>
-          <span class="liquid-nav__label-short">How</span>
+          <span class="liquid-nav__label-long">{{pages.home.how_it_works}}</span>
+          <span class="liquid-nav__label-short">{{pages.home.how}}</span>
         </a>
         <a
           href="#features"
@@ -69,7 +81,7 @@
           data-liquid-nav-item
           data-section="features"
         >
-          <span>Features</span>
+          <span>{{pages.home.features}}</span>
         </a>
         <a
           href="#screens"
@@ -77,29 +89,31 @@
           data-liquid-nav-item
           data-section="screens"
         >
-          <span class="liquid-nav__label-long">Screenshots</span>
-          <span class="liquid-nav__label-short">App</span>
+          <span class="liquid-nav__label-long">{{pages.home.screenshots}}</span>
+          <span class="liquid-nav__label-short">{{pages.home.app}}</span>
         </a>
       </div>
-      <div class="liquid-nav__partner">
-        <span class="liquid-nav__partner-by">By</span>
-        <span class="liquid-nav__partner-mark" aria-hidden="true">
-          <img
-            class="liquid-nav__partner-laurel"
-            src="/assets/laurel-left.svg"
-            alt=""
-          />
-          <img
-            class="liquid-nav__partner-logo"
-            src="/assets/fitroom-logo-dark.png"
-            alt=""
-          />
-          <img
-            class="liquid-nav__partner-laurel liquid-nav__partner-laurel--right"
-            src="/assets/laurel-left.svg"
-            alt=""
-          />
-        </span>
+      <div
+        class="page-language-switcher liquid-nav__language"
+        role="navigation"
+        aria-label="{{common.language_selector}}"
+      >
+        <a
+          href="{{switchRoutes.en}}"
+          lang="en"
+          hreflang="en"
+          data-language="en"
+          data-language-switch
+          aria-label="{{common.view_this_page_in_english}}"
+        >{{common.en}}</a>
+        <a
+          href="{{switchRoutes.ka}}"
+          lang="ka"
+          hreflang="ka"
+          data-language="ka"
+          data-language-switch
+          aria-label="{{common.view_this_page_in_georgian}}"
+        >{{common.ka}}</a>
       </div>
     </nav>
 
@@ -108,13 +122,12 @@
         <div class="hero-noise" aria-hidden="true"></div>
         <div class="hero-copy">
           <h1>
-            Snap your food.<br /><span class="hero-tagline"
-              >We'll do the <span class="hero-sticker-word">rest.</span></span
+            {{pages.home.snap_your_food}}<br /><span class="hero-tagline"
+              >{{pages.home.well_do_the}} <span class="hero-sticker-word">{{pages.home.rest}}</span></span
             >
           </h1>
           <p>
-            Track calories and macros in seconds. Fitroom App recognizes your
-            meal, estimates portions, and keeps your goals clear.
+            {{pages.home.track_calories_and_macros_in_seconds_fitroom_app_recogni}}
           </p>
           <div class="hero-actions store-buttons">
             <a
@@ -122,16 +135,16 @@
               class="store-button"
               data-waitlist-trigger
               data-waitlist-source="appstore-header"
-              aria-label="Fitroom on the App Store"
-              ><img src="/appstore.svg" alt="Download on the App Store"
+              aria-label="{{common.fitroom_on_the_app_store}}"
+              ><img src="/appstore.svg" alt="{{common.download_on_the_app_store}}"
             /></a>
             <a
               href="#download"
               class="store-button"
               data-waitlist-trigger
               data-waitlist-source="googleplay-header"
-              aria-label="Fitroom on Google Play"
-              ><img src="/playstore.svg" alt="Get it on Google Play"
+              aria-label="{{common.fitroom_on_google_play}}"
+              ><img src="/playstore.svg" alt="{{common.get_it_on_google_play}}"
             /></a>
           </div>
           <div class="hero-reviews">
@@ -149,13 +162,13 @@
                 />
               </div>
               <div class="review-summary">
-                <p>Loved by 100k+ users</p>
+                <p>{{pages.home.loved_by_100k_users}}</p>
                 <div class="review-rating">
                   <svg
                     class="review-stars"
                     viewBox="0 0 118 24"
                     role="img"
-                    aria-label="Five stars"
+                    aria-label="{{pages.home.five_stars}}"
                   >
                     <path
                       d="M12 2.25l2.9 5.88 6.49.94-4.7 4.58 1.11 6.46L12 17.06 6.2 20.11l1.11-6.46-4.7-4.58 6.49-.94L12 2.25Z"
@@ -176,19 +189,36 @@
                       transform="translate(94)"
                       d="M12 2.25l2.9 5.88 6.49.94-4.7 4.58 1.11 6.46L12 17.06 6.2 20.11l1.11-6.46-4.7-4.58 6.49-.94L12 2.25Z"
                     /></svg
-                  ><strong>5.0</strong>
+                  ><strong>{{pages.home.5_0}}</strong>
                 </div>
               </div>
             </div>
-            <p class="review-bottom">
-              From reviews on <strong>App Store and Google Play</strong>
-            </p>
+            <div class="review-partner">
+              <span class="review-partner__by">{{pages.home.by}}</span>
+              <span class="review-partner__mark">
+                <img
+                  class="review-partner__laurel"
+                  src="/assets/laurel-left.svg"
+                  alt=""
+                />
+                <img
+                  class="review-partner__logo"
+                  src="/assets/fitroom-logo-dark.png"
+                  alt="{{common.fitroom}}"
+                />
+                <img
+                  class="review-partner__laurel review-partner__laurel--right"
+                  src="/assets/laurel-left.svg"
+                  alt=""
+                />
+              </span>
+            </div>
           </div>
         </div>
 
         <div
           class="phone-scene is-booting"
-          aria-label="Fitroom app nutrition dashboard preview"
+          aria-label="{{pages.home.fitroom_app_nutrition_dashboard_preview}}"
         >
           <div class="phone-shell">
             <div class="phone-screen">
@@ -212,7 +242,7 @@
                 <div class="meal-camera-shade" aria-hidden="true"></div>
 
                 <div class="meal-camera-status" aria-hidden="true">
-                  <strong>17:28</strong>
+                  <strong>{{pages.home.17_28}}</strong>
                   <i class="meal-camera-island"></i>
                   <span>
                     <i class="meal-camera-signal"
@@ -232,7 +262,7 @@
                   <button
                     class="meal-camera-icon-button meal-camera-close"
                     type="button"
-                    aria-label="Close camera"
+                    aria-label="{{pages.home.close_camera}}"
                   >
                     <svg viewBox="0 0 24 24" aria-hidden="true">
                       <path d="M5 5l14 14M19 5 5 19" />
@@ -242,7 +272,7 @@
                     <button
                       class="meal-camera-icon-button"
                       type="button"
-                      aria-label="Turn flashlight on"
+                      aria-label="{{pages.home.turn_flashlight_on}}"
                     >
                       <svg viewBox="0 0 24 24" aria-hidden="true">
                         <path d="M12 13v1" />
@@ -255,7 +285,7 @@
                     <button
                       class="meal-camera-icon-button"
                       type="button"
-                      aria-label="Show scan guide"
+                      aria-label="{{pages.home.show_scan_guide}}"
                     >
                       <svg viewBox="0 0 24 24" aria-hidden="true">
                         <path
@@ -277,7 +307,7 @@
                     type="button"
                     data-waitlist-trigger
                     data-waitlist-source="camera-modal"
-                    aria-label="Scan meal"
+                    aria-label="{{pages.home.scan_meal}}"
                   >
                     <span>
                       <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -297,7 +327,7 @@
                           />
                         </svg>
                       </span>
-                      <small>Scan</small>
+                      <small>{{pages.home.scan}}</small>
                     </button>
                     <button class="meal-camera-mode" type="button">
                       <span>
@@ -308,7 +338,7 @@
                           />
                         </svg>
                       </span>
-                      <small>Enter manually</small>
+                      <small>{{pages.home.enter_manually}}</small>
                     </button>
                     <button class="meal-camera-mode" type="button">
                       <span>
@@ -318,14 +348,14 @@
                           <path d="m4 18 5-5 4 4 3-3 5 5M17 2v6M14 5h6" />
                         </svg>
                       </span>
-                      <small>Upload photo</small>
+                      <small>{{pages.home.upload_photo}}</small>
                     </button>
                   </div>
                 </div>
               </div>
               <div class="phone-island" aria-hidden="true"></div>
               <div class="reference-status" aria-hidden="true">
-                <strong>18:17</strong>
+                <strong>{{pages.home.18_17}}</strong>
                 <span class="status-cluster">
                   <i class="status-dots"><b></b><b></b><b></b><b></b></i>
                   <svg class="status-wifi-icon" viewBox="0 0 24 18">
@@ -341,10 +371,10 @@
               <img
                 class="phone-wordmark"
                 src="/assets/fitroom-logo-dark.png"
-                alt="Fitroom"
+                alt="{{common.fitroom}}"
               />
 
-              <div class="reference-week" aria-label="Week of May 7 to 13">
+              <div class="reference-week" aria-label="{{pages.home.week_of_may_7_to_13}}">
                 <svg
                   class="reference-week-rail"
                   viewBox="0 0 292 57"
@@ -355,53 +385,53 @@
                     d="M27.86 33 L55.57 33 M69.57 33 L97.29 33 M111.29 33 C117.86 32.61 124.43 28 131 28 M161 28 C167.57 28 174.14 32.61 180.71 33 M194.71 33 L222.43 33 M236.43 33 L264.14 33"
                   />
                 </svg>
-                <span><small>F</small><i></i><b>7</b></span>
-                <span><small>S</small><i></i><b>8</b></span>
-                <span><small>S</small><i></i><b>9</b></span>
-                <span class="active"><small>M</small><i></i><b>10</b></span>
-                <span><small>T</small><i></i><b>11</b></span>
-                <span><small>W</small><i></i><b>12</b></span>
-                <span><small>T</small><i></i><b>13</b></span>
+                <span><small>{{pages.home.f}}</small><i></i><b>{{pages.home.7}}</b></span>
+                <span><small>{{common.s}}</small><i></i><b>{{pages.home.8}}</b></span>
+                <span><small>{{common.s}}</small><i></i><b>{{pages.home.9}}</b></span>
+                <span class="active"><small>{{pages.home.m}}</small><i></i><b>{{pages.home.10}}</b></span>
+                <span><small>{{common.t}}</small><i></i><b>{{pages.home.11}}</b></span>
+                <span><small>{{pages.home.w}}</small><i></i><b>{{pages.home.12}}</b></span>
+                <span><small>{{common.t}}</small><i></i><b>{{pages.home.13}}</b></span>
               </div>
 
               <div class="reference-calorie-card">
                 <div class="reference-calorie-copy">
-                  <small>Calories left</small>
-                  <strong>1,297</strong>
+                  <small>{{pages.home.calories_left}}</small>
+                  <strong>{{pages.home.1_297}}</strong>
                   <span class="reference-eaten-row">
                     <svg viewBox="0 0 24 24" aria-hidden="true">
                       <path
                         d="M13.5 2.8c.5 3.7-2.7 4.8-2.1 8.1.4 2.2 2.5 2.3 3.2.8.9-1.8.3-3.8-.6-5.1 3.6 1.9 5.8 5.1 5 8.5-.7 3.3-3.5 5.7-7 5.7-3.9 0-7-3.1-7-7 0-2.9 1.6-5.3 4-7-.1 2.2.8 3.5 2 3.9-.8-3.4.6-6.1 2.5-7.9Z"
                       />
                     </svg>
-                    <em>Eaten</em><b>900 / 2,197 kcal</b>
+                    <em>{{pages.home.eaten}}</em><b>{{pages.home.900_2_197_kcal}}</b>
                   </span>
                 </div>
                 <div class="reference-ring reference-ring-large progress-41">
-                  <span>41%</span>
+                  <span>{{pages.home.41}}</span>
                 </div>
               </div>
 
               <div class="reference-macros">
                 <div class="reference-macro-card">
-                  <strong>47<small> /135g</small></strong>
-                  <span>Protein</span>
+                  <strong>{{pages.home.47}}<small> {{pages.home.135g}}</small></strong>
+                  <span>{{pages.home.protein}}</span>
                   <div class="reference-ring reference-ring-small progress-35">
-                    <span>35%</span>
+                    <span>{{pages.home.35}}</span>
                   </div>
                 </div>
                 <div class="reference-macro-card">
-                  <strong>99<small> /277g</small></strong>
-                  <span>Carbs</span>
+                  <strong>{{pages.home.99}}<small> {{pages.home.277g}}</small></strong>
+                  <span>{{pages.home.carbs}}</span>
                   <div class="reference-ring reference-ring-small progress-36">
-                    <span>36%</span>
+                    <span>{{pages.home.36}}</span>
                   </div>
                 </div>
                 <div class="reference-macro-card">
-                  <strong>34<small> /61g</small></strong>
-                  <span>Fat</span>
+                  <strong>{{pages.home.34}}<small> {{pages.home.61g}}</small></strong>
+                  <span>{{pages.home.fat}}</span>
                   <div class="reference-ring reference-ring-small progress-56">
-                    <span>56%</span>
+                    <span>{{pages.home.56}}</span>
                   </div>
                 </div>
               </div>
@@ -411,32 +441,32 @@
               </div>
 
               <div class="reference-nutrition-title">
-                <strong>Nutrition</strong><span>Today</span>
+                <strong>{{pages.home.nutrition}}</strong><span>{{pages.home.today}}</span>
               </div>
 
               <div class="reference-nutrition-card">
-                <strong>900 kcal</strong>
+                <strong>{{common.900_kcal}}</strong>
                 <div class="reference-meal-row">
                   <span class="reference-meal-time"
-                    ><b>6:15</b><small>PM</small></span
+                    ><b>{{pages.home.6_15}}</b><small>{{pages.home.pm}}</small></span
                   >
                   <img
                     class="reference-meal-photo"
                     src="/assets/khinkali.webp"
-                    alt="Six khinkali on a plate"
+                    alt="{{pages.home.six_khinkali_on_a_plate}}"
                   />
-                  <b class="reference-meal-name">Khinkali</b>
-                  <strong class="reference-meal-total">900 kcal</strong>
+                  <b class="reference-meal-name">{{common.khinkali}}</b>
+                  <strong class="reference-meal-total">{{common.900_kcal}}</strong>
                   <div class="reference-meal-details">
                     <i aria-hidden="true"></i>
-                    <span><b>Khinkali</b><small>6 pieces</small></span>
-                    <strong>900 kcal</strong>
+                    <span><b>{{common.khinkali}}</b><small>{{pages.home.6_pieces}}</small></span>
+                    <strong>{{common.900_kcal}}</strong>
                   </div>
                 </div>
               </div>
 
               <div class="plus-coachmark" aria-hidden="true">
-                <span>Tap to add a meal</span>
+                <span>{{pages.home.tap_to_add_a_meal}}</span>
               </div>
 
               <div class="reference-tab-bar">
@@ -451,7 +481,7 @@
                         d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1V10Z"
                       />
                     </svg>
-                    <small>Home</small>
+                    <small>{{common.home}}</small>
                   </span>
                   <span>
                     <svg
@@ -463,7 +493,7 @@
                       <rect x="10" y="6" width="4" height="15" rx="1" />
                       <rect x="17" y="2" width="4" height="19" rx="1" />
                     </svg>
-                    <small>Progress</small>
+                    <small>{{pages.home.progress}}</small>
                   </span>
                   <span>
                     <svg
@@ -475,13 +505,13 @@
                       <circle cx="12" cy="9" r="3" />
                       <path d="M6.8 18c.8-2.7 2.7-4 5.2-4s4.4 1.3 5.2 4" />
                     </svg>
-                    <small>Profile</small>
+                    <small>{{pages.home.profile}}</small>
                   </span>
                 </div>
                 <button
                   class="reference-add"
                   type="button"
-                  aria-label="Add meal"
+                  aria-label="{{pages.home.add_meal}}"
                 >
                   <svg viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M12 4v16M4 12h16" />
@@ -497,18 +527,16 @@
         <div class="section-heading centered">
           <h2 class="how-title">
             <span class="how-title-line"
-              >From
+              >{{pages.home.from}}
               <span class="input-cycle" aria-hidden="true"
-                ><span>photo</span><span>text</span><span>label</span></span
-              ><span class="sr-only">photo, text, or a nutrition label</span> to
-              progress</span
+                ><span>{{pages.home.photo}}</span><span>{{pages.home.text}}</span><span>{{pages.home.label}}</span></span
+              ><span class="sr-only">{{pages.home.photo_text_or_a_nutrition_label}}</span> {{pages.home.to_progress}}</span
             ><span class="how-title-line how-title-second"
-              >in a few seconds.</span
+              >{{pages.home.in_a_few_seconds}}</span
             >
           </h2>
           <p>
-            Scan a meal, type it in, or capture a nutrition label. Fitroom
-            handles the rest.
+            {{pages.home.scan_a_meal_type_it_in_or_capture_a_nutrition_label_fitr}}
           </p>
         </div>
         <div class="steps-grid">
@@ -518,14 +546,14 @@
                 src="/how/snap-your-meal.webp"
                 width="1111"
                 height="1415"
-                alt="Fitroom meal scanner framing a khachapuri"
+                alt="{{pages.home.fitroom_meal_scanner_framing_a_khachapuri}}"
                 loading="lazy"
               />
             </div>
             <div class="step-copy">
-              <span class="step-number">01</span>
-              <h3>Snap your meal</h3>
-              <p>Take a photo or choose one from your library.</p>
+              <span class="step-number">{{pages.home.01}}</span>
+              <h3>{{pages.home.snap_your_meal}}</h3>
+              <p>{{pages.home.take_a_photo_or_choose_one_from_your_library}}</p>
             </div>
           </article>
           <article class="step-card">
@@ -534,16 +562,15 @@
                 src="/how/see-whats-inside.webp"
                 width="1122"
                 height="1402"
-                alt="Fitroom showing the calories and nutrition inside a scanned meal"
+                alt="{{pages.home.fitroom_showing_the_calories_and_nutrition_inside_a_scan}}"
                 loading="lazy"
               />
             </div>
             <div class="step-copy">
-              <span class="step-number">02</span>
-              <h3>See what’s inside</h3>
+              <span class="step-number">{{pages.home.02}}</span>
+              <h3>{{pages.home.see_whats_inside}}</h3>
               <p>
-                AI identifies foods and estimates portions, calories, and
-                macros.
+                {{pages.home.ai_identifies_foods_and_estimates_portions_calories_and}}
               </p>
             </div>
           </article>
@@ -553,16 +580,15 @@
                 src="/how/fix-with-ai.webp"
                 width="1264"
                 height="1568"
-                alt="Fitroom Fix with AI action highlighted on a meal result"
+                alt="{{pages.home.fitroom_fix_with_ai_action_highlighted_on_a_meal_result}}"
                 loading="lazy"
               />
             </div>
             <div class="step-copy">
-              <span class="step-number">03</span>
-              <h3>Fix with AI</h3>
+              <span class="step-number">{{pages.home.03}}</span>
+              <h3>{{pages.home.fix_with_ai}}</h3>
               <p>
-                Describe what needs changing and Fitroom updates the meal for
-                you.
+                {{pages.home.describe_what_needs_changing_and_fitroom_updates_the_mea}}
               </p>
             </div>
           </article>
@@ -572,16 +598,15 @@
       <section id="features" class="section feature-section">
         <div class="section-heading split-heading">
           <div>
-            <h2>Tracking that feels<br />effortless.</h2>
+            <h2>{{pages.home.tracking_that_feels}}<br />{{pages.home.effortless}}</h2>
           </div>
         </div>
         <div class="bento-grid">
           <article class="bento-card bento-scan">
             <div class="card-copy">
-              <h3>See what’s in your meal.</h3>
+              <h3>{{pages.home.see_whats_in_your_meal}}</h3>
               <p>
-                Calories, portions, protein, carbs, and fat-estimated from one
-                photo.
+                {{pages.home.calories_portions_protein_carbs_and_fat_estimated_from_o}}
               </p>
             </div>
             <div class="feature-preview preview-result">
@@ -589,32 +614,31 @@
                 src="/screenshots/meal-scan.webp"
                 width="1206"
                 height="2622"
-                alt="Fitroom analyzed meal screen"
+                alt="{{pages.home.fitroom_analyzed_meal_screen}}"
                 loading="lazy"
               />
             </div>
           </article>
           <article class="bento-card bento-dashboard">
             <div class="card-copy">
-              <h3>Your day at a glance.</h3>
-              <p>Know what’s left without digging through numbers.</p>
+              <h3>{{pages.home.your_day_at_a_glance}}</h3>
+              <p>{{pages.home.know_whats_left_without_digging_through_numbers}}</p>
             </div>
             <div class="feature-preview preview-home">
               <img
                 src="/screenshots/home.webp"
                 width="1206"
                 height="2622"
-                alt="Fitroom nutrition dashboard"
+                alt="{{pages.home.fitroom_nutrition_dashboard}}"
                 loading="lazy"
               />
             </div>
           </article>
           <article class="bento-card bento-edit">
             <div class="card-copy">
-              <h3>Change anything.</h3>
+              <h3>{{pages.home.change_anything}}</h3>
               <p>
-                Edit foods, portions, and nutrition or simply tell AI what needs
-                fixing.
+                {{pages.home.edit_foods_portions_and_nutrition_or_simply_tell_ai_what}}
               </p>
             </div>
             <div class="feature-preview preview-edit">
@@ -622,17 +646,16 @@
                 src="/screenshots/edit-meal.webp"
                 width="1206"
                 height="2622"
-                alt="Fitroom meal editor"
+                alt="{{pages.home.fitroom_meal_editor}}"
                 loading="lazy"
               />
             </div>
           </article>
           <article class="bento-card bento-progress">
             <div class="card-copy">
-              <h3>See where you’re going.</h3>
+              <h3>{{pages.home.see_where_youre_going}}</h3>
               <p>
-                Log your weight, follow the trend, and keep your target in
-                sight.
+                {{pages.home.log_your_weight_follow_the_trend_and_keep_your_target_in}}
               </p>
             </div>
             <div class="feature-preview preview-progress">
@@ -640,7 +663,7 @@
                 src="/screenshots/progress.webp"
                 width="1206"
                 height="2622"
-                alt="Fitroom progress dashboard"
+                alt="{{common.fitroom_progress_dashboard}}"
                 loading="lazy"
               />
             </div>
@@ -650,10 +673,10 @@
 
       <section id="screens" class="screens-section">
         <div class="screens-heading">
-          <div><h2>The app, in action.</h2></div>
-          <p>From your first scan to daily nutrition and long-term progress.</p>
+          <div><h2>{{pages.home.the_app_in_action}}</h2></div>
+          <p>{{pages.home.from_your_first_scan_to_daily_nutrition_and_long_term_pr}}</p>
         </div>
-        <div class="screens-marquee" aria-label="Fitroom app screenshots">
+        <div class="screens-marquee" aria-label="{{pages.home.fitroom_app_screenshots}}">
           <div class="screens-reel">
             <div class="screens-set">
               <figure class="screen-card">
@@ -661,7 +684,7 @@
                   src="/screenshots/home.webp"
                   width="1206"
                   height="2622"
-                  alt="Fitroom daily nutrition home screen"
+                  alt="{{pages.home.fitroom_daily_nutrition_home_screen}}"
                   loading="lazy"
                 />
               </figure>
@@ -670,7 +693,7 @@
                   src="/screenshots/meal-scan.webp"
                   width="1206"
                   height="2622"
-                  alt="Fitroom AI meal scanner identifying ingredients"
+                  alt="{{pages.home.fitroom_ai_meal_scanner_identifying_ingredients}}"
                   loading="lazy"
                 />
               </figure>
@@ -679,7 +702,7 @@
                   src="/screenshots/meal-result.webp"
                   width="1206"
                   height="2622"
-                  alt="Fitroom analyzed meal result with calories and macros"
+                  alt="{{pages.home.fitroom_analyzed_meal_result_with_calories_and_macros}}"
                   loading="lazy"
                 />
               </figure>
@@ -688,7 +711,7 @@
                   src="/screenshots/edit-meal.webp"
                   width="1206"
                   height="2622"
-                  alt="Fitroom edit meal screen"
+                  alt="{{pages.home.fitroom_edit_meal_screen}}"
                   loading="lazy"
                 />
               </figure>
@@ -697,7 +720,7 @@
                   src="/screenshots/edit-ingredient.webp"
                   width="1206"
                   height="2622"
-                  alt="Fitroom edit ingredient screen"
+                  alt="{{pages.home.fitroom_edit_ingredient_screen}}"
                   loading="lazy"
                 />
               </figure>
@@ -706,7 +729,7 @@
                   src="/screenshots/progress.webp"
                   width="1206"
                   height="2622"
-                  alt="Fitroom weight progress screen"
+                  alt="{{pages.home.fitroom_weight_progress_screen}}"
                   loading="lazy"
                 />
               </figure>
@@ -715,7 +738,7 @@
                   src="/screenshots/goal.webp"
                   width="1206"
                   height="2622"
-                  alt="Fitroom personal goal and nutrition targets screen"
+                  alt="{{pages.home.fitroom_personal_goal_and_nutrition_targets_screen}}"
                   loading="lazy"
                 />
               </figure>
@@ -792,15 +815,14 @@
       <section class="trust-section" aria-labelledby="trust-title">
         <div class="trust-shell">
           <div class="trust-copy">
-            <h2 id="trust-title">Built on real fitness trust.</h2>
+            <h2 id="trust-title">{{pages.home.built_on_real_fitness_trust}}</h2>
             <p>
-              Fitroom Calorie Tracker comes from a team that has helped people
-              build healthier habits for years.
+              {{pages.home.fitroom_calorie_tracker_comes_from_a_team_that_has_helpe}}
             </p>
           </div>
 
           <div class="trust-card">
-            <span class="trust-byline">By fitroom.ge</span>
+            <span class="trust-byline">{{pages.home.by_fitroom_ge}}</span>
             <div class="trust-logo-mark">
               <img
                 class="trust-laurel trust-laurel-left"
@@ -811,7 +833,7 @@
               <img
                 class="trust-logo"
                 src="/assets/fitroom-logo-dark.png"
-                alt="Fitroom"
+                alt="{{common.fitroom}}"
                 loading="lazy"
               />
               <img
@@ -823,14 +845,14 @@
             </div>
             <p class="trust-detail">
               <span class="trust-star" aria-hidden="true">★</span>
-              Trusted by over 100k fitness enthusiasts worldwide.
+              {{pages.home.trusted_by_over_100k_fitness_enthusiasts_worldwide}}
             </p>
             <span
               class="trust-link"
               href="https://fitroom.ge"
               target="_blank"
               rel="noopener noreferrer"
-              >fitroom.ge <span aria-hidden="true">↗</span>
+              >{{common.fitroom_ge}} <span aria-hidden="true">↗</span>
             </span>
           </div>
         </div>
@@ -843,16 +865,16 @@
           <img
             class="footer-logo"
             src="/assets/fitroom-logo-light.png"
-            alt="Fitroom"
+            alt="{{common.fitroom}}"
           />
-          <p>Snap your food. We'll do the rest.</p>
+          <p>{{common.snap_your_food_well_do_the_rest}}</p>
         </div>
-        <nav class="footer-socials" aria-label="Fitroom on social media">
+        <nav class="footer-socials" aria-label="{{common.fitroom_on_social_media}}">
           <a
             href="https://www.facebook.com/fitroom.ge"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Fitroom on Facebook"
+            aria-label="{{common.fitroom_on_facebook}}"
           >
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path
@@ -864,7 +886,7 @@
             href="https://www.instagram.com/fitroom.ge/"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Fitroom on Instagram"
+            aria-label="{{common.fitroom_on_instagram}}"
           >
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <rect x="3" y="3" width="18" height="18" rx="5" />
@@ -876,7 +898,7 @@
             href="https://www.tiktok.com/@fitroom.ge"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Fitroom on TikTok"
+            aria-label="{{common.fitroom_on_tiktok}}"
           >
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path
@@ -888,7 +910,7 @@
             href="https://x.com/fitroomge"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Fitroom on X"
+            aria-label="{{common.fitroom_on_x}}"
           >
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path
@@ -900,7 +922,7 @@
             href="https://www.linkedin.com/company/74479027/admin/dashboard/"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Fitroom on LinkedIn"
+            aria-label="{{common.fitroom_on_linkedin}}"
           >
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path
@@ -913,11 +935,11 @@
           <img
             class="footer-app-icon"
             src="/assets/fitroom-app-dark.png"
-            alt="Fitroom app icon"
+            alt="{{pages.home.fitroom_app_icon}}"
           />
           <div>
-            <h2>Fitroom: Calorie Tracker on your phone.</h2>
-            <p>Track meals, nutrition, and progress wherever you are.</p>
+            <h2>{{pages.home.fitroom_calorie_tracker_on_your_phone}}</h2>
+            <p>{{pages.home.track_meals_nutrition_and_progress_wherever_you_are}}</p>
           </div>
         </div>
         <div class="store-buttons footer-store-buttons">
@@ -926,28 +948,28 @@
             class="store-button"
             data-waitlist-trigger
             data-waitlist-source="appstore-footer"
-            aria-label="Fitroom on the App Store"
-            ><img src="/appstore.svg" alt="Download on the App Store" /></a
+            aria-label="{{common.fitroom_on_the_app_store}}"
+            ><img src="/appstore.svg" alt="{{common.download_on_the_app_store}}" /></a
           ><a
             href="#top"
             class="store-button"
             data-waitlist-trigger
             data-waitlist-source="googleplay-footer"
-            aria-label="Fitroom on Google Play"
-            ><img src="/playstore.svg" alt="Get it on Google Play"
+            aria-label="{{common.fitroom_on_google_play}}"
+            ><img src="/playstore.svg" alt="{{common.get_it_on_google_play}}"
           /></a>
         </div>
       </div>
       <div class="footer-bottom">
-        <span>© 2026 Fitroom</span>
-        <nav aria-label="Footer navigation">
-          <a href="/terms-and-use/">Terms of Use</a
-          ><a href="/privacy-policy/">Privacy Policy</a
+        <span>{{pages.home.2026_fitroom}}</span>
+        <nav aria-label="{{pages.home.footer_navigation}}">
+          <a href="{{routes.termsOfUse}}">{{common.terms_of_use}}</a
+          ><a href="{{routes.privacyPolicy}}">{{common.privacy_policy}}</a
           ><a
             href="https://fitroom.ge"
             target="_blank"
             rel="noopener noreferrer"
-            >fitroom.ge <span aria-hidden="true">↗</span></a
+            >{{common.fitroom_ge}} <span aria-hidden="true">↗</span></a
           >
         </nav>
       </div>
@@ -966,34 +988,40 @@
         <button
           class="waitlist-mobile-close"
           type="button"
-          aria-label="Close waitlist"
+          aria-label="{{pages.home.close_waitlist}}"
           data-waitlist-close
         >
           <span aria-hidden="true">×</span>
         </button>
         <div class="waitlist-content">
           <h2 id="waitlist-title">
-            Get 3 months of <br />Fitroom <span>Pro</span> free.
+            {{pages.home.get_3_months_of}} <br />{{common.fitroom}} <span>{{pages.home.pro}}</span> {{pages.home.free}}
           </h2>
           <p id="waitlist-description">
-            Join the waitlist and be among the first to turn every meal into
-            clear, effortless nutrition insights.
+            {{pages.home.join_the_waitlist_and_be_among_the_first_to_turn_every_m}}
           </p>
           <div class="waitlist-form-slot">
-            <form class="waitlist-form" id="waitlist-form" novalidate>
-              <label class="sr-only" for="waitlist-email">Email address</label>
+            <form
+              class="waitlist-form"
+              id="waitlist-form"
+              data-invalid-message="{{pages.home.please_enter_a_valid_email_address}}"
+              data-loading-label="{{pages.home.joining}}"
+              data-error-message="{{pages.home.unable_to_join_right_now_please_try_again}}"
+              novalidate
+            >
+              <label class="sr-only" for="waitlist-email">{{common.email_address}}</label>
               <input
                 id="waitlist-email"
                 name="email"
                 type="email"
                 inputmode="email"
                 autocomplete="email"
-                placeholder="Email address"
+                placeholder="{{common.email_address}}"
                 aria-describedby="waitlist-status"
                 maxlength="254"
                 required
               />
-              <button type="submit">Join Now</button>
+              <button type="submit">{{pages.home.join_now}}</button>
             </form>
             <p
               class="waitlist-success"
@@ -1002,14 +1030,13 @@
               aria-live="polite"
               hidden
             >
-              Welcome to the waitlist. We’ll send your 3-month Pro offer at
-              launch.
+              {{pages.home.welcome_to_the_waitlist_well_send_your_3_month_pro_offer}}
             </p>
           </div>
-          <div class="waitlist-previews" aria-label="Fitroom app previews">
+          <div class="waitlist-previews" aria-label="{{pages.home.fitroom_app_previews}}">
             <img
               src="/screenshots/meal-scan.webp"
-              alt="Fitroom meal scanner"
+              alt="{{pages.home.fitroom_meal_scanner}}"
               role="button"
               tabindex="0"
               aria-pressed="false"
@@ -1017,42 +1044,42 @@
             <img
               class="is-active"
               src="/screenshots/home.webp"
-              alt="Fitroom home dashboard"
+              alt="{{pages.home.fitroom_home_dashboard}}"
               role="button"
               tabindex="0"
               aria-pressed="true"
             />
             <img
               src="/screenshots/meal-result.webp"
-              alt="Fitroom meal analysis result"
+              alt="{{pages.home.fitroom_meal_analysis_result}}"
               role="button"
               tabindex="0"
               aria-pressed="false"
             />
             <img
               src="/screenshots/edit-meal.webp"
-              alt="Editing a meal in Fitroom"
+              alt="{{pages.home.editing_a_meal_in_fitroom}}"
               role="button"
               tabindex="0"
               aria-pressed="false"
             />
             <img
               src="/screenshots/edit-ingredient.webp"
-              alt="Editing an ingredient in Fitroom"
+              alt="{{pages.home.editing_an_ingredient_in_fitroom}}"
               role="button"
               tabindex="0"
               aria-pressed="false"
             />
             <img
               src="/screenshots/progress.webp"
-              alt="Fitroom progress dashboard"
+              alt="{{common.fitroom_progress_dashboard}}"
               role="button"
               tabindex="0"
               aria-pressed="false"
             />
             <img
               src="/screenshots/goal.webp"
-              alt="Setting a nutrition goal in Fitroom"
+              alt="{{pages.home.setting_a_nutrition_goal_in_fitroom}}"
               role="button"
               tabindex="0"
               aria-pressed="false"
@@ -1065,12 +1092,16 @@
             aria-live="polite"
           ></p>
         </div>
-        <div class="waitlist-visual" data-waitlist-stage>
+        <div
+          class="waitlist-visual"
+          data-waitlist-stage
+          data-preview-fallback-alt="{{pages.home.fitroom_app_preview}}"
+        >
           <img
             id="waitlist-featured-preview"
             class="waitlist-preview-current"
             src="/screenshots/home.webp"
-            alt="Fitroom home nutrition dashboard"
+            alt="{{pages.home.fitroom_home_nutrition_dashboard}}"
           />
           <img
             id="waitlist-featured-preview-next"

@@ -455,7 +455,7 @@ if (nav) {
         morphTimer = window.setTimeout(finishMorph, 640);
       }
       nav.classList.add("is-collapsed");
-      brand?.setAttribute("aria-label", "Expand navigation");
+      brand?.setAttribute("aria-label", brand.dataset.collapsedLabel || "");
       brand?.setAttribute("aria-expanded", "false");
       return;
     }
@@ -470,7 +470,7 @@ if (nav) {
       morphTimer = window.setTimeout(finishMorph, 640);
     }
     nav.classList.remove("is-collapsed");
-    brand?.setAttribute("aria-label", "Fitroom Calorie Tracker home");
+    brand?.setAttribute("aria-label", brand.dataset.expandedLabel || "");
     brand?.setAttribute("aria-expanded", "true");
   };
 

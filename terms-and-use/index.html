@@ -1,423 +1,291 @@
 <!doctype html>
-<html lang="en">
+<html lang="{{locale}}">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#f6f7f9" />
     <meta
       name="description"
-      content="Terms of Use for Fitroom: Calorie Tracker, the Fitroom App, related services, and Fitroom Pro subscriptions."
+      content="{{pages.termsOfUse.terms_of_use_for_fitroom_calorie_tracker_the_fitroom_app}}"
     />
     <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="{{seo.canonical}}" />
+    <link rel="alternate" hreflang="en" href="{{alternates.en}}" />
+    <link rel="alternate" hreflang="ka" href="{{alternates.ka}}" />
+    <link rel="alternate" hreflang="x-default" href="{{alternates.en}}" />
+    <meta property="og:url" content="{{seo.canonical}}" />
+    <meta property="og:locale" content="{{seo.ogLocale}}" />
+    <meta property="og:locale:alternate" content="{{seo.alternateOgLocale}}" />
     <link rel="icon" type="image/png" href="/assets/fitroom-app-dark.png" />
     <link rel="apple-touch-icon" href="/assets/fitroom-app-dark.png" />
     <link rel="stylesheet" href="/src/legal.css" />
-    <title>Terms of Use - Fitroom: Calorie Tracker</title>
+    <link rel="stylesheet" href="/src/i18n.css" />
+    <script type="module" src="/src/i18n.js"></script>
+    <title>{{pages.termsOfUse.terms_of_use_fitroom_calorie_tracker}}</title>
   </head>
-  <body>
+  <body data-locale="{{locale}}">
     <header class="legal-header">
-      <a class="legal-brand" href="/" aria-label="Fitroom Calorie Tracker home">
+      <a class="legal-brand" href="{{routes.home}}" aria-label="{{common.fitroom_calorie_tracker_home}}">
         <img src="/assets/fitroom-app-dark.png" alt="" />
-        <span>Fitroom: Calorie Tracker</span>
+        <span>{{common.fitroom_calorie_tracker}}</span>
       </a>
-      <a class="legal-home-link" href="/">Back to home</a>
+      <div class="legal-header-actions">
+        <nav class="page-language-switcher" aria-label="{{common.language_selector}}">
+          <a
+            href="{{switchRoutes.en}}"
+            lang="en"
+            hreflang="en"
+            data-language="en"
+            data-language-switch
+            aria-label="{{common.view_this_page_in_english}}"
+          >{{common.en}}</a>
+          <a
+            href="{{switchRoutes.ka}}"
+            lang="ka"
+            hreflang="ka"
+            data-language="ka"
+            data-language-switch
+            aria-label="{{common.view_this_page_in_georgian}}"
+          >{{common.ka}}</a>
+        </nav>
+        <a class="legal-home-link" href="{{routes.home}}">{{common.back_to_home}}</a>
+      </div>
     </header>
 
     <main>
       <section class="legal-hero" aria-labelledby="page-title">
-        <p class="legal-eyebrow">Fitroom legal</p>
-        <h1 id="page-title">Terms of Use</h1>
+        <p class="legal-eyebrow">{{common.fitroom_legal}}</p>
+        <h1 id="page-title">{{common.terms_of_use}}</h1>
         <p class="legal-deck">
-          These terms govern your use of Fitroom: Calorie Tracker, including AI meal analysis,
-          connected health features, and auto-renewable Fitroom Pro subscriptions.
+          {{pages.termsOfUse.these_terms_govern_your_use_of_fitroom_calorie_tracker_i}}
         </p>
         <div class="legal-meta">
-          <span>Effective: August 16, 2026</span>
-          <span>Last updated: August 16, 2026</span>
+          <span>{{common.effective_august_16_2026}}</span>
+          <span>{{common.last_updated_august_16_2026}}</span>
         </div>
       </section>
 
       <div class="legal-layout">
         <article class="legal-document">
           <section class="legal-section" id="acceptance">
-            <h2>1. Acceptance of these Terms</h2>
+            <h2>{{pages.termsOfUse.1_acceptance_of_these_terms}}</h2>
             <p>
-              These Terms of Use ("Terms") are a binding agreement between you
-              and Fitroom ("Fitroom," "we," "our," or "us"). They govern your
-              download, access to, and use of the mobile application named
-              <strong>Fitroom: Calorie Tracker</strong> (the "Fitroom App"), this
-              website, and related services (together, the "Service").
+              {{pages.termsOfUse.these_terms_of_use_terms_are_a_binding_agreement_between}}
+              <strong>{{common.fitroom_calorie_tracker}}</strong> {{pages.termsOfUse.the_fitroom_app_this_website_and_related_services_togeth}}
             </p>
             <p>
-              By creating an account, tapping an acceptance control, purchasing a
-              subscription, or otherwise using the Service, you agree to these
-              Terms and acknowledge the Privacy Policy. If you do not agree, do
-              not use the Service. If you use the Service for an organization, you
-              represent that you have authority to bind it.
+              {{pages.termsOfUse.by_creating_an_account_tapping_an_acceptance_control_pur}}
             </p>
           </section>
 
           <section class="legal-section" id="service">
-            <h2>2. What the Fitroom App provides</h2>
+            <h2>{{pages.termsOfUse.2_what_the_fitroom_app_provides}}</h2>
             <p>
-              Fitroom: Calorie Tracker is a nutrition and fitness tracking app. Features may
-              include meal logging by camera, image upload, or text; AI-assisted
-              food, portion, calorie, and macro estimates; nutrition targets;
-              weight and progress tracking; optional Apple Health or Health
-              Connect integration; reminders; referrals and promotions; and
-              Fitroom Pro features offered by subscription.
+              {{pages.termsOfUse.fitroom_calorie_tracker_is_a_nutrition_and_fitness_track}}
             </p>
             <p>
-              Some functions need an internet connection and account. Certain AI
-              features, higher usage limits, or other benefits may require an
-              active Fitroom Pro subscription. The purchase screen will identify
-              paid features before you subscribe.
+              {{pages.termsOfUse.some_functions_need_an_internet_connection_and_account_c}}
             </p>
           </section>
 
           <section class="legal-section" id="eligibility">
-            <h2>3. Eligibility</h2>
+            <h2>{{pages.termsOfUse.3_eligibility}}</h2>
             <p>
-              You must be at least 16 years old to use the Fitroom App. If you are under
-              the legal age of majority where you live, you may use the Service
-              only with the permission and supervision of a parent or legal
-              guardian who agrees to these Terms. You must be legally permitted to
-              use the Service and not barred by applicable trade restrictions.
+              {{pages.termsOfUse.you_must_be_at_least_16_years_old_to_use_the_fitroom_app}}
             </p>
             <p>
-              The Service is not designed for children under 16. A parent or
-              guardian who believes a younger child created an account should
-              contact us for permanent deletion.
+              {{pages.termsOfUse.the_service_is_not_designed_for_children_under_16_a_pare}}
             </p>
           </section>
 
           <section class="legal-section" id="accounts">
-            <h2>4. Accounts and security</h2>
+            <h2>{{pages.termsOfUse.4_accounts_and_security}}</h2>
             <p>
-              You may sign in by email, Sign in with Apple, or Google. You agree
-              to provide accurate information, keep your sign-in method secure,
-              and promptly tell us about suspected unauthorized use. You are
-              responsible for activity under your account unless caused by our
-              failure to use reasonable security.
+              {{pages.termsOfUse.you_may_sign_in_by_email_sign_in_with_apple_or_google_yo}}
             </p>
             <p>
-              You may delete your account in the app under
-              <strong>Profile → Account → Delete account</strong>. Deletion is
-              permanent and cannot be undone. It removes the account and
-              associated personal data except for limited records that must be
-              retained by law or for compelling fraud, security, or dispute
-              purposes, as explained in the Privacy Policy.
+              {{pages.termsOfUse.you_may_delete_your_account_in_the_app_under}}
+              <strong>{{common.profile_account_delete_account}}</strong>{{pages.termsOfUse.deletion_is_permanent_and_cannot_be_undone_it_removes_th}}
             </p>
             <div class="legal-note">
-              <strong>Deleting the account does not cancel store billing</strong>
-              Apple and Google control auto-renewable subscription billing. Cancel
-              the subscription in Profile → Manage subscriptions or in your store
-              account before deleting your account if you do not want it to renew.
-              You may still delete immediately without canceling first.
+              <strong>{{pages.termsOfUse.deleting_the_account_does_not_cancel_store_billing}}</strong>
+              {{pages.termsOfUse.apple_and_google_control_auto_renewable_subscription_bil}}
             </div>
           </section>
 
           <section class="legal-section" id="health">
-            <h2>5. Health and nutrition information</h2>
+            <h2>{{pages.termsOfUse.5_health_and_nutrition_information}}</h2>
             <p>
-              The Fitroom App provides general wellness, nutrition, and fitness
-              information for informational purposes only. It is not a medical
-              device or healthcare provider, and it does not provide medical,
-              nutritional, psychiatric, diagnosis, treatment, or emergency advice.
-              The Fitroom App is not a substitute for a physician, registered dietitian,
-              or other qualified professional.
+              {{pages.termsOfUse.the_fitroom_app_provides_general_wellness_nutrition_and}}
             </p>
             <p>
-              Calculations use information you provide, commonly used nutrition
-              formulas, data returned by AI systems, and, if you allow it, selected
-              activity data from Apple Health or Health Connect. Individual needs
-              vary, and estimates can be inaccurate. Consult a qualified
-              professional before making a significant diet, weight, exercise, or
-              medical decision-especially if you are pregnant, under 18, have an
-              eating disorder or history of one, take medication, or have a health
-              condition. Seek emergency help through local emergency services.
+              {{pages.termsOfUse.calculations_use_information_you_provide_commonly_used_n}}
             </p>
             <p>
-              Health access is optional and read-only. The current Fitroom App feature
-              reads only daily Active Energy Burned totals even though the system
-              health authorization screen may display additional requested health
-              categories. You control each permission in Apple Health or Health
-              Connect and can use the Fitroom App without connecting health data.
+              {{pages.termsOfUse.health_access_is_optional_and_read_only_the_current_fitr}}
             </p>
           </section>
 
           <section class="legal-section" id="ai">
-            <h2>6. AI meal analysis</h2>
+            <h2>{{pages.termsOfUse.6_ai_meal_analysis}}</h2>
             <p>
-              When you submit a photo or text to an AI feature, you ask the Fitroom App to
-              transmit that content and relevant meal context to our AI processing
-              providers so they can return an analysis. The Privacy Policy explains
-              this flow and the choices available to you.
+              {{pages.termsOfUse.when_you_submit_a_photo_or_text_to_an_ai_feature_you_ask}}
             </p>
             <p>
-              AI results are probabilistic estimates. Fitroom does not guarantee
-              that a food, ingredient, portion, allergen, calorie, macro, or other
-              nutrition result is correct, complete, safe, or suitable for you.
-              Review and edit every result before relying on it. Do not use an AI
-              result to determine whether a food is free of an allergen or to make
-              a medical decision.
+              {{pages.termsOfUse.ai_results_are_probabilistic_estimates_fitroom_does_not}}
             </p>
             <p>
-              You must have the right to submit the content. Avoid including faces,
-              identification documents, private medical records, or unrelated
-              personal information in a meal image or prompt.
+              {{pages.termsOfUse.you_must_have_the_right_to_submit_the_content_avoid_incl}}
             </p>
           </section>
 
           <section class="legal-section" id="subscriptions">
-            <h2>7. Fitroom Pro subscriptions, trials, cancellation, and refunds</h2>
-            <h3>Purchase and renewal</h3>
+            <h2>{{pages.termsOfUse.7_fitroom_pro_subscriptions_trials_cancellation_and_refu}}</h2>
+            <h3>{{pages.termsOfUse.purchase_and_renewal}}</h3>
             <p>
-              Fitroom Pro is sold as an auto-renewable in-app subscription through
-              the Apple App Store or Google Play. Available terms may include
-              monthly, yearly, or other periods. Before purchase, the in-app
-              paywall displays the selected plan, features, trial (if any), renewal
-              period, and localized price. The store confirmation sheet is the
-              final purchase summary.
+              {{pages.termsOfUse.fitroom_pro_is_sold_as_an_auto_renewable_in_app_subscrip}}
             </p>
             <p>
-              Payment is charged to your Apple Account or Google Play account when
-              you confirm. Unless you cancel, the subscription automatically
-              renews for the same period at the price shown by the store, subject
-              to store-approved price changes. The store may charge applicable
-              taxes. Fitroom does not receive your full payment-card details.
+              {{pages.termsOfUse.payment_is_charged_to_your_apple_account_or_google_play}}
             </p>
 
-            <h3>Free trials and promotions</h3>
+            <h3>{{pages.termsOfUse.free_trials_and_promotions}}</h3>
             <p>
-              A free or discounted trial is available only when the store confirms
-              eligibility. Unless canceled before the trial ends, it converts to a
-              paid auto-renewable subscription at the price shown before purchase.
-              Apple advises canceling a free or discounted trial at least 24 hours
-              before it ends if you do not want it to renew. Promo, referral, or
-              reward access may have separate eligibility, duration, and
-              redemption limits displayed when offered.
+              {{pages.termsOfUse.a_free_or_discounted_trial_is_available_only_when_the_st}}
             </p>
 
-            <h3>Cancellation and plan changes</h3>
+            <h3>{{pages.termsOfUse.cancellation_and_plan_changes}}</h3>
             <p>
-              Cancel at any time through <strong>Profile → Manage subscriptions</strong>,
-              iOS Settings → your name → Subscriptions, the App Store subscription
-              page, or the corresponding Google Play subscription settings.
-              Cancellation stops the next renewal; unless store rules require
-              otherwise, access continues through the paid period and no prorated
-              refund is issued merely because you canceled.
+              {{pages.termsOfUse.cancel_at_any_time_through}} <strong>{{pages.termsOfUse.profile_manage_subscriptions}}</strong>{{pages.termsOfUse.ios_settings_your_name_subscriptions_the_app_store_subsc}}
             </p>
             <p>
-              Upgrades, downgrades, and billing adjustments take effect according
-              to the timing and price shown by Apple or Google before confirmation.
-              Restoring purchases does not create a new charge and requires the
-              store account that made the purchase.
+              {{pages.termsOfUse.upgrades_downgrades_and_billing_adjustments_take_effect}}
             </p>
 
-            <h3>Refunds</h3>
+            <h3>{{pages.termsOfUse.refunds}}</h3>
             <p>
-              Apple or Google processes store purchases and decides refund requests
-              under its rules and applicable law. For an Apple purchase, request a
-              refund at <a href="https://reportaproblem.apple.com/" target="_blank" rel="noopener noreferrer">reportaproblem.apple.com</a>.
-              For a Google Play purchase, use Google Play purchase support. Fitroom
-              may assist with technical information but cannot guarantee or issue
-              a store-controlled refund.
+              {{pages.termsOfUse.apple_or_google_processes_store_purchases_and_decides_re}} <a href="https://reportaproblem.apple.com/" target="_blank" rel="noopener noreferrer">{{pages.termsOfUse.reportaproblem_apple_com}}</a>{{pages.termsOfUse.for_a_google_play_purchase_use_google_play_purchase_supp}}
             </p>
           </section>
 
           <section class="legal-section" id="content">
-            <h2>8. Your content and feedback</h2>
+            <h2>{{pages.termsOfUse.8_your_content_and_feedback}}</h2>
             <p>
-              You retain ownership of meal photos, prompts, profile information,
-              and other content you submit ("User Content"). You grant Fitroom a
-              limited, worldwide, non-exclusive license to host, copy, transmit,
-              adapt, and process User Content only as needed to operate, secure,
-              support, and improve the Service for you, including through the
-              processors disclosed in the Privacy Policy. This license ends when
-              the content and account are deleted, except where limited retention
-              is legally required.
+              {{pages.termsOfUse.you_retain_ownership_of_meal_photos_prompts_profile_info}}
             </p>
             <p>
-              If you voluntarily send product feedback or feature suggestions, you
-              allow us to use them without compensation or confidentiality
-              obligation, provided we do not publicly identify you without
-              permission.
+              {{pages.termsOfUse.if_you_voluntarily_send_product_feedback_or_feature_sugg}}
             </p>
           </section>
 
           <section class="legal-section" id="license">
-            <h2>9. Fitroom license and intellectual property</h2>
+            <h2>{{pages.termsOfUse.9_fitroom_license_and_intellectual_property}}</h2>
             <p>
-              Subject to these Terms, Fitroom grants you a personal, limited,
-              revocable, non-exclusive, non-transferable, non-sublicensable license
-              to install and use the app on devices you own or control for your
-              personal, non-commercial use, subject to the applicable app store's
-              usage rules. Family Sharing or similar store features apply only to
-              the extent allowed by the store and subscription configuration.
+              {{pages.termsOfUse.subject_to_these_terms_fitroom_grants_you_a_personal_lim}}
             </p>
             <p>
-              Fitroom and its licensors own the Service, software, design,
-              trademarks, branding, algorithms, and other materials, excluding
-              User Content. Open-source components remain governed by their own
-              licenses. No rights are granted except those expressly stated here.
+              {{pages.termsOfUse.fitroom_and_its_licensors_own_the_service_software_desig}}
             </p>
           </section>
 
           <section class="legal-section" id="conduct">
-            <h2>10. Acceptable use</h2>
-            <p>You must not:</p>
+            <h2>{{pages.termsOfUse.10_acceptable_use}}</h2>
+            <p>{{pages.termsOfUse.you_must_not}}</p>
             <ul>
-              <li>use the Service unlawfully, fraudulently, or to harm another person;</li>
-              <li>submit content you do not have the right to use, or malicious, illegal, or privacy-invasive content;</li>
-              <li>probe, bypass, disable, or interfere with security, authentication, rate limits, entitlements, or service infrastructure;</li>
-              <li>reverse engineer, copy, scrape, or extract the Service except where applicable law expressly permits it;</li>
-              <li>use automated means to create accounts, abuse AI resources, redeem codes, or access the Service at unreasonable volume;</li>
-              <li>resell, sublicense, or commercially exploit the Service without written permission; or</li>
-              <li>misrepresent your identity or impersonate another person.</li>
+              <li>{{pages.termsOfUse.use_the_service_unlawfully_fraudulently_or_to_harm_anoth}}</li>
+              <li>{{pages.termsOfUse.submit_content_you_do_not_have_the_right_to_use_or_malic}}</li>
+              <li>{{pages.termsOfUse.probe_bypass_disable_or_interfere_with_security_authenti}}</li>
+              <li>{{pages.termsOfUse.reverse_engineer_copy_scrape_or_extract_the_service_exce}}</li>
+              <li>{{pages.termsOfUse.use_automated_means_to_create_accounts_abuse_ai_resource}}</li>
+              <li>{{pages.termsOfUse.resell_sublicense_or_commercially_exploit_the_service_wi}}</li>
+              <li>{{pages.termsOfUse.misrepresent_your_identity_or_impersonate_another_person}}</li>
             </ul>
             <p>
-              We may investigate suspected abuse and take proportionate action,
-              including limiting a feature or suspending access. We will not use
-              this section to prevent lawful consumer or interoperability rights.
+              {{pages.termsOfUse.we_may_investigate_suspected_abuse_and_take_proportionat}}
             </p>
           </section>
 
           <section class="legal-section" id="third-party">
-            <h2>11. Third-party services</h2>
+            <h2>{{pages.termsOfUse.11_third_party_services}}</h2>
             <p>
-              The Service relies on third-party infrastructure, identity,
-              analytics, diagnostic, AI processing, app-store, subscription,
-              health integration, hosting, and communications providers. Their
-              availability and independent services are governed by their own
-              terms. You must comply with third-party terms that apply to your
-              device, store account, sign-in method, connected health service, or
-              purchase.
+              {{pages.termsOfUse.the_service_relies_on_third_party_infrastructure_identit}}
             </p>
             <p>
-              Links to third-party websites are provided for convenience. Fitroom
-              does not control their content or practices, but remains responsible
-              for selecting and managing processors as required by law and the
-              Privacy Policy.
+              {{pages.termsOfUse.links_to_third_party_websites_are_provided_for_convenien}}
             </p>
           </section>
 
           <section class="legal-section" id="availability">
-            <h2>12. Availability, changes, suspension, and termination</h2>
+            <h2>{{pages.termsOfUse.12_availability_changes_suspension_and_termination}}</h2>
             <p>
-              We may maintain, update, replace, or discontinue features to improve
-              safety, legal compliance, or product quality. We do not promise that
-              every feature will be available at all times or in every country,
-              device, or app version. We will not remove paid access during an
-              active period without providing the remedy required by applicable
-              law or store rules.
+              {{pages.termsOfUse.we_may_maintain_update_replace_or_discontinue_features_t}}
             </p>
             <p>
-              You may stop using the Service or delete your account at any time.
-              We may suspend or terminate access if you materially breach these
-              Terms, create security or legal risk, or abuse the Service. Where
-              reasonable, we will provide notice and an opportunity to correct the
-              issue. Sections that by nature should survive-such as ownership,
-              disclaimers, liability limits, disputes, and required record
-              retention-continue after termination.
+              {{pages.termsOfUse.you_may_stop_using_the_service_or_delete_your_account_at}}
             </p>
           </section>
 
           <section class="legal-section" id="disclaimers">
-            <h2>13. Disclaimers</h2>
+            <h2>{{pages.termsOfUse.13_disclaimers}}</h2>
             <p>
-              To the maximum extent permitted by law, the Service is provided "as
-              is" and "as available." Fitroom disclaims implied warranties of
-              merchantability, fitness for a particular purpose, title, and
-              non-infringement. We do not warrant uninterrupted operation or that
-              nutrition, AI, health, progress, or reminder data will be accurate,
-              complete, current, or suitable for a particular person.
+              {{pages.termsOfUse.to_the_maximum_extent_permitted_by_law_the_service_is_pr}}
             </p>
             <p>
-              Nothing in these Terms excludes a warranty or consumer right that
-              cannot lawfully be excluded. Your statutory rights may provide
-              additional remedies.
+              {{pages.termsOfUse.nothing_in_these_terms_excludes_a_warranty_or_consumer_r}}
             </p>
           </section>
 
           <section class="legal-section" id="liability">
-            <h2>14. Limitation of liability</h2>
+            <h2>{{pages.termsOfUse.14_limitation_of_liability}}</h2>
             <p>
-              To the fullest extent permitted by law, Fitroom and its affiliates,
-              officers, employees, and licensors will not be liable for indirect,
-              incidental, special, exemplary, punitive, or consequential damages,
-              or loss of data, profits, goodwill, or business opportunity, arising
-              from the Service. Fitroom's aggregate liability arising from the
-              Service will not exceed the greater of the amount you paid to
-              Fitroom through the applicable store during the 12 months before the
-              claim or USD 50.
+              {{pages.termsOfUse.to_the_fullest_extent_permitted_by_law_fitroom_and_its_a}}
             </p>
             <p>
-              These limits do not apply to liability that cannot lawfully be
-              limited, including liability for fraud, willful misconduct, death or
-              personal injury caused by negligence where applicable, or mandatory
-              consumer rights.
+              {{pages.termsOfUse.these_limits_do_not_apply_to_liability_that_cannot_lawfu}}
             </p>
           </section>
 
           <section class="legal-section" id="law">
-            <h2>15. Governing law and disputes</h2>
+            <h2>{{pages.termsOfUse.15_governing_law_and_disputes}}</h2>
             <p>
-              These Terms are governed by the laws of Georgia (the country),
-              without regard to conflict-of-law principles. Courts located in
-              Tbilisi, Georgia will have jurisdiction, except that this does not
-              deprive you of mandatory consumer protections or the right to bring
-              a claim in another forum when the law where you live requires it.
+              {{pages.termsOfUse.these_terms_are_governed_by_the_laws_of_georgia_the_coun}}
             </p>
             <p>
-              Before filing a claim, please contact us and describe the issue so
-              we can try to resolve it informally. Either party may seek urgent
-              injunctive relief where appropriate.
+              {{pages.termsOfUse.before_filing_a_claim_please_contact_us_and_describe_the}}
             </p>
           </section>
 
           <section class="legal-section" id="apple">
-            <h2>16. Additional terms for Apple users</h2>
+            <h2>{{pages.termsOfUse.16_additional_terms_for_apple_users}}</h2>
             <p>
-              If you downloaded the Fitroom App from Apple's App Store, the following
-              terms apply and control if they conflict with another part of these
-              Terms:
+              {{pages.termsOfUse.if_you_downloaded_the_fitroom_app_from_apples_app_store}}
             </p>
             <ol>
-              <li>These Terms are between you and Fitroom, not Apple. Fitroom, not Apple, is solely responsible for the Fitroom App and its content.</li>
-              <li>Your license is limited to a non-transferable right to use the Fitroom App on Apple-branded products you own or control, as permitted by the App Store Usage Rules, including applicable Family Sharing or volume-purchase rules.</li>
-              <li>Apple has no obligation to provide maintenance or support. Contact Fitroom for support.</li>
-              <li>If the Fitroom App fails to conform to an applicable warranty, you may notify Apple, and Apple may refund the purchase price, if any, as required by its rules. To the maximum extent permitted by law, Apple has no other warranty obligation.</li>
-              <li>Fitroom, not Apple, is responsible for addressing claims relating to the Fitroom App, including product liability, legal or regulatory compliance, consumer-protection, and privacy claims.</li>
-              <li>Fitroom, not Apple, is responsible for investigating, defending, settling, and discharging any third-party intellectual-property infringement claim relating to the Fitroom App.</li>
-              <li>You represent that you are not located in a country subject to a United States government embargo or designated as supporting terrorism, and that you are not listed on a United States government prohibited or restricted party list.</li>
-              <li>You must comply with applicable third-party agreement terms when using the Fitroom App.</li>
-              <li>Apple and its subsidiaries are third-party beneficiaries of these Terms and may enforce these Terms against you upon your acceptance.</li>
+              <li>{{pages.termsOfUse.these_terms_are_between_you_and_fitroom_not_apple_fitroo}}</li>
+              <li>{{pages.termsOfUse.your_license_is_limited_to_a_non_transferable_right_to_u}}</li>
+              <li>{{pages.termsOfUse.apple_has_no_obligation_to_provide_maintenance_or_suppor}}</li>
+              <li>{{pages.termsOfUse.if_the_fitroom_app_fails_to_conform_to_an_applicable_war}}</li>
+              <li>{{pages.termsOfUse.fitroom_not_apple_is_responsible_for_addressing_claims_r}}</li>
+              <li>{{pages.termsOfUse.fitroom_not_apple_is_responsible_for_investigating_defen}}</li>
+              <li>{{pages.termsOfUse.you_represent_that_you_are_not_located_in_a_country_subj}}</li>
+              <li>{{pages.termsOfUse.you_must_comply_with_applicable_third_party_agreement_te}}</li>
+              <li>{{pages.termsOfUse.apple_and_its_subsidiaries_are_third_party_beneficiaries}}</li>
             </ol>
           </section>
 
           <section class="legal-section" id="contact">
-            <h2>17. Changes, notices, and contact</h2>
+            <h2>{{pages.termsOfUse.17_changes_notices_and_contact}}</h2>
             <p>
-              We may update these Terms. We will post the revised version here and
-              update the date above. If a change materially reduces your rights,
-              we will provide additional notice where required. Continued use
-              after the effective date means you accept the revised Terms; if you
-              disagree, stop using the Service and cancel any future renewal.
+              {{pages.termsOfUse.we_may_update_these_terms_we_will_post_the_revised_versi}}
             </p>
             <p>
-              If any provision is unenforceable, it will be limited to the minimum
-              extent necessary and the rest will remain effective. Our failure to
-              enforce a provision is not a waiver. You may not assign these Terms
-              without our consent; we may assign them in connection with a merger,
-              acquisition, reorganization, or sale of the Service, subject to
-              applicable law.
+              {{pages.termsOfUse.if_any_provision_is_unenforceable_it_will_be_limited_to}}
             </p>
             <div class="legal-contact">
-              <strong>Fitroom</strong>
-              <span>24 Alexander Kazbegi Avenue</span>
-              <span>Tbilisi, Georgia</span>
-              <a href="mailto:contact@fitroom.ge">contact@fitroom.ge</a>
+              <strong>{{common.fitroom}}</strong>
+              <span>{{common.24_alexander_kazbegi_avenue}}</span>
+              <span>{{common.tbilisi_georgia}}</span>
+              <a href="mailto:contact@fitroom.ge">{{common.contact_fitroom_ge}}</a>
             </div>
           </section>
         </article>
@@ -427,21 +295,21 @@
     <footer class="legal-footer">
       <div class="legal-footer-main">
         <div class="legal-footer-brand">
-          <img src="/assets/fitroom-logo-light.png" alt="Fitroom" />
-          <p>Snap your food. We'll do the rest.</p>
+          <img src="/assets/fitroom-logo-light.png" alt="{{common.fitroom}}" />
+          <p>{{common.snap_your_food_well_do_the_rest}}</p>
         </div>
         <div class="legal-footer-links">
-          <nav class="legal-footer-navigation" aria-label="Legal footer navigation">
-            <a href="/">Home</a>
-            <a href="/terms-and-use/" aria-current="page">Terms of Use</a>
-            <a href="/privacy-policy/">Privacy Policy</a>
+          <nav class="legal-footer-navigation" aria-label="{{common.legal_footer_navigation}}">
+            <a href="{{routes.home}}">{{common.home}}</a>
+            <a href="{{routes.termsOfUse}}" aria-current="page">{{common.terms_of_use}}</a>
+            <a href="{{routes.privacyPolicy}}">{{common.privacy_policy}}</a>
           </nav>
-          <nav class="legal-footer-socials" aria-label="Fitroom on social media">
+          <nav class="legal-footer-socials" aria-label="{{common.fitroom_on_social_media}}">
             <a
               href="https://www.facebook.com/fitroom.ge"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Fitroom on Facebook"
+              aria-label="{{common.fitroom_on_facebook}}"
             >
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M14.25 8.5V6.75c0-.84.56-1.05.96-1.05h2.45V2.12L14.28 2C10.94 2 9.2 3.99 9.2 7.31V8.5H6v4h3.2V22h4.05v-9.5h3.69l.57-4h-4.26Z" />
@@ -451,7 +319,7 @@
               href="https://www.instagram.com/fitroom.ge/"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Fitroom on Instagram"
+              aria-label="{{common.fitroom_on_instagram}}"
             >
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <rect x="3" y="3" width="18" height="18" rx="5" />
@@ -463,7 +331,7 @@
               href="https://www.tiktok.com/@fitroom.ge"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Fitroom on TikTok"
+              aria-label="{{common.fitroom_on_tiktok}}"
             >
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M14.2 2h3.22c.2 1.72 1.16 3.27 2.58 4.2v3.27a8.1 8.1 0 0 1-2.76-.65v6.55A6.63 6.63 0 1 1 11.5 8.8v3.35a3.35 3.35 0 1 0 2.7 3.28V2Z" />
@@ -473,7 +341,7 @@
               href="https://x.com/fitroomge"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Fitroom on X"
+              aria-label="{{common.fitroom_on_x}}"
             >
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M18.9 2H22l-6.77 7.74L23.2 22h-6.24l-4.89-6.39L6.48 22H3.36l7.26-8.3L2.98 2h6.4l4.42 5.84L18.9 2Zm-1.1 17.84h1.73L8.44 4.05H6.58L17.8 19.84Z" />
@@ -483,7 +351,7 @@
               href="https://www.linkedin.com/company/74479027/admin/dashboard/"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Fitroom on LinkedIn"
+              aria-label="{{common.fitroom_on_linkedin}}"
             >
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M5.17 7.75H1.68V22h3.49V7.75ZM3.43 2A2.03 2.03 0 1 0 3.43 6.06 2.03 2.03 0 0 0 3.43 2ZM22 13.83c0-4.29-2.29-6.28-5.35-6.28-2.46 0-3.57 1.36-4.19 2.31V7.75H8.97V22h3.49v-7.06c0-1.86.35-3.66 2.66-3.66 2.27 0 2.3 2.13 2.3 3.78V22H22v-8.17Z" />
@@ -493,16 +361,16 @@
         </div>
       </div>
       <div class="legal-footer-bottom">
-        <span>© 2026 Fitroom. All rights reserved.</span>
-        <nav aria-label="Fitroom website and contact">
+        <span>{{common.2026_fitroom_all_rights_reserved}}</span>
+        <nav aria-label="{{common.fitroom_website_and_contact}}">
           <a
             href="https://fitroom.ge"
             target="_blank"
             rel="noopener noreferrer"
-            >fitroom.ge <span aria-hidden="true">↗</span></a
+            >{{common.fitroom_ge}} <span aria-hidden="true">↗</span></a
           >
           <a href="mailto:contact@fitroom.ge"
-            >Contact <span aria-hidden="true">↗</span></a
+            >{{common.contact}} <span aria-hidden="true">↗</span></a
           >
         </nav>
       </div>

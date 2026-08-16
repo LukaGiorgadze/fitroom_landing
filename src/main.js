@@ -23,6 +23,12 @@ if (
   submitButton &&
   successMessage
 ) {
+  const invalidEmailMessage = form.dataset.invalidMessage;
+  const loadingLabel = form.dataset.loadingLabel;
+  const submissionErrorMessage = form.dataset.errorMessage;
+  const previewFallbackAlt =
+    document.querySelector("[data-preview-fallback-alt]")?.dataset
+      .previewFallbackAlt || "";
   const joinedStorageKey = "fitroom.waitlist.joinedAt";
   let autoOpenTimer;
   let lastFocusedElement;
@@ -138,7 +144,7 @@ if (
     setEmailError(false);
 
     if (!emailInput.checkValidity()) {
-      setStatus("Please enter a valid email address.", "error");
+      setStatus(invalidEmailMessage, "error");
       setEmailError(true);
       emailInput.focus();
       return;
@@ -146,7 +152,7 @@ if (
 
     const originalButtonLabel = submitButton.textContent;
     submitButton.disabled = true;
-    submitButton.textContent = "Joining…";
+    submitButton.textContent = loadingLabel;
 
     try {
       const response = await fetch("/api/waitlist", {
@@ -160,7 +166,7 @@ if (
       const result = await response.json().catch(() => ({}));
 
       if (!response.ok) {
-        throw new Error(result.error || "Unable to join right now.");
+        throw new Error(submissionErrorMessage);
       }
 
       rememberWaitlistSignup();
@@ -173,7 +179,7 @@ if (
       submitButton.disabled = false;
       submitButton.textContent = originalButtonLabel;
       setEmailError(true);
-      setStatus(error.message || "Unable to join right now. Please try again.", "error");
+      setStatus(error.message || submissionErrorMessage, "error");
     }
   });
 
@@ -199,7 +205,7 @@ if (
     window.clearTimeout(previewSwapTimer);
     const transitionId = ++previewTransitionId;
     const nextSource = thumbnail.getAttribute("src");
-    const nextAlt = thumbnail.getAttribute("alt") || "Fitroom app preview";
+    const nextAlt = thumbnail.getAttribute("alt") || previewFallbackAlt;
 
     previewThumbnails.forEach((item) => {
       const isSelected = item === thumbnail;

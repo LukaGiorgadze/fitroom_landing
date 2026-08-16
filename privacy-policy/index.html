@@ -1,432 +1,329 @@
 <!doctype html>
-<html lang="en">
+<html lang="{{locale}}">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#f6f7f9" />
     <meta
       name="description"
-      content="Privacy Policy for Fitroom: Calorie Tracker, the Fitroom App, and related services."
+      content="{{pages.privacyPolicy.privacy_policy_for_fitroom_calorie_tracker_the_fitroom_a}}"
     />
     <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="{{seo.canonical}}" />
+    <link rel="alternate" hreflang="en" href="{{alternates.en}}" />
+    <link rel="alternate" hreflang="ka" href="{{alternates.ka}}" />
+    <link rel="alternate" hreflang="x-default" href="{{alternates.en}}" />
+    <meta property="og:url" content="{{seo.canonical}}" />
+    <meta property="og:locale" content="{{seo.ogLocale}}" />
+    <meta property="og:locale:alternate" content="{{seo.alternateOgLocale}}" />
     <link rel="icon" type="image/png" href="/assets/fitroom-app-dark.png" />
     <link rel="apple-touch-icon" href="/assets/fitroom-app-dark.png" />
     <link rel="stylesheet" href="/src/legal.css" />
-    <title>Privacy Policy - Fitroom: Calorie Tracker</title>
+    <link rel="stylesheet" href="/src/i18n.css" />
+    <script type="module" src="/src/i18n.js"></script>
+    <title>{{pages.privacyPolicy.privacy_policy_fitroom_calorie_tracker}}</title>
   </head>
-  <body>
+  <body data-locale="{{locale}}">
     <header class="legal-header">
-      <a class="legal-brand" href="/" aria-label="Fitroom Calorie Tracker home">
+      <a class="legal-brand" href="{{routes.home}}" aria-label="{{common.fitroom_calorie_tracker_home}}">
         <img src="/assets/fitroom-app-dark.png" alt="" />
-        <span>Fitroom: Calorie Tracker</span>
+        <span>{{common.fitroom_calorie_tracker}}</span>
       </a>
-      <a class="legal-home-link" href="/">Back to home</a>
+      <div class="legal-header-actions">
+        <nav class="page-language-switcher" aria-label="{{common.language_selector}}">
+          <a
+            href="{{switchRoutes.en}}"
+            lang="en"
+            hreflang="en"
+            data-language="en"
+            data-language-switch
+            aria-label="{{common.view_this_page_in_english}}"
+          >{{common.en}}</a>
+          <a
+            href="{{switchRoutes.ka}}"
+            lang="ka"
+            hreflang="ka"
+            data-language="ka"
+            data-language-switch
+            aria-label="{{common.view_this_page_in_georgian}}"
+          >{{common.ka}}</a>
+        </nav>
+        <a class="legal-home-link" href="{{routes.home}}">{{common.back_to_home}}</a>
+      </div>
     </header>
 
     <main>
       <section class="legal-hero" aria-labelledby="page-title">
-        <p class="legal-eyebrow">Fitroom legal</p>
-        <h1 id="page-title">Privacy Policy</h1>
+        <p class="legal-eyebrow">{{common.fitroom_legal}}</p>
+        <h1 id="page-title">{{common.privacy_policy}}</h1>
         <p class="legal-deck">
-          This policy explains what Fitroom collects, why we use it, when it is
-          shared, the device permissions we request, and how you can control or
-          permanently delete your data.
+          {{pages.privacyPolicy.this_policy_explains_what_fitroom_collects_why_we_use_it}}
         </p>
         <div class="legal-meta">
-          <span>Effective: August 16, 2026</span>
-          <span>Last updated: August 16, 2026</span>
+          <span>{{common.effective_august_16_2026}}</span>
+          <span>{{common.last_updated_august_16_2026}}</span>
         </div>
       </section>
 
       <div class="legal-layout">
         <article class="legal-document">
           <section class="legal-section" id="scope">
-            <h2>1. Scope and operator</h2>
+            <h2>{{pages.privacyPolicy.1_scope_and_operator}}</h2>
             <p>
-              Fitroom ("Fitroom," "we," "our," or "us") provides the mobile
-              application named <strong>Fitroom: Calorie Tracker</strong> (the
-              "Fitroom App"), this website, and related services (together, the
-              "Service"). Fitroom operates from Tbilisi, Georgia. This Privacy
-              Policy applies to information processed
-              through the Service; it does not replace the privacy terms of Apple,
-              Google, or other services you independently choose to use.
+              {{pages.privacyPolicy.fitroom_fitroom_we_our_or_us_provides_the_mobile_applica}} <strong>{{common.fitroom_calorie_tracker}}</strong> {{pages.privacyPolicy.the_fitroom_app_this_website_and_related_services_togeth}}
             </p>
             <p>
-              The Fitroom App is a nutrition and fitness tool, not a medical service. We
-              treat health, nutrition, body measurement, and meal information as
-              sensitive data and use it only to provide and improve health and
-              fitness functionality for you. We do not use health data for
-              advertising, marketing profiles, data brokerage, or eligibility
-              decisions.
+              {{pages.privacyPolicy.the_fitroom_app_is_a_nutrition_and_fitness_tool_not_a_me}}
             </p>
           </section>
 
           <section class="legal-section" id="collect">
-            <h2>2. Data we collect</h2>
+            <h2>{{pages.privacyPolicy.2_data_we_collect}}</h2>
             <p>
-              We collect information you provide, information generated when you
-              use the Service, limited device and diagnostic information, and
-              information received from services you connect. The categories are
-              described below.
+              {{pages.privacyPolicy.we_collect_information_you_provide_information_generated}}
             </p>
 
             <div class="legal-table-wrap">
               <table class="legal-table">
                 <thead>
                   <tr>
-                    <th>Category</th>
-                    <th>Examples</th>
-                    <th>How and why</th>
+                    <th>{{pages.privacyPolicy.category}}</th>
+                    <th>{{pages.privacyPolicy.examples}}</th>
+                    <th>{{pages.privacyPolicy.how_and_why}}</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Account and identity</td>
-                    <td>Email address, account ID, sign-in provider, and name if supplied by you or your sign-in provider.</td>
-                    <td>Collected when you create or access an account using email, Sign in with Apple, or Google; used to authenticate, sync, support, and secure your account.</td>
+                    <td>{{pages.privacyPolicy.account_and_identity}}</td>
+                    <td>{{pages.privacyPolicy.email_address_account_id_sign_in_provider_and_name_if_su}}</td>
+                    <td>{{pages.privacyPolicy.collected_when_you_create_or_access_an_account_using_ema}}</td>
                   </tr>
                   <tr>
-                    <td>Profile and goals</td>
-                    <td>Age or birth date, sex, height, weight and weight history, activity level, dietary preferences, target weight, goal pace, calorie and macro targets, onboarding answers, preferences, and referral or promo information.</td>
-                    <td>Provided by you and used to calculate and personalize nutrition goals, display progress, and operate rewards.</td>
+                    <td>{{pages.privacyPolicy.profile_and_goals}}</td>
+                    <td>{{pages.privacyPolicy.age_or_birth_date_sex_height_weight_and_weight_history_a}}</td>
+                    <td>{{pages.privacyPolicy.provided_by_you_and_used_to_calculate_and_personalize_nu}}</td>
                   </tr>
                   <tr>
-                    <td>Meals and nutrition</td>
-                    <td>Meal photos, typed descriptions and correction prompts, meal times, foods, portions, calories, macros, nutrition estimates, analysis results, and feedback.</td>
-                    <td>Provided or generated when you log a meal; used to analyze meals, maintain your journal, calculate daily totals, and improve result quality.</td>
+                    <td>{{pages.privacyPolicy.meals_and_nutrition}}</td>
+                    <td>{{pages.privacyPolicy.meal_photos_typed_descriptions_and_correction_prompts_me}}</td>
+                    <td>{{pages.privacyPolicy.provided_or_generated_when_you_log_a_meal_used_to_analyz}}</td>
                   </tr>
                   <tr>
-                    <td>Connected health data</td>
-                    <td>Daily Active Energy Burned total, date, source (Apple Health or Health Connect), and time zone.</td>
-                    <td>Read only after your optional system permission and synced to your Fitroom account to adjust or explain daily calorie progress.</td>
+                    <td>{{pages.privacyPolicy.connected_health_data}}</td>
+                    <td>{{pages.privacyPolicy.daily_active_energy_burned_total_date_source_apple_healt}}</td>
+                    <td>{{pages.privacyPolicy.read_only_after_your_optional_system_permission_and_sync}}</td>
                   </tr>
                   <tr>
-                    <td>Subscriptions and purchases</td>
-                    <td>Store, product and entitlement identifiers, transaction identifiers, trial and renewal status, period end, price, currency, refunds, chargebacks, and restore events.</td>
-                    <td>Received from app stores and subscription administration providers to activate Fitroom Pro, restore purchases, manage plan changes, prevent fraud, and keep required financial records. We do not receive your full card number.</td>
+                    <td>{{pages.privacyPolicy.subscriptions_and_purchases}}</td>
+                    <td>{{pages.privacyPolicy.store_product_and_entitlement_identifiers_transaction_id}}</td>
+                    <td>{{pages.privacyPolicy.received_from_app_stores_and_subscription_administration}}</td>
                   </tr>
                   <tr>
-                    <td>Usage and diagnostics</td>
-                    <td>App interactions, app version, device and operating-system details, language, coarse network information, IP address in service logs, performance traces, crash reports, error context, and a Fitroom account ID attached to crash reports after sign-in.</td>
-                    <td>Collected automatically by our infrastructure, analytics, and diagnostic services to operate, protect, troubleshoot, and improve the Service.</td>
+                    <td>{{pages.privacyPolicy.usage_and_diagnostics}}</td>
+                    <td>{{pages.privacyPolicy.app_interactions_app_version_device_and_operating_system}}</td>
+                    <td>{{pages.privacyPolicy.collected_automatically_by_our_infrastructure_analytics}}</td>
                   </tr>
                   <tr>
-                    <td>Notifications</td>
-                    <td>Permission state, reminder preferences, scheduled reminder settings, and a device messaging token handled by our notification delivery provider and the operating system.</td>
-                    <td>Used only to deliver reminders and service notifications you allow.</td>
+                    <td>{{common.notifications}}</td>
+                    <td>{{pages.privacyPolicy.permission_state_reminder_preferences_scheduled_reminder}}</td>
+                    <td>{{pages.privacyPolicy.used_only_to_deliver_reminders_and_service_notifications}}</td>
                   </tr>
                   <tr>
-                    <td>Website and support</td>
-                    <td>Waitlist email, signup source, a local waitlist-joined timestamp, messages you send us, and related request metadata.</td>
-                    <td>Collected when you join the website waitlist or contact us; used to send launch information, respond, and protect the website.</td>
+                    <td>{{pages.privacyPolicy.website_and_support}}</td>
+                    <td>{{pages.privacyPolicy.waitlist_email_signup_source_a_local_waitlist_joined_tim}}</td>
+                    <td>{{pages.privacyPolicy.collected_when_you_join_the_website_waitlist_or_contact}}</td>
                   </tr>
                 </tbody>
               </table>
             </div>
 
             <p>
-              We may create aggregated or de-identified statistics that cannot
-              reasonably be linked back to you. We do not attempt to re-identify
-              that information.
+              {{pages.privacyPolicy.we_may_create_aggregated_or_de_identified_statistics_tha}}
             </p>
           </section>
 
           <section class="legal-section" id="permissions">
-            <h2>3. Device permissions and connected services</h2>
+            <h2>{{pages.privacyPolicy.3_device_permissions_and_connected_services}}</h2>
             <p>
-              Protected device access is optional. The Fitroom App asks in context, and
-              core alternatives remain available when practical. You can change
-              permissions later in your device settings.
+              {{pages.privacyPolicy.protected_device_access_is_optional_the_fitroom_app_asks}}
             </p>
 
-            <h3>Camera</h3>
+            <h3>{{pages.privacyPolicy.camera}}</h3>
             <p>
-              We request camera access so you can photograph a meal for analysis.
-              Camera access is not used for continuous recording, and microphone
-              access is not requested. You can enter a meal manually instead.
+              {{pages.privacyPolicy.we_request_camera_access_so_you_can_photograph_a_meal_fo}}
             </p>
 
-            <h3>Photos</h3>
+            <h3>{{pages.privacyPolicy.photos}}</h3>
             <p>
-              We request photo-library access so you can choose an existing meal
-              image. Fitroom processes only images you select for a meal; it does
-              not build a photo library, scan unrelated photos, or use photo data
-              for advertising. You can use the camera or manual meal entry instead.
+              {{pages.privacyPolicy.we_request_photo_library_access_so_you_can_choose_an_exi}}
             </p>
 
-            <h3>Notifications</h3>
+            <h3>{{common.notifications}}</h3>
             <p>
-              We request notification permission to deliver meal, calorie, weight,
-              and other tracking reminders, plus necessary service messages.
-              Notifications are optional and are not required to use paid or free
-              features. Promotional notifications, if introduced, will require an
-              appropriate opt-in and will include an opt-out method.
+              {{pages.privacyPolicy.we_request_notification_permission_to_deliver_meal_calor}}
             </p>
 
-            <h3>Apple Health and Health Connect</h3>
+            <h3>{{pages.privacyPolicy.apple_health_and_health_connect}}</h3>
             <p>
-              Health access is optional and read-only. The Fitroom App does not request
-              permission to write data to Apple Health or Health Connect. The
-              system permission screen lets you approve or deny each health type.
+              {{pages.privacyPolicy.health_access_is_optional_and_read_only_the_fitroom_app}}
             </p>
             <p>
-              Depending on your device, the current permission request may list
-              read access for activity, workouts, steps, distance, mobility and
-              energy; height, weight, BMI, body composition and other body
-              measurements; heart rate and variability, blood pressure, blood
-              glucose, temperature, oxygen saturation, respiratory rate and other
-              vitals; nutrition and hydration; sleep and mindfulness; and cycle or
-              reproductive data such as menstruation, cervical mucus, ovulation,
-              intermenstrual bleeding, and pregnancy.
+              {{pages.privacyPolicy.depending_on_your_device_the_current_permission_request}}
             </p>
             <div class="legal-note">
-              <strong>What the current Fitroom App feature actually reads</strong>
-              The app currently queries and syncs only your daily Active Energy
-              Burned total, its date, source, and time zone. It does not currently
-              query or store the other health types that may appear in the system
-              permission list. If that changes, we will update the in-app
-              disclosure and this policy before using additional health data.
+              <strong>{{pages.privacyPolicy.what_the_current_fitroom_app_feature_actually_reads}}</strong>
+              {{pages.privacyPolicy.the_app_currently_queries_and_syncs_only_your_daily_acti}}
             </div>
             <p>
-              We never use HealthKit or Health Connect data for advertising,
-              marketing, profiling, or data mining. We do not sell it or share it
-              with data brokers. We share health data with a third party only as
-              needed to provide a health or fitness feature you request, and only
-              with the permission required by applicable law and platform rules.
+              {{pages.privacyPolicy.we_never_use_healthkit_or_health_connect_data_for_advert}}
             </p>
 
-            <h3>Sign-in and subscriptions</h3>
+            <h3>{{pages.privacyPolicy.sign_in_and_subscriptions}}</h3>
             <p>
-              If you choose Sign in with Apple or Google, that provider asks you
-              to authorize the name and email information it supplies to Fitroom.
-              Apple may let you use a private relay email. Purchasing a
-              subscription is not a device-data permission: Apple or Google
-              processes your payment, while Fitroom and its subscription
-              administration provider receive the limited subscription and
-              entitlement information described above.
+              {{pages.privacyPolicy.if_you_choose_sign_in_with_apple_or_google_that_provider}}
             </p>
           </section>
 
           <section class="legal-section" id="use">
-            <h2>4. How we use information</h2>
-            <p>We use information to:</p>
+            <h2>{{pages.privacyPolicy.4_how_we_use_information}}</h2>
+            <p>{{pages.privacyPolicy.we_use_information_to}}</p>
             <ul>
-              <li>create, authenticate, secure, and support your account;</li>
-              <li>analyze meals you submit and maintain your nutrition journal;</li>
-              <li>calculate calorie, macro, weight, and progress insights;</li>
-              <li>sync selected data across devices and recover it after sign-in;</li>
-              <li>provide optional Apple Health or Health Connect functionality;</li>
-              <li>process, restore, and manage Fitroom Pro entitlements;</li>
-              <li>deliver reminders and service communications you allow;</li>
-              <li>measure reliability, diagnose crashes, prevent abuse, and improve the Service;</li>
-              <li>respond to support, privacy, and legal requests; and</li>
-              <li>comply with law, enforce our terms, and protect users, Fitroom, and others.</li>
+              <li>{{pages.privacyPolicy.create_authenticate_secure_and_support_your_account}}</li>
+              <li>{{pages.privacyPolicy.analyze_meals_you_submit_and_maintain_your_nutrition_jou}}</li>
+              <li>{{pages.privacyPolicy.calculate_calorie_macro_weight_and_progress_insights}}</li>
+              <li>{{pages.privacyPolicy.sync_selected_data_across_devices_and_recover_it_after_s}}</li>
+              <li>{{pages.privacyPolicy.provide_optional_apple_health_or_health_connect_function}}</li>
+              <li>{{pages.privacyPolicy.process_restore_and_manage_fitroom_pro_entitlements}}</li>
+              <li>{{pages.privacyPolicy.deliver_reminders_and_service_communications_you_allow}}</li>
+              <li>{{pages.privacyPolicy.measure_reliability_diagnose_crashes_prevent_abuse_and_i}}</li>
+              <li>{{pages.privacyPolicy.respond_to_support_privacy_and_legal_requests_and}}</li>
+              <li>{{pages.privacyPolicy.comply_with_law_enforce_our_terms_and_protect_users_fitr}}</li>
             </ul>
             <p>
-              Where applicable law requires a legal basis, we rely on performance
-              of our contract with you, your consent (especially for protected
-              permissions and optional communications), our legitimate interests
-              in operating and securing the Service, and compliance with legal
-              obligations. You may withdraw consent at any time, without affecting
-              processing that occurred before withdrawal.
+              {{pages.privacyPolicy.where_applicable_law_requires_a_legal_basis_we_rely_on_p}}
             </p>
           </section>
 
           <section class="legal-section" id="ai">
-            <h2>5. AI meal analysis</h2>
+            <h2>{{pages.privacyPolicy.5_ai_meal_analysis}}</h2>
             <p>
-              The Fitroom App uses third-party artificial intelligence to recognize foods
-              and estimate portions and nutrition. When you intentionally submit a
-              meal photo, meal description, or correction request to an AI feature,
-              the submitted content, relevant meal context, a request identifier,
-              and a pseudonymous user identifier are transmitted to our AI
-              processing providers. They return an analysis to Fitroom.
+              {{pages.privacyPolicy.the_fitroom_app_uses_third_party_artificial_intelligence}}
             </p>
             <p>
-              We use this data only to perform the feature you requested, protect
-              the service, measure technical cost and reliability, and improve
-              health and fitness functionality. We do not permit AI providers to
-              use your health or meal content for targeted advertising or data
-              brokerage. Do not include faces, documents, medical records, or
-              other unnecessary personal information in meal photos or prompts.
+              {{pages.privacyPolicy.we_use_this_data_only_to_perform_the_feature_you_request}}
             </p>
             <p>
-              AI results are estimates and may be incomplete or wrong. They should
-              not be used to diagnose, treat, or manage a medical condition, food
-              allergy, or eating disorder.
+              {{pages.privacyPolicy.ai_results_are_estimates_and_may_be_incomplete_or_wrong}}
             </p>
           </section>
 
           <section class="legal-section" id="sharing">
-            <h2>6. When we share information</h2>
+            <h2>{{pages.privacyPolicy.6_when_we_share_information}}</h2>
             <p>
-              We do not sell or rent personal information. We disclose only the
-              information reasonably needed for the purposes described here:
+              {{pages.privacyPolicy.we_do_not_sell_or_rent_personal_information_we_disclose}}
             </p>
             <ul>
-              <li><strong>Infrastructure providers</strong> support account authentication, databases, file storage, hosting, security, and server operations.</li>
-              <li><strong>AI processing providers</strong> process the meal content and relevant context you intentionally submit to AI features.</li>
-              <li><strong>Analytics and reliability providers</strong> process limited app usage, crash, performance, and diagnostic information so we can maintain and improve the Service.</li>
-              <li><strong>App stores and subscription providers</strong> process purchases, renewals, cancellations, refunds, restores, and entitlement status.</li>
-              <li><strong>Identity providers</strong> process authentication information when you choose a third-party sign-in option.</li>
-              <li><strong>Website and communications providers</strong> host and protect the website, administer waitlist submissions, and deliver requested service communications.</li>
-              <li><strong>Professional advisers and authorities</strong> may receive information when reasonably necessary to comply with law, protect rights and safety, investigate fraud, or complete a corporate transaction subject to appropriate safeguards.</li>
+              <li><strong>{{pages.privacyPolicy.infrastructure_providers}}</strong> {{pages.privacyPolicy.support_account_authentication_databases_file_storage_ho}}</li>
+              <li><strong>{{pages.privacyPolicy.ai_processing_providers}}</strong> {{pages.privacyPolicy.process_the_meal_content_and_relevant_context_you_intent}}</li>
+              <li><strong>{{pages.privacyPolicy.analytics_and_reliability_providers}}</strong> {{pages.privacyPolicy.process_limited_app_usage_crash_performance_and_diagnost}}</li>
+              <li><strong>{{pages.privacyPolicy.app_stores_and_subscription_providers}}</strong> {{pages.privacyPolicy.process_purchases_renewals_cancellations_refunds_restore}}</li>
+              <li><strong>{{pages.privacyPolicy.identity_providers}}</strong> {{pages.privacyPolicy.process_authentication_information_when_you_choose_a_thi}}</li>
+              <li><strong>{{pages.privacyPolicy.website_and_communications_providers}}</strong> {{pages.privacyPolicy.host_and_protect_the_website_administer_waitlist_submiss}}</li>
+              <li><strong>{{pages.privacyPolicy.professional_advisers_and_authorities}}</strong> {{pages.privacyPolicy.may_receive_information_when_reasonably_necessary_to_com}}</li>
             </ul>
             <p>
-              We require service providers that process personal data for us to
-              use appropriate security and confidentiality protections, process
-              data only for authorized purposes, and provide protection consistent
-              with this policy and applicable platform requirements. Providers may
-              retain limited records where their law or platform obligations
-              require it.
+              {{pages.privacyPolicy.we_require_service_providers_that_process_personal_data}}
             </p>
           </section>
 
           <section class="legal-section" id="tracking">
-            <h2>7. Advertising and tracking</h2>
+            <h2>{{pages.privacyPolicy.7_advertising_and_tracking}}</h2>
             <p>
-              The Fitroom App does not display third-party advertising. Fitroom
-              does not sell personal data or use health, fitness, meal-photo,
-              camera, or photo-library data for advertising or marketing profiles.
-              The iOS app does not request App
-              Tracking Transparency permission and is not intended to track your
-              activity across other companies' apps or websites.
+              {{pages.privacyPolicy.the_fitroom_app_does_not_display_third_party_advertising}}
             </p>
             <p>
-              We use general app analytics and performance data to understand
-              feature use and reliability. These technical services must not use
-              health data from the Fitroom App for advertising or cross-service tracking.
+              {{pages.privacyPolicy.we_use_general_app_analytics_and_performance_data_to_und}}
             </p>
           </section>
 
           <section class="legal-section" id="retention">
-            <h2>8. Retention and permanent deletion</h2>
+            <h2>{{pages.privacyPolicy.8_retention_and_permanent_deletion}}</h2>
             <p>
-              We keep account, profile, goal, meal, photo, connected-health, and
-              preference data while your account is active and as needed to
-              provide the Service. Diagnostic, security, AI execution, and support
-              records are kept only as long as reasonably needed for their stated
-              purpose. Website waitlist information is retained until launch
-              communications are complete, you opt out, or you request deletion.
+              {{pages.privacyPolicy.we_keep_account_profile_goal_meal_photo_connected_health}}
             </p>
             <p>
-              You can initiate deletion at any time in the app under
-              <strong>Profile → Account → Delete account</strong>, or submit a
-              verified request to <a href="mailto:contact@fitroom.ge">contact@fitroom.ge</a>.
-              Account deletion is permanent, not a temporary deactivation. We
-              immediately block access to the account and remove its data from
-              active use, then permanently delete or irreversibly de-identify the
-              associated profile, onboarding, goals, measurements, weight logs,
-              meal records, meal photos, AI requests and results, feedback,
-              connected-health data, and notification preferences from our
-              production systems. Deletion from routine backups and processor
-              systems may take up to 30 days.
+              {{pages.privacyPolicy.you_can_initiate_deletion_at_any_time_in_the_app_under}}
+              <strong>{{common.profile_account_delete_account}}</strong>{{pages.privacyPolicy.or_submit_a_verified_request_to}} <a href="mailto:contact@fitroom.ge">{{common.contact_fitroom_ge}}</a>{{pages.privacyPolicy.account_deletion_is_permanent_not_a_temporary_deactivati}}
             </p>
             <p>
-              We may retain only information that we are legally required or have
-              a compelling security need to keep, such as limited subscription,
-              transaction, tax, fraud-prevention, dispute, and deletion records.
-              Retained data is isolated, access-restricted, not restored to the
-              Service, and not used for marketing or profiling. When the retention
-              reason ends, we permanently delete or de-identify it.
+              {{pages.privacyPolicy.we_may_retain_only_information_that_we_are_legally_requi}}
             </p>
             <div class="legal-note">
-              <strong>Subscriptions are separate from account deletion</strong>
-              Deleting the Fitroom App does not cancel an auto-renewable subscription
-              billed by Apple or Google. Cancel first through Profile → Manage
-              subscriptions or your store account settings. Deletion remains
-              available immediately even if you choose not to cancel.
+              <strong>{{pages.privacyPolicy.subscriptions_are_separate_from_account_deletion}}</strong>
+              {{pages.privacyPolicy.deleting_the_fitroom_app_does_not_cancel_an_auto_renewab}}
             </div>
           </section>
 
           <section class="legal-section" id="choices">
-            <h2>9. Your choices and permission controls</h2>
+            <h2>{{pages.privacyPolicy.9_your_choices_and_permission_controls}}</h2>
             <ul>
-              <li><strong>Account data:</strong> review and update profile and goal information in the app, or delete the account from Profile.</li>
-              <li><strong>Apple Health:</strong> change access in the Health app under your profile → Apps → Fitroom.</li>
-              <li><strong>Health Connect:</strong> change access in Health Connect under App permissions → Fitroom.</li>
-              <li><strong>Camera, Photos, and Notifications:</strong> change access in iOS or Android Settings. You can also disable individual reminder schedules in the Fitroom App.</li>
-              <li><strong>Sign-in provider:</strong> manage connected access through your Apple or Google account settings and delete your Fitroom account to end Fitroom access.</li>
-              <li><strong>Waitlist and messages:</strong> contact us to opt out or delete your email. Service and privacy replies may still be sent when necessary.</li>
+              <li><strong>{{pages.privacyPolicy.account_data}}</strong> {{pages.privacyPolicy.review_and_update_profile_and_goal_information_in_the_ap}}</li>
+              <li><strong>{{pages.privacyPolicy.apple_health}}</strong> {{pages.privacyPolicy.change_access_in_the_health_app_under_your_profile_apps}}</li>
+              <li><strong>{{pages.privacyPolicy.health_connect}}</strong> {{pages.privacyPolicy.change_access_in_health_connect_under_app_permissions_fi}}</li>
+              <li><strong>{{pages.privacyPolicy.camera_photos_and_notifications}}</strong> {{pages.privacyPolicy.change_access_in_ios_or_android_settings_you_can_also_di}}</li>
+              <li><strong>{{pages.privacyPolicy.sign_in_provider}}</strong> {{pages.privacyPolicy.manage_connected_access_through_your_apple_or_google_acc}}</li>
+              <li><strong>{{pages.privacyPolicy.waitlist_and_messages}}</strong> {{pages.privacyPolicy.contact_us_to_opt_out_or_delete_your_email_service_and_p}}</li>
             </ul>
             <p>
-              Withdrawing an optional permission does not delete data already
-              synced to your Fitroom account. Use in-app account deletion or
-              contact us if you also want that stored data deleted.
+              {{pages.privacyPolicy.withdrawing_an_optional_permission_does_not_delete_data}}
             </p>
           </section>
 
           <section class="legal-section" id="security">
-            <h2>10. Security and international transfers</h2>
+            <h2>{{pages.privacyPolicy.10_security_and_international_transfers}}</h2>
             <p>
-              We use reasonable administrative, technical, and organizational
-              measures designed to protect information, including authenticated
-              access, encrypted network transport, access controls, and restricted
-              production permissions. No system is completely secure, so we cannot
-              guarantee absolute security. Protect your device, store account, and
-              email account, and notify us if you suspect unauthorized access.
+              {{pages.privacyPolicy.we_use_reasonable_administrative_technical_and_organizat}}
             </p>
             <p>
-              Fitroom and its providers may process information in Georgia, the
-              United States, the European Economic Area, and other countries where
-              they operate. Where required, we use contractual or other recognized
-              safeguards for international transfers.
+              {{pages.privacyPolicy.fitroom_and_its_providers_may_process_information_in_geo}}
             </p>
           </section>
 
           <section class="legal-section" id="children">
-            <h2>11. Children and teenagers</h2>
+            <h2>{{pages.privacyPolicy.11_children_and_teenagers}}</h2>
             <p>
-              The Fitroom App is not intended for children under 16, and we do not
-              knowingly collect their personal information. Users aged 16 or 17,
-              or below the age of legal majority where they live, should use the
-              Service only with permission and supervision from a parent or legal
-              guardian. Nutrition estimates for teenagers are informational and
-              do not replace guidance from a qualified healthcare professional.
+              {{pages.privacyPolicy.the_fitroom_app_is_not_intended_for_children_under_16_an}}
             </p>
             <p>
-              If you believe a child under 16 has provided information, contact us
-              so we can investigate and permanently delete it.
+              {{pages.privacyPolicy.if_you_believe_a_child_under_16_has_provided_information}}
             </p>
           </section>
 
           <section class="legal-section" id="rights">
-            <h2>12. Your privacy rights</h2>
+            <h2>{{pages.privacyPolicy.12_your_privacy_rights}}</h2>
             <p>
-              Depending on where you live, you may have rights to access, correct,
-              delete, restrict, object to, or receive a portable copy of personal
-              information; withdraw consent; and appeal or complain to a data
-              protection authority. You will not be discriminated against for
-              exercising a privacy right.
+              {{pages.privacyPolicy.depending_on_where_you_live_you_may_have_rights_to_acces}}
             </p>
             <p>
-              Send requests to <a href="mailto:contact@fitroom.ge">contact@fitroom.ge</a>.
-              We may ask for information reasonably necessary to verify that the
-              request concerns your account. Authorized agents may be required to
-              show written authority. We will respond within the period required
-              by applicable law.
+              {{pages.privacyPolicy.send_requests_to}} <a href="mailto:contact@fitroom.ge">{{common.contact_fitroom_ge}}</a>{{pages.privacyPolicy.we_may_ask_for_information_reasonably_necessary_to_verif}}
             </p>
           </section>
 
           <section class="legal-section" id="changes">
-            <h2>13. Changes to this policy</h2>
+            <h2>{{pages.privacyPolicy.13_changes_to_this_policy}}</h2>
             <p>
-              We may update this policy as the Service, providers, or law changes.
-              We will post the revised policy here and update the date above. If a
-              change materially affects how we use sensitive data, we will provide
-              additional notice and obtain consent where required before the new
-              use begins.
+              {{pages.privacyPolicy.we_may_update_this_policy_as_the_service_providers_or_la}}
             </p>
           </section>
 
           <section class="legal-section" id="contact">
-            <h2>14. Contact</h2>
-            <p>For privacy questions, rights requests, or data deletion:</p>
+            <h2>{{pages.privacyPolicy.14_contact}}</h2>
+            <p>{{pages.privacyPolicy.for_privacy_questions_rights_requests_or_data_deletion}}</p>
             <div class="legal-contact">
-              <strong>Fitroom</strong>
-              <span>24 Alexander Kazbegi Avenue</span>
-              <span>Tbilisi, Georgia</span>
-              <a href="mailto:contact@fitroom.ge">contact@fitroom.ge</a>
+              <strong>{{common.fitroom}}</strong>
+              <span>{{common.24_alexander_kazbegi_avenue}}</span>
+              <span>{{common.tbilisi_georgia}}</span>
+              <a href="mailto:contact@fitroom.ge">{{common.contact_fitroom_ge}}</a>
             </div>
           </section>
         </article>
@@ -436,21 +333,21 @@
     <footer class="legal-footer">
       <div class="legal-footer-main">
         <div class="legal-footer-brand">
-          <img src="/assets/fitroom-logo-light.png" alt="Fitroom" />
-          <p>Snap your food. We'll do the rest.</p>
+          <img src="/assets/fitroom-logo-light.png" alt="{{common.fitroom}}" />
+          <p>{{common.snap_your_food_well_do_the_rest}}</p>
         </div>
         <div class="legal-footer-links">
-          <nav class="legal-footer-navigation" aria-label="Legal footer navigation">
-            <a href="/">Home</a>
-            <a href="/terms-and-use/">Terms of Use</a>
-            <a href="/privacy-policy/" aria-current="page">Privacy Policy</a>
+          <nav class="legal-footer-navigation" aria-label="{{common.legal_footer_navigation}}">
+            <a href="{{routes.home}}">{{common.home}}</a>
+            <a href="{{routes.termsOfUse}}">{{common.terms_of_use}}</a>
+            <a href="{{routes.privacyPolicy}}" aria-current="page">{{common.privacy_policy}}</a>
           </nav>
-          <nav class="legal-footer-socials" aria-label="Fitroom on social media">
+          <nav class="legal-footer-socials" aria-label="{{common.fitroom_on_social_media}}">
             <a
               href="https://www.facebook.com/fitroom.ge"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Fitroom on Facebook"
+              aria-label="{{common.fitroom_on_facebook}}"
             >
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M14.25 8.5V6.75c0-.84.56-1.05.96-1.05h2.45V2.12L14.28 2C10.94 2 9.2 3.99 9.2 7.31V8.5H6v4h3.2V22h4.05v-9.5h3.69l.57-4h-4.26Z" />
@@ -460,7 +357,7 @@
               href="https://www.instagram.com/fitroom.ge/"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Fitroom on Instagram"
+              aria-label="{{common.fitroom_on_instagram}}"
             >
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <rect x="3" y="3" width="18" height="18" rx="5" />
@@ -472,7 +369,7 @@
               href="https://www.tiktok.com/@fitroom.ge"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Fitroom on TikTok"
+              aria-label="{{common.fitroom_on_tiktok}}"
             >
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M14.2 2h3.22c.2 1.72 1.16 3.27 2.58 4.2v3.27a8.1 8.1 0 0 1-2.76-.65v6.55A6.63 6.63 0 1 1 11.5 8.8v3.35a3.35 3.35 0 1 0 2.7 3.28V2Z" />
@@ -482,7 +379,7 @@
               href="https://x.com/fitroomge"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Fitroom on X"
+              aria-label="{{common.fitroom_on_x}}"
             >
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M18.9 2H22l-6.77 7.74L23.2 22h-6.24l-4.89-6.39L6.48 22H3.36l7.26-8.3L2.98 2h6.4l4.42 5.84L18.9 2Zm-1.1 17.84h1.73L8.44 4.05H6.58L17.8 19.84Z" />
@@ -492,7 +389,7 @@
               href="https://www.linkedin.com/company/74479027/admin/dashboard/"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Fitroom on LinkedIn"
+              aria-label="{{common.fitroom_on_linkedin}}"
             >
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M5.17 7.75H1.68V22h3.49V7.75ZM3.43 2A2.03 2.03 0 1 0 3.43 6.06 2.03 2.03 0 0 0 3.43 2ZM22 13.83c0-4.29-2.29-6.28-5.35-6.28-2.46 0-3.57 1.36-4.19 2.31V7.75H8.97V22h3.49v-7.06c0-1.86.35-3.66 2.66-3.66 2.27 0 2.3 2.13 2.3 3.78V22H22v-8.17Z" />
@@ -502,16 +399,16 @@
         </div>
       </div>
       <div class="legal-footer-bottom">
-        <span>© 2026 Fitroom. All rights reserved.</span>
-        <nav aria-label="Fitroom website and contact">
+        <span>{{common.2026_fitroom_all_rights_reserved}}</span>
+        <nav aria-label="{{common.fitroom_website_and_contact}}">
           <a
             href="https://fitroom.ge"
             target="_blank"
             rel="noopener noreferrer"
-            >fitroom.ge <span aria-hidden="true">↗</span></a
+            >{{common.fitroom_ge}} <span aria-hidden="true">↗</span></a
           >
           <a href="mailto:contact@fitroom.ge"
-            >Contact <span aria-hidden="true">↗</span></a
+            >{{common.contact}} <span aria-hidden="true">↗</span></a
           >
         </nav>
       </div>
