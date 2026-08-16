@@ -1,0 +1,35 @@
+# Fitroom: AI Calorie Tracker
+
+> Fitroom is a pre-launch AI calorie tracker and calorie counter for iPhone and Android. It helps people estimate calories and macronutrients from a food photo, review the result, and correct foods, portions, or nutrition values.
+
+Fitroom is published by Fitroom and operates from Tbilisi, Georgia. The website is available in English and Georgian. The mobile app is not yet publicly launched; visitors can join the waitlist.
+
+## Product capabilities
+
+- Estimate calories from a meal photo.
+- Identify likely foods and ingredients.
+- Estimate portions, protein, carbohydrates, and fat.
+- Edit foods, portions, calories, and macronutrients.
+- Describe corrections for Fitroom AI to apply.
+- Track daily nutrition goals and weight progress.
+
+Photo-based nutrition results are estimates. Accuracy depends on image quality, visible ingredients, recipes, and portion size. Users should review and correct results before relying on them. Fitroom is a nutrition and fitness tool, not a medical service.
+
+## Main pages
+
+- [English homepage](https://app.fitroom.ge/en/): English product overview, features, screenshots, frequently asked questions, and waitlist.
+- [Georgian homepage](https://app.fitroom.ge/ka/): Georgian product overview, features, screenshots, frequently asked questions, and waitlist.
+
+## Policies
+
+- [English privacy policy](https://app.fitroom.ge/en/privacy-policy/)
+- [Georgian privacy policy](https://app.fitroom.ge/ka/privacy-policy/)
+- [English terms of use](https://app.fitroom.ge/en/terms-of-use/)
+- [Georgian terms of use](https://app.fitroom.ge/ka/terms-of-use/)
+
+## Publisher
+
+- [Fitroom](https://fitroom.ge/)
+- Contact: contact@fitroom.ge
+- Location: Tbilisi, Georgia
+

@@ -47,8 +47,8 @@
       }
 
       img {
-        width: 72px;
-        height: 72px;
+        width: clamp(128px, 22vw, 180px);
+        height: clamp(128px, 22vw, 180px);
         border-radius: 50%;
       }
 
@@ -209,7 +209,6 @@
     <script>
       const sitemapLinks = document.querySelector("#sitemap-links");
       const navigationStatus = document.querySelector("#navigation-status");
-      const languageLabels = { en: "English", ka: "Georgian" };
       const pageLabels = {
         "": "Home",
         "privacy-policy": "Privacy Policy",
@@ -225,11 +224,10 @@
 
       const labelForPath = (pathname) => {
         const segments = pathname.split("/").filter(Boolean);
-        const locale = segments.shift() || "";
+        segments.shift();
         const slug = segments.join("/");
-        const language = languageLabels[locale] || locale.toUpperCase();
         const page = pageLabels[slug] || humanize(slug);
-        return [language, page].filter(Boolean).join(" · ");
+        return page;
       };
 
       const loadSitemapNavigation = async () => {
@@ -256,15 +254,16 @@
           sitemap.querySelectorAll("url > loc").forEach((location) => {
             const sitemapUrl = new URL(location.textContent.trim());
             const href = `${sitemapUrl.pathname}${sitemapUrl.search}${sitemapUrl.hash}`;
+            const locale = sitemapUrl.pathname.split("/").filter(Boolean)[0];
+            if (locale !== "en") return;
             if (!allowedOrigins.has(sitemapUrl.origin) || seenPaths.has(href)) return;
             seenPaths.add(href);
 
             const item = document.createElement("li");
             const link = document.createElement("a");
-            const locale = sitemapUrl.pathname.split("/").filter(Boolean)[0];
             link.href = href;
             link.textContent = labelForPath(sitemapUrl.pathname);
-            if (languageLabels[locale]) link.hreflang = locale;
+            link.hreflang = "en";
             if (sitemapUrl.pathname === "/en/") link.className = "is-primary";
             item.append(link);
             sitemapLinks.append(item);
