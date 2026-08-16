@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex,follow" />
     <meta name="theme-color" content="#f7f8fa" />
-    <link rel="icon" type="image/png" href="/assets/fitroom-app-dark.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/assets/fitroom-app-dark-96.png"
+    />
     <title>Page not found | Fitroom</title>
     <style>
       :root {
@@ -185,7 +189,17 @@
   <body>
     <div class="page-shell">
       <main>
-        <img src="/assets/fitroom-app-dark.png" alt="Fitroom" />
+        <img
+          src="/assets/fitroom-app-dark-96.png"
+          srcset="
+            /assets/fitroom-app-dark-96.png   96w,
+            /assets/fitroom-app-dark-192.png 192w
+          "
+          sizes="72px"
+          width="96"
+          height="96"
+          alt="Fitroom"
+        />
         <p class="error-label">Error 404</p>
         <h1>Page not found</h1>
         <p class="message">

@@ -207,7 +207,8 @@ if (
 
     window.clearTimeout(previewSwapTimer);
     const transitionId = ++previewTransitionId;
-    const nextSource = thumbnail.getAttribute("src");
+    const nextSource =
+      thumbnail.dataset.featuredSrc || thumbnail.getAttribute("src");
     const nextAlt = thumbnail.getAttribute("alt") || previewFallbackAlt;
 
     previewThumbnails.forEach((item) => {

@@ -53,8 +53,12 @@
       name="twitter:image:alt"
       content="{{common.fitroom_ai_calorie_tracker_app_and_food_scanner}}"
     />
-    <link rel="icon" type="image/png" href="/assets/fitroom-app-dark.png" />
-    <link rel="apple-touch-icon" href="/assets/fitroom-app-dark.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/assets/fitroom-app-dark-96.png"
+    />
+    <link rel="apple-touch-icon" href="/assets/fitroom-app-dark-192.png" />
     <link rel="stylesheet" href="/src/styles.css" />
     <link rel="stylesheet" href="/src/liquid-glass-nav.css" />
     <link rel="stylesheet" href="/src/i18n.css" />
@@ -83,7 +87,17 @@
         data-expanded-label="{{common.fitroom_calorie_tracker_home}}"
         data-collapsed-label="{{pages.home.expand_navigation}}"
       >
-        <img src="/assets/fitroom-app-dark.png" alt="" />
+        <img
+          src="/assets/fitroom-app-dark-96.png"
+          srcset="
+            /assets/fitroom-app-dark-96.png   96w,
+            /assets/fitroom-app-dark-192.png 192w
+          "
+          sizes="48px"
+          width="96"
+          height="96"
+          alt=""
+        />
         <span>{{pages.home.calorie_tracker}}</span>
       </a>
 
@@ -173,6 +187,8 @@
               aria-label="{{common.fitroom_on_the_app_store}}"
               ><img
                 src="/appstore.svg"
+                width="1331"
+                height="382"
                 alt="{{common.download_on_the_app_store}}"
             /></a>
             <a
@@ -181,20 +197,45 @@
               data-waitlist-trigger
               data-waitlist-source="googleplay-header"
               aria-label="{{common.fitroom_on_google_play}}"
-              ><img src="/playstore.svg" alt="{{common.get_it_on_google_play}}"
+              ><img
+                src="/playstore.svg"
+                width="5334"
+                height="1538"
+                alt="{{common.get_it_on_google_play}}"
             /></a>
           </div>
           <div class="hero-reviews">
             <div class="review-top">
               <div class="review-avatars" aria-hidden="true">
-                <img src="/reviews/reviewer-4.webp" alt="" /><img
+                <img
+                  src="/reviews/reviewer-4.webp"
+                  width="100"
+                  height="100"
+                  alt=""
+                /><img
                   src="/reviews/reviewer-1.webp"
+                  width="100"
+                  height="100"
                   alt=""
-                /><img src="/reviews/reviewer-6.webp" alt="" /><img
+                /><img
+                  src="/reviews/reviewer-6.webp"
+                  width="100"
+                  height="100"
+                  alt=""
+                /><img
                   src="/reviews/reviewer-3.webp"
+                  width="100"
+                  height="100"
                   alt=""
-                /><img src="/reviews/reviewer-2.webp" alt="" /><img
+                /><img
+                  src="/reviews/reviewer-2.webp"
+                  width="100"
+                  height="100"
+                  alt=""
+                /><img
                   src="/reviews/reviewer-5.webp"
+                  width="100"
+                  height="100"
                   alt=""
                 />
               </div>
@@ -235,7 +276,15 @@
               <span class="review-partner__mark">
                 <img
                   class="review-partner__logo"
-                  src="/assets/fitroom-logo-dark.png"
+                  src="/assets/fitroom-logo-dark-160.webp"
+                  srcset="
+                    /assets/fitroom-logo-dark-160.webp 160w,
+                    /assets/fitroom-logo-dark-320.webp 320w,
+                    /assets/fitroom-logo-dark-640.webp 640w
+                  "
+                  sizes="74px"
+                  width="160"
+                  height="54"
                   alt="{{common.fitroom}}"
                   title="Fitroom team"
                 />
@@ -259,13 +308,20 @@
                 </svg>
               </div>
               <div class="phone-launch-screen" aria-hidden="true">
-                <img src="/assets/fitroom-app-mark-dark.png" alt="" />
+                <img
+                  src="/assets/fitroom-app-mark-dark.png"
+                  width="1024"
+                  height="1024"
+                  alt=""
+                />
               </div>
 
               <div class="meal-camera-screen" aria-hidden="true">
                 <img
                   class="meal-camera-photo"
                   src="/assets/meal-camera-background.webp"
+                  width="620"
+                  height="1217"
                   alt=""
                 />
                 <div class="meal-camera-shade" aria-hidden="true"></div>
@@ -399,7 +455,14 @@
 
               <img
                 class="phone-wordmark"
-                src="/assets/fitroom-logo-dark.png"
+                src="/assets/fitroom-logo-dark-160.webp"
+                srcset="
+                  /assets/fitroom-logo-dark-160.webp 160w,
+                  /assets/fitroom-logo-dark-320.webp 320w
+                "
+                sizes="86px"
+                width="160"
+                height="54"
                 alt="{{common.fitroom}}"
               />
 
@@ -488,7 +551,15 @@
                   >
                   <img
                     class="reference-meal-photo"
-                    src="/assets/khinkali.webp"
+                    src="/assets/khinkali-32.webp"
+                    srcset="
+                      /assets/khinkali-32.webp 32w,
+                      /assets/khinkali-64.webp 64w,
+                      /assets/khinkali-96.webp 96w
+                    "
+                    sizes="31px"
+                    width="32"
+                    height="32"
                     alt="{{pages.home.six_khinkali_on_a_plate}}"
                   />
                   <b class="reference-meal-name">{{common.khinkali}}</b>
@@ -587,7 +658,13 @@
           <article class="step-card">
             <div class="step-shot">
               <img
-                src="/how/snap-your-meal.webp"
+                src="/how/snap-your-meal-400.webp"
+                srcset="
+                  /how/snap-your-meal-400.webp  400w,
+                  /how/snap-your-meal-800.webp  800w,
+                  /how/snap-your-meal.webp     1111w
+                "
+                sizes="(max-width: 760px) calc(100vw - 40px), 370px"
                 width="1111"
                 height="1415"
                 alt="{{pages.home.fitroom_meal_scanner_framing_a_khachapuri}}"
@@ -603,7 +680,13 @@
           <article class="step-card">
             <div class="step-shot">
               <img
-                src="/how/see-whats-inside.webp"
+                src="/how/see-whats-inside-400.webp"
+                srcset="
+                  /how/see-whats-inside-400.webp  400w,
+                  /how/see-whats-inside-800.webp  800w,
+                  /how/see-whats-inside.webp     1122w
+                "
+                sizes="(max-width: 760px) calc(100vw - 40px), 370px"
                 width="1122"
                 height="1402"
                 alt="{{pages.home.fitroom_showing_the_calories_and_nutrition_inside_a_scan}}"
@@ -621,7 +704,13 @@
           <article class="step-card">
             <div class="step-shot">
               <img
-                src="/how/fix-with-ai.webp"
+                src="/how/fix-with-ai-400.webp"
+                srcset="
+                  /how/fix-with-ai-400.webp  400w,
+                  /how/fix-with-ai-800.webp  800w,
+                  /how/fix-with-ai.webp     1264w
+                "
+                sizes="(max-width: 760px) calc(100vw - 40px), 370px"
                 width="1264"
                 height="1568"
                 alt="{{pages.home.fitroom_fix_with_ai_action_highlighted_on_a_meal_result}}"
@@ -657,7 +746,13 @@
             </div>
             <div class="feature-preview preview-result">
               <img
-                src="/screenshots/meal-scan.webp"
+                src="/screenshots/meal-scan-360.webp"
+                srcset="
+                  /screenshots/meal-scan-360.webp  360w,
+                  /screenshots/meal-scan-720.webp  720w,
+                  /screenshots/meal-scan.webp      1206w
+                "
+                sizes="(max-width: 760px) 310px, 330px"
                 width="1206"
                 height="2622"
                 alt="{{pages.home.fitroom_analyzed_meal_screen}}"
@@ -674,7 +769,13 @@
             </div>
             <div class="feature-preview preview-home">
               <img
-                src="/screenshots/home.webp"
+                src="/screenshots/home-360.webp"
+                srcset="
+                  /screenshots/home-360.webp  360w,
+                  /screenshots/home-720.webp  720w,
+                  /screenshots/home.webp      1206w
+                "
+                sizes="(max-width: 760px) 310px, 330px"
                 width="1206"
                 height="2622"
                 alt="{{pages.home.fitroom_nutrition_dashboard}}"
@@ -691,7 +792,13 @@
             </div>
             <div class="feature-preview preview-edit">
               <img
-                src="/screenshots/edit-meal.webp"
+                src="/screenshots/edit-meal-360.webp"
+                srcset="
+                  /screenshots/edit-meal-360.webp  360w,
+                  /screenshots/edit-meal-720.webp  720w,
+                  /screenshots/edit-meal.webp      1206w
+                "
+                sizes="(max-width: 760px) 310px, 330px"
                 width="1206"
                 height="2622"
                 alt="{{pages.home.fitroom_meal_editor}}"
@@ -708,7 +815,13 @@
             </div>
             <div class="feature-preview preview-progress">
               <img
-                src="/screenshots/progress.webp"
+                src="/screenshots/progress-360.webp"
+                srcset="
+                  /screenshots/progress-360.webp  360w,
+                  /screenshots/progress-720.webp  720w,
+                  /screenshots/progress.webp      1206w
+                "
+                sizes="(max-width: 760px) 310px, 330px"
                 width="1206"
                 height="2622"
                 alt="{{common.fitroom_progress_dashboard}}"
@@ -732,7 +845,13 @@
             <div class="screens-set">
               <figure class="screen-card">
                 <img
-                  src="/screenshots/home.webp"
+                  src="/screenshots/home-360.webp"
+                  srcset="
+                    /screenshots/home-360.webp  360w,
+                    /screenshots/home-720.webp  720w,
+                    /screenshots/home.webp      1206w
+                  "
+                  sizes="(max-width: 760px) 310px, 330px"
                   width="1206"
                   height="2622"
                   alt="{{pages.home.fitroom_daily_nutrition_home_screen}}"
@@ -741,7 +860,13 @@
               </figure>
               <figure class="screen-card">
                 <img
-                  src="/screenshots/meal-scan.webp"
+                  src="/screenshots/meal-scan-360.webp"
+                  srcset="
+                    /screenshots/meal-scan-360.webp  360w,
+                    /screenshots/meal-scan-720.webp  720w,
+                    /screenshots/meal-scan.webp      1206w
+                  "
+                  sizes="(max-width: 760px) 310px, 330px"
                   width="1206"
                   height="2622"
                   alt="{{pages.home.fitroom_ai_meal_scanner_identifying_ingredients}}"
@@ -750,7 +875,13 @@
               </figure>
               <figure class="screen-card">
                 <img
-                  src="/screenshots/meal-result.webp"
+                  src="/screenshots/meal-result-360.webp"
+                  srcset="
+                    /screenshots/meal-result-360.webp  360w,
+                    /screenshots/meal-result-720.webp  720w,
+                    /screenshots/meal-result.webp      1206w
+                  "
+                  sizes="(max-width: 760px) 310px, 330px"
                   width="1206"
                   height="2622"
                   alt="{{pages.home.fitroom_analyzed_meal_result_with_calories_and_macros}}"
@@ -759,7 +890,13 @@
               </figure>
               <figure class="screen-card">
                 <img
-                  src="/screenshots/edit-meal.webp"
+                  src="/screenshots/edit-meal-360.webp"
+                  srcset="
+                    /screenshots/edit-meal-360.webp  360w,
+                    /screenshots/edit-meal-720.webp  720w,
+                    /screenshots/edit-meal.webp      1206w
+                  "
+                  sizes="(max-width: 760px) 310px, 330px"
                   width="1206"
                   height="2622"
                   alt="{{pages.home.fitroom_edit_meal_screen}}"
@@ -768,7 +905,13 @@
               </figure>
               <figure class="screen-card">
                 <img
-                  src="/screenshots/edit-ingredient.webp"
+                  src="/screenshots/edit-ingredient-360.webp"
+                  srcset="
+                    /screenshots/edit-ingredient-360.webp  360w,
+                    /screenshots/edit-ingredient-720.webp  720w,
+                    /screenshots/edit-ingredient.webp      1206w
+                  "
+                  sizes="(max-width: 760px) 310px, 330px"
                   width="1206"
                   height="2622"
                   alt="{{pages.home.fitroom_edit_ingredient_screen}}"
@@ -777,7 +920,13 @@
               </figure>
               <figure class="screen-card">
                 <img
-                  src="/screenshots/progress.webp"
+                  src="/screenshots/progress-360.webp"
+                  srcset="
+                    /screenshots/progress-360.webp  360w,
+                    /screenshots/progress-720.webp  720w,
+                    /screenshots/progress.webp      1206w
+                  "
+                  sizes="(max-width: 760px) 310px, 330px"
                   width="1206"
                   height="2622"
                   alt="{{pages.home.fitroom_weight_progress_screen}}"
@@ -786,7 +935,13 @@
               </figure>
               <figure class="screen-card">
                 <img
-                  src="/screenshots/goal.webp"
+                  src="/screenshots/goal-360.webp"
+                  srcset="
+                    /screenshots/goal-360.webp  360w,
+                    /screenshots/goal-720.webp  720w,
+                    /screenshots/goal.webp      1206w
+                  "
+                  sizes="(max-width: 760px) 310px, 330px"
                   width="1206"
                   height="2622"
                   alt="{{pages.home.fitroom_personal_goal_and_nutrition_targets_screen}}"
@@ -797,7 +952,13 @@
             <div class="screens-set" aria-hidden="true">
               <figure class="screen-card">
                 <img
-                  src="/screenshots/home.webp"
+                  src="/screenshots/home-360.webp"
+                  srcset="
+                    /screenshots/home-360.webp  360w,
+                    /screenshots/home-720.webp  720w,
+                    /screenshots/home.webp      1206w
+                  "
+                  sizes="(max-width: 760px) 310px, 330px"
                   width="1206"
                   height="2622"
                   alt=""
@@ -806,7 +967,13 @@
               </figure>
               <figure class="screen-card">
                 <img
-                  src="/screenshots/meal-scan.webp"
+                  src="/screenshots/meal-scan-360.webp"
+                  srcset="
+                    /screenshots/meal-scan-360.webp  360w,
+                    /screenshots/meal-scan-720.webp  720w,
+                    /screenshots/meal-scan.webp      1206w
+                  "
+                  sizes="(max-width: 760px) 310px, 330px"
                   width="1206"
                   height="2622"
                   alt=""
@@ -815,7 +982,13 @@
               </figure>
               <figure class="screen-card">
                 <img
-                  src="/screenshots/meal-result.webp"
+                  src="/screenshots/meal-result-360.webp"
+                  srcset="
+                    /screenshots/meal-result-360.webp  360w,
+                    /screenshots/meal-result-720.webp  720w,
+                    /screenshots/meal-result.webp      1206w
+                  "
+                  sizes="(max-width: 760px) 310px, 330px"
                   width="1206"
                   height="2622"
                   alt=""
@@ -824,7 +997,13 @@
               </figure>
               <figure class="screen-card">
                 <img
-                  src="/screenshots/edit-meal.webp"
+                  src="/screenshots/edit-meal-360.webp"
+                  srcset="
+                    /screenshots/edit-meal-360.webp  360w,
+                    /screenshots/edit-meal-720.webp  720w,
+                    /screenshots/edit-meal.webp      1206w
+                  "
+                  sizes="(max-width: 760px) 310px, 330px"
                   width="1206"
                   height="2622"
                   alt=""
@@ -833,7 +1012,13 @@
               </figure>
               <figure class="screen-card">
                 <img
-                  src="/screenshots/edit-ingredient.webp"
+                  src="/screenshots/edit-ingredient-360.webp"
+                  srcset="
+                    /screenshots/edit-ingredient-360.webp  360w,
+                    /screenshots/edit-ingredient-720.webp  720w,
+                    /screenshots/edit-ingredient.webp      1206w
+                  "
+                  sizes="(max-width: 760px) 310px, 330px"
                   width="1206"
                   height="2622"
                   alt=""
@@ -842,7 +1027,13 @@
               </figure>
               <figure class="screen-card">
                 <img
-                  src="/screenshots/progress.webp"
+                  src="/screenshots/progress-360.webp"
+                  srcset="
+                    /screenshots/progress-360.webp  360w,
+                    /screenshots/progress-720.webp  720w,
+                    /screenshots/progress.webp      1206w
+                  "
+                  sizes="(max-width: 760px) 310px, 330px"
                   width="1206"
                   height="2622"
                   alt=""
@@ -851,7 +1042,13 @@
               </figure>
               <figure class="screen-card">
                 <img
-                  src="/screenshots/goal.webp"
+                  src="/screenshots/goal-360.webp"
+                  srcset="
+                    /screenshots/goal-360.webp  360w,
+                    /screenshots/goal-720.webp  720w,
+                    /screenshots/goal.webp      1206w
+                  "
+                  sizes="(max-width: 760px) 310px, 330px"
                   width="1206"
                   height="2622"
                   alt=""
@@ -909,18 +1106,30 @@
               <img
                 class="trust-laurel trust-laurel-left"
                 src="/assets/laurel-left.svg"
+                width="31"
+                height="60"
                 alt=""
                 aria-hidden="true"
               />
               <img
                 class="trust-logo"
-                src="/assets/fitroom-logo-dark.png"
+                src="/assets/fitroom-logo-dark-320.webp"
+                srcset="
+                  /assets/fitroom-logo-dark-160.webp 160w,
+                  /assets/fitroom-logo-dark-320.webp 320w,
+                  /assets/fitroom-logo-dark-640.webp 640w
+                "
+                sizes="(max-width: 760px) 210px, 290px"
+                width="320"
+                height="108"
                 alt="{{common.fitroom}}"
                 loading="lazy"
               />
               <img
                 class="trust-laurel trust-laurel-right"
                 src="/assets/laurel-left.svg"
+                width="31"
+                height="60"
                 alt=""
                 aria-hidden="true"
               />
@@ -946,7 +1155,14 @@
         <div class="footer-brand">
           <img
             class="footer-logo"
-            src="/assets/fitroom-logo-light.png"
+            src="/assets/fitroom-logo-light-240.webp"
+            srcset="
+              /assets/fitroom-logo-light-240.webp 240w,
+              /assets/fitroom-logo-light-480.webp 480w
+            "
+            sizes="(max-width: 760px) 180px, 210px"
+            width="240"
+            height="81"
             alt="{{common.fitroom}}"
           />
           <p>{{common.snap_your_food_well_do_the_rest}}</p>
@@ -1019,7 +1235,14 @@
         <div class="footer-app">
           <img
             class="footer-app-icon"
-            src="/assets/fitroom-app-dark.png"
+            src="/assets/fitroom-app-dark-96.png"
+            srcset="
+              /assets/fitroom-app-dark-96.png   96w,
+              /assets/fitroom-app-dark-192.png 192w
+            "
+            sizes="(max-width: 760px) 70px, 96px"
+            width="96"
+            height="96"
             alt="{{pages.home.fitroom_app_icon}}"
           />
           <div>
@@ -1038,6 +1261,8 @@
             aria-label="{{common.fitroom_on_the_app_store}}"
             ><img
               src="/appstore.svg"
+              width="1331"
+              height="382"
               alt="{{common.download_on_the_app_store}}" /></a
           ><a
             href="#top"
@@ -1045,7 +1270,11 @@
             data-waitlist-trigger
             data-waitlist-source="googleplay-footer"
             aria-label="{{common.fitroom_on_google_play}}"
-            ><img src="/playstore.svg" alt="{{common.get_it_on_google_play}}"
+            ><img
+              src="/playstore.svg"
+              width="5334"
+              height="1538"
+              alt="{{common.get_it_on_google_play}}"
           /></a>
         </div>
       </div>
@@ -1133,51 +1362,79 @@
             aria-label="{{pages.home.fitroom_app_previews}}"
           >
             <img
-              src="/screenshots/meal-scan.webp"
+              src="/screenshots/meal-scan-360.webp"
+              data-featured-src="/screenshots/meal-scan-720.webp"
+              width="360"
+              height="783"
               alt="{{pages.home.fitroom_meal_scanner}}"
+              loading="lazy"
               role="button"
               tabindex="0"
               aria-pressed="false"
             />
             <img
               class="is-active"
-              src="/screenshots/home.webp"
+              src="/screenshots/home-360.webp"
+              data-featured-src="/screenshots/home-720.webp"
+              width="360"
+              height="783"
               alt="{{pages.home.fitroom_home_dashboard}}"
+              loading="lazy"
               role="button"
               tabindex="0"
               aria-pressed="true"
             />
             <img
-              src="/screenshots/meal-result.webp"
+              src="/screenshots/meal-result-360.webp"
+              data-featured-src="/screenshots/meal-result-720.webp"
+              width="360"
+              height="783"
               alt="{{pages.home.fitroom_meal_analysis_result}}"
+              loading="lazy"
               role="button"
               tabindex="0"
               aria-pressed="false"
             />
             <img
-              src="/screenshots/edit-meal.webp"
+              src="/screenshots/edit-meal-360.webp"
+              data-featured-src="/screenshots/edit-meal-720.webp"
+              width="360"
+              height="783"
               alt="{{pages.home.editing_a_meal_in_fitroom}}"
+              loading="lazy"
               role="button"
               tabindex="0"
               aria-pressed="false"
             />
             <img
-              src="/screenshots/edit-ingredient.webp"
+              src="/screenshots/edit-ingredient-360.webp"
+              data-featured-src="/screenshots/edit-ingredient-720.webp"
+              width="360"
+              height="783"
               alt="{{pages.home.editing_an_ingredient_in_fitroom}}"
+              loading="lazy"
               role="button"
               tabindex="0"
               aria-pressed="false"
             />
             <img
-              src="/screenshots/progress.webp"
+              src="/screenshots/progress-360.webp"
+              data-featured-src="/screenshots/progress-720.webp"
+              width="360"
+              height="783"
               alt="{{common.fitroom_progress_dashboard}}"
+              loading="lazy"
               role="button"
               tabindex="0"
               aria-pressed="false"
             />
             <img
-              src="/screenshots/goal.webp"
+              src="/screenshots/goal-360.webp"
+              data-featured-src="/screenshots/goal-720.webp"
+              width="360"
+              height="783"
               alt="{{pages.home.setting_a_nutrition_goal_in_fitroom}}"
+              loading="lazy"
               role="button"
               tabindex="0"
               aria-pressed="false"
@@ -1198,15 +1455,21 @@
           <img
             id="waitlist-featured-preview"
             class="waitlist-preview-current"
-            src="/screenshots/home.webp"
+            src="/screenshots/home-720.webp"
+            width="720"
+            height="1565"
             alt="{{pages.home.fitroom_home_nutrition_dashboard}}"
+            loading="lazy"
           />
           <img
             id="waitlist-featured-preview-next"
             class="waitlist-preview-next"
-            src="/screenshots/home.webp"
+            src="/screenshots/home-720.webp"
+            width="720"
+            height="1565"
             alt=""
             aria-hidden="true"
+            loading="lazy"
           />
         </div>
       </section>
