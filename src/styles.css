@@ -3085,7 +3085,7 @@ footer > span {
     margin-inline: auto;
   }
   .hero-section {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     min-height: 100svh;
     padding-top: 150px;
     text-align: center;
@@ -5213,13 +5213,24 @@ body.modal-open > .site-footer {
     font-size: clamp(32px, 8.5vw, 42px) !important;
   }
   .how-title-line {
+    display: block;
+    max-width: 100%;
     gap: 0.12em;
+    white-space: normal;
+    text-align: center;
   }
   .input-cycle {
     min-width: 2.5em;
   }
+  .review-avatars {
+    flex-shrink: 0;
+  }
+  .review-summary {
+    min-width: 0;
+  }
   .review-top p {
-    white-space: nowrap;
+    overflow-wrap: anywhere;
+    white-space: normal;
   }
   .review-rating {
     gap: 6px;
@@ -5234,6 +5245,11 @@ body.modal-open > .site-footer {
 @media (max-width: 440px) {
   .nav-logo-label {
     display: none;
+  }
+}
+@media (max-width: 420px) {
+  .hero-copy h1[lang="ka"] {
+    font-size: min(13.5vw, 50px);
   }
 }
 @media (prefers-reduced-motion: reduce) {
