@@ -146,6 +146,12 @@
   white-space: nowrap;
 }
 
+
+.liquid-nav__brand span {
+  text-transform: uppercase;
+  font-feature-settings: "case" on;
+}
+
 .liquid-nav__brand span,
 .liquid-nav__menu,
 .liquid-nav__language {

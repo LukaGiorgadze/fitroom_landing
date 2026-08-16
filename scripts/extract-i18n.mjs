@@ -71,7 +71,7 @@ const decodeHtml = (value) =>
           rdquo: "”",
           ldquo: "“",
           ndash: "–",
-          mdash: "—",
+          mdash: "-",
           hellip: "…",
         })[entity],
     );

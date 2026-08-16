@@ -1431,7 +1431,7 @@ a {
 }
 .split-heading {
   display: grid;
-  grid-template-columns: 1fr 0.75fr;
+  grid-template-columns: 2fr 0.75fr;
   align-items: end;
   gap: 80px;
   margin-bottom: 64px;
@@ -2160,7 +2160,7 @@ footer > span {
   margin: 0 0 22px;
   font-weight: 500;
   letter-spacing: 0;
-  line-height: 0.98;
+  line-height: 1;
 }
 .hero-copy h1 .hero-tagline {
   color: #10131b;
