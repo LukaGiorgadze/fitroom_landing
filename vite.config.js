@@ -179,9 +179,16 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
+        analytics: "src/analytics.js",
         main: "index.html",
         privacyPolicy: "privacy-policy/index.html",
         termsAndUse: "terms-and-use/index.html",
+      },
+      output: {
+        entryFileNames: (chunk) =>
+          chunk.name === "analytics"
+            ? "analytics.js"
+            : "assets/[name]-[hash].js",
       },
     },
   },
