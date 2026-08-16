@@ -2,7 +2,7 @@
   "pages": {
     "home": {
       "snap_your_food_track_calories_and_macros_and_move_toward": "გადაუღე საკვებს, აკონტროლე კალორიები და მაკროები, მიაღწიე მიზანს Fitroom-ით.",
-      "seo_title": "კალორიების მთვლელი აპლიკაცია | Fitroom AI",
+      "seo_title": "კალორიების მთვლელი აპლიკაცია | Fitroom",
       "seo_description": "კალორიების დათვლა ფოტოთი: Fitroom არის AI კალორიების მთვლელი და კალორიების აპლიკაცია, რომელიც ითვლის კალორიებსა და მაკროებს.",
       "main_navigation": "მთავარი ნავიგაცია",
       "expand_navigation": "ნავიგაციის გაშლა",
@@ -346,7 +346,7 @@
     }
   },
   "common": {
-    "fitroom_ai_calorie_tracker_app_and_food_scanner": "Fitroom AI კალორიების ტრეკერი და საკვების სკანერი",
+    "fitroom_ai_calorie_tracker_app_and_food_scanner": "Fitroom AI კალორიების მთვლელი და საკვების სკანერი",
     "fitroom_calorie_tracker": "Fitroom: კალორიების მთვლელი",
     "fitroom_calorie_tracker_home": "Fitroom - მთავარი",
     "language_selector": "ენის შეცვლა",
