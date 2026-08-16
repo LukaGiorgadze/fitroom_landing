@@ -71,6 +71,86 @@ const escapeHtml = (value) =>
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#39;");
 
+const createHomepageStructuredData = (locale, canonical) => {
+  const catalog = catalogs[locale];
+  const organizationId = `${siteUrl}/#organization`;
+  const websiteId = `${siteUrl}/#website`;
+  const webpageId = `${canonical}#webpage`;
+  const faqKeys = [
+    "faq_what_is_a_calorie_tracker",
+    "faq_how_photo_counting_works",
+    "faq_accuracy",
+    "faq_macros",
+    "faq_corrections",
+  ];
+  const faqItems = faqKeys.map((key) => ({
+    "@type": "Question",
+    name: getValue(catalog, `pages.home.${key}_question`),
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: getValue(catalog, `pages.home.${key}_answer`),
+    },
+  }));
+
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": organizationId,
+        name: "Fitroom",
+        url: "https://fitroom.ge/",
+        logo: {
+          "@type": "ImageObject",
+          url: `${siteUrl}/assets/fitroom-logo-dark.png`,
+        },
+        image: `${siteUrl}/assets/og-image.webp`,
+        email: "contact@fitroom.ge",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "24 Alexander Kazbegi Avenue",
+          addressLocality: "Tbilisi",
+          addressCountry: "GE",
+        },
+        sameAs: [
+          "https://www.facebook.com/fitroom.ge",
+          "https://www.instagram.com/fitroom.ge/",
+          "https://www.tiktok.com/@fitroom.ge",
+          "https://x.com/fitroomge",
+          "https://www.linkedin.com/company/74479027/",
+        ],
+      },
+      {
+        "@type": "WebSite",
+        "@id": websiteId,
+        url: `${siteUrl}/`,
+        name: getValue(catalog, "common.fitroom_calorie_tracker"),
+        publisher: { "@id": organizationId },
+        inLanguage: ["en", "ka"],
+      },
+      {
+        "@type": ["WebPage", "FAQPage"],
+        "@id": webpageId,
+        url: canonical,
+        name: getValue(catalog, "pages.home.seo_title"),
+        description: getValue(catalog, "pages.home.seo_description"),
+        isPartOf: { "@id": websiteId },
+        about: { "@id": organizationId },
+        primaryImageOfPage: {
+          "@type": "ImageObject",
+          url: `${siteUrl}/assets/og-image.webp`,
+          width: 1536,
+          height: 1024,
+        },
+        inLanguage: locale,
+        mainEntity: faqItems,
+      },
+    ],
+  };
+
+  return JSON.stringify(structuredData).replace(/</g, "\\u003c");
+};
+
 const pageContext = (locale, pageKey) => {
   const routes = Object.fromEntries(
     Object.keys(pages).map((key) => [key, routeFor(locale, key)]),
@@ -88,6 +168,7 @@ const pageContext = (locale, pageKey) => {
       routeFor(language, pageKey),
     ]),
   );
+  const canonical = `${siteUrl}${routeFor(locale, pageKey)}`;
 
   return {
     locale,
@@ -95,9 +176,11 @@ const pageContext = (locale, pageKey) => {
     alternates,
     switchRoutes,
     seo: {
-      canonical: `${siteUrl}${routeFor(locale, pageKey)}`,
+      canonical,
       ogLocale: languages[locale].ogLocale,
       alternateOgLocale: languages[alternateLocale].ogLocale,
+      structuredData:
+        pageKey === "home" ? createHomepageStructuredData(locale, canonical) : "{}",
     },
   };
 };
@@ -115,6 +198,7 @@ export const renderLocalizedHtml = (html, locale, pageKey) => {
     if (typeof value !== "string") {
       throw new Error(`Missing ${locale} translation for ${key} in ${pageKey}`);
     }
+    if (key === "seo.structuredData") return value;
     return escapeHtml(value);
   });
 
@@ -154,30 +238,18 @@ export const findLocalizedRoute = (pathname) =>
   );
 
 export const createSitemap = () => {
-  const alternateLinks = (pageKey) =>
-    Object.keys(languages)
-      .map(
-        (locale) =>
-          `    <xhtml:link rel="alternate" hreflang="${locale}" href="${siteUrl}${routeFor(locale, pageKey)}" />`,
-      )
-      .concat(
-        `    <xhtml:link rel="alternate" hreflang="x-default" href="${siteUrl}${routeFor("en", pageKey)}" />`,
-      )
-      .join("\n");
-
   const urls = Object.keys(pages)
     .flatMap((pageKey) =>
       Object.keys(languages).map(
         (locale) => `  <url>
     <loc>${siteUrl}${routeFor(locale, pageKey)}</loc>
-${alternateLinks(pageKey)}
   </url>`,
       ),
     )
     .join("\n");
 
   return `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls}
 </urlset>
 `;

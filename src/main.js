@@ -53,18 +53,9 @@ if (
     document.querySelector("[data-preview-fallback-alt]")?.dataset
       .previewFallbackAlt || "";
   const joinedStorageKey = "fitroom.waitlist.joinedAt";
-  let autoOpenTimer;
   let lastFocusedElement;
   let closeTimer;
-  let submissionSource = "automatic-modal";
-
-  const hasJoinedWaitlist = () => {
-    try {
-      return Boolean(window.localStorage.getItem(joinedStorageKey));
-    } catch {
-      return false;
-    }
-  };
+  let submissionSource = "manual-modal";
 
   const rememberWaitlistSignup = () => {
     try {
@@ -74,17 +65,7 @@ if (
     }
   };
 
-  const clearAutoOpen = () => {
-    if (autoOpenTimer) {
-      window.clearTimeout(autoOpenTimer);
-      autoOpenTimer = undefined;
-    }
-  };
-
-  window.addEventListener("fitroom:demo-engaged", clearAutoOpen);
-
-  const openModal = (source = "automatic-modal") => {
-    clearAutoOpen();
+  const openModal = (source = "manual-modal") => {
     window.clearTimeout(closeTimer);
     submissionSource = source;
     lastFocusedElement = document.activeElement;
@@ -98,7 +79,6 @@ if (
   };
 
   const closeModal = () => {
-    clearAutoOpen();
     modal.classList.remove("is-open");
     document.body.classList.remove("modal-open");
 
@@ -280,20 +260,6 @@ if (
       }
     });
   });
-
-  const scheduleAutoOpen = () => {
-    if (hasJoinedWaitlist()) return;
-    autoOpenTimer = window.setTimeout(
-      () => openModal("automatic-modal"),
-      15000,
-    );
-  };
-
-  if (document.readyState === "complete") {
-    scheduleAutoOpen();
-  } else {
-    window.addEventListener("load", scheduleAutoOpen, { once: true });
-  }
 }
 
 const phoneScene = document.querySelector(".phone-scene");

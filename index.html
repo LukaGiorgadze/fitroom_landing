@@ -6,18 +6,29 @@
     <meta name="theme-color" content="#f8faff" />
     <meta
       name="description"
-      content="{{pages.home.snap_your_food_track_calories_and_macros_and_move_toward}}"
+      content="{{pages.home.seo_description}}"
     />
-    <meta name="robots" content="index,follow" />
+    <meta
+      name="robots"
+      content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
+    />
     <link rel="canonical" href="{{seo.canonical}}" />
     <link rel="alternate" hreflang="en" href="{{alternates.en}}" />
     <link rel="alternate" hreflang="ka" href="{{alternates.ka}}" />
     <link rel="alternate" hreflang="x-default" href="{{alternates.en}}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Fitroom" />
+    <meta property="og:title" content="{{pages.home.seo_title}}" />
+    <meta property="og:description" content="{{pages.home.seo_description}}" />
     <meta property="og:url" content="{{seo.canonical}}" />
     <meta property="og:locale" content="{{seo.ogLocale}}" />
     <meta property="og:locale:alternate" content="{{seo.alternateOgLocale}}" />
     <meta
       property="og:image"
+      content="https://app.fitroom.ge/assets/og-image.webp"
+    />
+    <meta
+      property="og:image:secure_url"
       content="https://app.fitroom.ge/assets/og-image.webp"
     />
     <meta property="og:image:type" content="image/webp" />
@@ -28,6 +39,12 @@
       content="{{common.fitroom_ai_calorie_tracker_app_and_food_scanner}}"
     />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@fitroomge" />
+    <meta name="twitter:title" content="{{pages.home.seo_title}}" />
+    <meta
+      name="twitter:description"
+      content="{{pages.home.seo_description}}"
+    />
     <meta
       name="twitter:image"
       content="https://app.fitroom.ge/assets/og-image.webp"
@@ -44,7 +61,8 @@
     <script type="module" src="/src/i18n.js"></script>
     <script type="module" src="/src/liquid-glass-nav.js"></script>
     <script type="module" src="/src/main.js"></script>
-    <title>{{common.fitroom_calorie_tracker}}</title>
+    <script type="application/ld+json">{{seo.structuredData}}</script>
+    <title>{{pages.home.seo_title}}</title>
   </head>
   <body data-locale="{{locale}}">
     <nav
@@ -228,6 +246,7 @@
 
         <div
           class="phone-scene is-booting"
+          role="img"
           aria-label="{{pages.home.fitroom_app_nutrition_dashboard_preview}}"
         >
           <div class="phone-shell">
@@ -386,6 +405,7 @@
 
               <div
                 class="reference-week"
+                role="group"
                 aria-label="{{pages.home.week_of_may_7_to_13}}"
               >
                 <svg
@@ -705,6 +725,7 @@
         </div>
         <div
           class="screens-marquee"
+          role="region"
           aria-label="{{pages.home.fitroom_app_screenshots}}"
         >
           <div class="screens-reel">
@@ -842,6 +863,37 @@
         </div>
       </section>
 
+      <section id="faq" class="section faq-section" aria-labelledby="faq-title">
+        <div class="faq-shell">
+          <div class="faq-heading">
+            <h2 id="faq-title">{{pages.home.faq_title}}</h2>
+          </div>
+
+          <div class="faq-list">
+            <details class="faq-item">
+              <summary>{{pages.home.faq_what_is_a_calorie_tracker_question}}</summary>
+              <p>{{pages.home.faq_what_is_a_calorie_tracker_answer}}</p>
+            </details>
+            <details class="faq-item">
+              <summary>{{pages.home.faq_how_photo_counting_works_question}}</summary>
+              <p>{{pages.home.faq_how_photo_counting_works_answer}}</p>
+            </details>
+            <details class="faq-item">
+              <summary>{{pages.home.faq_accuracy_question}}</summary>
+              <p>{{pages.home.faq_accuracy_answer}}</p>
+            </details>
+            <details class="faq-item">
+              <summary>{{pages.home.faq_macros_question}}</summary>
+              <p>{{pages.home.faq_macros_answer}}</p>
+            </details>
+            <details class="faq-item">
+              <summary>{{pages.home.faq_corrections_question}}</summary>
+              <p>{{pages.home.faq_corrections_answer}}</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
       <section class="trust-section" aria-labelledby="trust-title">
         <div class="trust-shell">
           <div class="trust-copy">
@@ -877,13 +929,13 @@
               <span class="trust-star" aria-hidden="true">★</span>
               {{pages.home.trusted_by_over_100k_fitness_enthusiasts_worldwide}}
             </p>
-            <span
+            <a
               class="trust-link"
               href="https://fitroom.ge"
               target="_blank"
               rel="noopener noreferrer"
               >fitroom.ge <span aria-hidden="true">↗</span>
-            </span>
+            </a>
           </div>
         </div>
       </section>
@@ -952,7 +1004,7 @@
             </svg>
           </a>
           <a
-            href="https://www.linkedin.com/company/74479027/admin/dashboard/"
+            href="https://www.linkedin.com/company/74479027/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="{{common.fitroom_on_linkedin}}"
@@ -1000,6 +1052,8 @@
       <div class="footer-bottom">
         <span>{{pages.home.2026_fitroom}}</span>
         <nav aria-label="{{pages.home.footer_navigation}}">
+          <a href="#faq">{{pages.home.faq_navigation_label}}</a
+          >
           <a href="{{routes.termsOfUse}}">{{common.terms_of_use}}</a
           ><a href="{{routes.privacyPolicy}}">{{common.privacy_policy}}</a
           ><a
@@ -1075,6 +1129,7 @@
           </div>
           <div
             class="waitlist-previews"
+            role="group"
             aria-label="{{pages.home.fitroom_app_previews}}"
           >
             <img

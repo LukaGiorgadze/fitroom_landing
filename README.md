@@ -17,10 +17,9 @@ The site is rendered as static, indexable HTML for English and Georgian:
 - `/en/privacy-policy/` and `/ka/privacy-policy/`
 - `/en/terms-of-use/` and `/ka/terms-of-use/`
 
-English copy lives in `locales/en.json`. `locales/ka.json` currently contains
-the same values; translate only the values in that file to publish Georgian
-copy. The build renders both catalogs into their language-specific routes and
-adds canonical, `hreflang`, sitemap, and language-switcher links.
+English copy lives in `locales/en.json`, and Georgian copy lives in
+`locales/ka.json`. The build renders both catalogs into their language-specific
+routes and adds canonical, `hreflang`, sitemap, and language-switcher links.
 
 When new text is added to an HTML template, run `npm run i18n:extract`. This
 adds new English keys and copies only missing keys into the Georgian catalog,

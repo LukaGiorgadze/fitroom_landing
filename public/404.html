@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex,follow" />
+    <meta name="theme-color" content="#f7f8fa" />
+    <link rel="icon" type="image/png" href="/assets/fitroom-app-dark.png" />
+    <title>Page not found | Fitroom</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: Arial, sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+        margin: 0;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        background:
+          radial-gradient(circle at 80% 18%, #dce8ff, transparent 32rem),
+          radial-gradient(circle at 18% 82%, #ddf4ef, transparent 28rem),
+          #f7f8fa;
+        color: #14161b;
+      }
+
+      main {
+        width: min(680px, 100%);
+        padding: clamp(36px, 7vw, 72px);
+        border: 1px solid rgba(20, 22, 27, 0.08);
+        border-radius: 36px;
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 28px 70px rgba(32, 36, 44, 0.12);
+        text-align: center;
+      }
+
+      img {
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+      }
+
+      p:first-of-type {
+        margin: 28px 0 10px;
+        color: #7a8291;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(38px, 7vw, 62px);
+        letter-spacing: -0.05em;
+        line-height: 1.02;
+      }
+
+      .message {
+        margin: 20px auto 0;
+        color: #6f7785;
+        font-size: 17px;
+        line-height: 1.65;
+      }
+
+      nav {
+        margin-top: 34px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+      }
+
+      a {
+        padding: 13px 20px;
+        border: 1px solid #dfe3ea;
+        border-radius: 999px;
+        color: #20242c;
+        font-size: 14px;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      a:first-child {
+        border-color: #111318;
+        background: #111318;
+        color: #fff;
+      }
+
+      a:focus-visible {
+        outline: 3px solid #68707c;
+        outline-offset: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <img src="/assets/fitroom-app-dark.png" alt="Fitroom" />
+      <p>Error 404</p>
+      <h1>Page not found</h1>
+      <p class="message">
+        This address does not exist. Choose your language to return to Fitroom.<br />
+        ეს გვერდი ვერ მოიძებნა. აირჩიე ენა Fitroom-ზე დასაბრუნებლად.
+      </p>
+      <nav aria-label="Return to Fitroom">
+        <a href="/en/" hreflang="en">English</a>
+        <a href="/ka/" hreflang="ka" lang="ka">ქართული</a>
+      </nav>
+    </main>
+  </body>
+</html>

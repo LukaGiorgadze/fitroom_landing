@@ -73,6 +73,10 @@
     font-feature-settings: "case" on;
   }
 
+  .page-language-switcher.liquid-nav__language a[aria-current="page"] {
+    display: none;
+  }
+
   .legal-header {
     gap: 14px;
   }
