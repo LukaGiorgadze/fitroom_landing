@@ -16,7 +16,10 @@
     <meta property="og:url" content="{{seo.canonical}}" />
     <meta property="og:locale" content="{{seo.ogLocale}}" />
     <meta property="og:locale:alternate" content="{{seo.alternateOgLocale}}" />
-    <meta property="og:image" content="https://app.fitroom.ge/assets/og-image.webp" />
+    <meta
+      property="og:image"
+      content="https://app.fitroom.ge/assets/og-image.webp"
+    />
     <meta property="og:image:type" content="image/webp" />
     <meta property="og:image:width" content="1536" />
     <meta property="og:image:height" content="1024" />
@@ -25,7 +28,10 @@
       content="{{common.fitroom_ai_calorie_tracker_app_and_food_scanner}}"
     />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="https://app.fitroom.ge/assets/og-image.webp" />
+    <meta
+      name="twitter:image"
+      content="https://app.fitroom.ge/assets/og-image.webp"
+    />
     <meta
       name="twitter:image:alt"
       content="{{common.fitroom_ai_calorie_tracker_app_and_food_scanner}}"
@@ -41,7 +47,11 @@
     <title>{{common.fitroom_calorie_tracker}}</title>
   </head>
   <body data-locale="{{locale}}">
-    <nav class="liquid-nav" data-liquid-nav aria-label="{{pages.home.main_navigation}}">
+    <nav
+      class="liquid-nav"
+      data-liquid-nav
+      aria-label="{{pages.home.main_navigation}}"
+    >
       <canvas
         class="liquid-nav__webgl"
         data-liquid-nav-canvas
@@ -72,7 +82,9 @@
           data-section="how"
           aria-current="location"
         >
-          <span class="liquid-nav__label-long">{{pages.home.how_it_works}}</span>
+          <span class="liquid-nav__label-long"
+            >{{pages.home.how_it_works}}</span
+          >
           <span class="liquid-nav__label-short">{{pages.home.how}}</span>
         </a>
         <a
@@ -105,7 +117,8 @@
           data-language="en"
           data-language-switch
           aria-label="{{common.view_this_page_in_english}}"
-        >EN</a>
+          >EN</a
+        >
         <a
           href="{{switchRoutes.ka}}"
           lang="ka"
@@ -113,7 +126,8 @@
           data-language="ka"
           data-language-switch
           aria-label="{{common.view_this_page_in_georgian}}"
-        >KA</a>
+          >KA</a
+        >
       </div>
     </nav>
 
@@ -121,10 +135,13 @@
       <section id="top" class="hero-section">
         <div class="hero-noise" aria-hidden="true"></div>
         <div class="hero-copy">
-          <h1>
-            {{pages.home.snap_your_food}}<br /><span class="hero-tagline"
-              >{{pages.home.well_do_the}} <span class="hero-sticker-word">{{pages.home.rest}}</span></span
-            >
+          <h1 lang="{{locale}}">
+            {{pages.home.snap_your_food}}
+            <br />
+            <span class="hero-tagline"
+              >{{pages.home.well_do_the}}
+              <span class="hero-sticker-word">{{pages.home.rest}}</span>
+            </span>
           </h1>
           <p>
             {{pages.home.track_calories_and_macros_in_seconds_fitroom_app_recogni}}
@@ -136,7 +153,9 @@
               data-waitlist-trigger
               data-waitlist-source="appstore-header"
               aria-label="{{common.fitroom_on_the_app_store}}"
-              ><img src="/appstore.svg" alt="{{common.download_on_the_app_store}}"
+              ><img
+                src="/appstore.svg"
+                alt="{{common.download_on_the_app_store}}"
             /></a>
             <a
               href="#download"
@@ -374,7 +393,10 @@
                 alt="{{common.fitroom}}"
               />
 
-              <div class="reference-week" aria-label="{{pages.home.week_of_may_7_to_13}}">
+              <div
+                class="reference-week"
+                aria-label="{{pages.home.week_of_may_7_to_13}}"
+              >
                 <svg
                   class="reference-week-rail"
                   viewBox="0 0 292 57"
@@ -388,7 +410,9 @@
                 <span><small>{{pages.home.f}}</small><i></i><b>7</b></span>
                 <span><small>{{pages.home.sa}}</small><i></i><b>8</b></span>
                 <span><small>{{pages.home.su}}</small><i></i><b>9</b></span>
-                <span class="active"><small>{{pages.home.m}}</small><i></i><b>10</b></span>
+                <span class="active"
+                  ><small>{{pages.home.m}}</small><i></i><b>10</b></span
+                >
                 <span><small>{{pages.home.tu}}</small><i></i><b>11</b></span>
                 <span><small>{{pages.home.w}}</small><i></i><b>12</b></span>
                 <span><small>{{pages.home.th}}</small><i></i><b>13</b></span>
@@ -441,7 +465,8 @@
               </div>
 
               <div class="reference-nutrition-title">
-                <strong>{{pages.home.nutrition}}</strong><span>{{pages.home.today}}</span>
+                <strong>{{pages.home.nutrition}}</strong
+                ><span>{{pages.home.today}}</span>
               </div>
 
               <div class="reference-nutrition-card">
@@ -459,7 +484,10 @@
                   <strong class="reference-meal-total">900 kcal</strong>
                   <div class="reference-meal-details">
                     <i aria-hidden="true"></i>
-                    <span><b>{{common.khinkali}}</b><small>{{pages.home.6_pieces}}</small></span>
+                    <span
+                      ><b>{{common.khinkali}}</b
+                      ><small>{{pages.home.6_pieces}}</small></span
+                    >
                     <strong>900 kcal</strong>
                   </div>
                 </div>
@@ -529,8 +557,13 @@
             <span class="how-title-line"
               >{{pages.home.from}}
               <span class="input-cycle" aria-hidden="true"
-                ><span>{{pages.home.photo}}</span><span>{{pages.home.text}}</span><span>{{pages.home.label}}</span></span
-              ><span class="sr-only">{{pages.home.photo_text_or_a_nutrition_label}}</span> {{pages.home.to_progress}}</span
+                ><span>{{pages.home.photo}}</span
+                ><span>{{pages.home.text}}</span
+                ><span>{{pages.home.label}}</span></span
+              ><span class="sr-only"
+                >{{pages.home.photo_text_or_a_nutrition_label}}</span
+              >
+              {{pages.home.to_progress}}</span
             ><span class="how-title-line how-title-second"
               >{{pages.home.in_a_few_seconds}}</span
             >
@@ -598,7 +631,9 @@
       <section id="features" class="section feature-section">
         <div class="section-heading split-heading">
           <div>
-            <h2>{{pages.home.tracking_that_feels}}<br />{{pages.home.effortless}}</h2>
+            <h2>
+              {{pages.home.tracking_that_feels}}<br />{{pages.home.effortless}}
+            </h2>
           </div>
         </div>
         <div class="bento-grid">
@@ -622,7 +657,9 @@
           <article class="bento-card bento-dashboard">
             <div class="card-copy">
               <h3>{{pages.home.your_day_at_a_glance}}</h3>
-              <p>{{pages.home.know_whats_left_without_digging_through_numbers}}</p>
+              <p>
+                {{pages.home.know_whats_left_without_digging_through_numbers}}
+              </p>
             </div>
             <div class="feature-preview preview-home">
               <img
@@ -674,9 +711,14 @@
       <section id="screens" class="screens-section">
         <div class="screens-heading">
           <div><h2>{{pages.home.the_app_in_action}}</h2></div>
-          <p>{{pages.home.from_your_first_scan_to_daily_nutrition_and_long_term_pr}}</p>
+          <p>
+            {{pages.home.from_your_first_scan_to_daily_nutrition_and_long_term_pr}}
+          </p>
         </div>
-        <div class="screens-marquee" aria-label="{{pages.home.fitroom_app_screenshots}}">
+        <div
+          class="screens-marquee"
+          aria-label="{{pages.home.fitroom_app_screenshots}}"
+        >
           <div class="screens-reel">
             <div class="screens-set">
               <figure class="screen-card">
@@ -869,7 +911,10 @@
           />
           <p>{{common.snap_your_food_well_do_the_rest}}</p>
         </div>
-        <nav class="footer-socials" aria-label="{{common.fitroom_on_social_media}}">
+        <nav
+          class="footer-socials"
+          aria-label="{{common.fitroom_on_social_media}}"
+        >
           <a
             href="https://www.facebook.com/fitroom.ge"
             target="_blank"
@@ -939,7 +984,9 @@
           />
           <div>
             <h2>{{pages.home.fitroom_calorie_tracker_on_your_phone}}</h2>
-            <p>{{pages.home.track_meals_nutrition_and_progress_wherever_you_are}}</p>
+            <p>
+              {{pages.home.track_meals_nutrition_and_progress_wherever_you_are}}
+            </p>
           </div>
         </div>
         <div class="store-buttons footer-store-buttons">
@@ -949,7 +996,9 @@
             data-waitlist-trigger
             data-waitlist-source="appstore-footer"
             aria-label="{{common.fitroom_on_the_app_store}}"
-            ><img src="/appstore.svg" alt="{{common.download_on_the_app_store}}" /></a
+            ><img
+              src="/appstore.svg"
+              alt="{{common.download_on_the_app_store}}" /></a
           ><a
             href="#top"
             class="store-button"
@@ -995,7 +1044,8 @@
         </button>
         <div class="waitlist-content">
           <h2 id="waitlist-title">
-            {{pages.home.get_3_months_of}} <br />{{common.fitroom}} <span>{{pages.home.pro}}</span> {{pages.home.free}}
+            {{pages.home.get_3_months_of}} <br />{{common.fitroom}}
+            <span>{{pages.home.pro}}</span> {{pages.home.free}}
           </h2>
           <p id="waitlist-description">
             {{pages.home.join_the_waitlist_and_be_among_the_first_to_turn_every_m}}
@@ -1009,7 +1059,9 @@
               data-error-message="{{pages.home.unable_to_join_right_now_please_try_again}}"
               novalidate
             >
-              <label class="sr-only" for="waitlist-email">{{common.email_address}}</label>
+              <label class="sr-only" for="waitlist-email"
+                >{{common.email_address}}</label
+              >
               <input
                 id="waitlist-email"
                 name="email"
@@ -1033,7 +1085,10 @@
               {{pages.home.welcome_to_the_waitlist_well_send_your_3_month_pro_offer}}
             </p>
           </div>
-          <div class="waitlist-previews" aria-label="{{pages.home.fitroom_app_previews}}">
+          <div
+            class="waitlist-previews"
+            aria-label="{{pages.home.fitroom_app_previews}}"
+          >
             <img
               src="/screenshots/meal-scan.webp"
               alt="{{pages.home.fitroom_meal_scanner}}"

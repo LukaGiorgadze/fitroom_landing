@@ -14,6 +14,29 @@ const previewStages = [...document.querySelectorAll("[data-waitlist-stage]")]
   .filter(({ current, next }) => current && next);
 const previewThumbnails = [...document.querySelectorAll(".waitlist-previews img")];
 
+let pageBoundaryFrame;
+
+const syncPageBoundaryBackground = () => {
+  pageBoundaryFrame = undefined;
+  const pageHeight = Math.max(
+    document.documentElement.scrollHeight,
+    document.body.scrollHeight,
+  );
+  const isAtPageEnd = window.scrollY + window.innerHeight >= pageHeight - 2;
+
+  document.body.classList.toggle("is-at-page-end", isAtPageEnd);
+};
+
+const schedulePageBoundarySync = () => {
+  if (pageBoundaryFrame) return;
+  pageBoundaryFrame = window.requestAnimationFrame(syncPageBoundaryBackground);
+};
+
+window.addEventListener("scroll", schedulePageBoundarySync, { passive: true });
+window.addEventListener("resize", schedulePageBoundarySync);
+window.addEventListener("load", schedulePageBoundarySync, { once: true });
+syncPageBoundaryBackground();
+
 if (
   modal &&
   dialog &&
