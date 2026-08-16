@@ -2813,6 +2813,48 @@ footer > span {
   font-size: 18px;
   line-height: 25px;
 }
+.footer-socials {
+  display: flex;
+  gap: 10px;
+  margin-top: 22px;
+}
+.footer-socials a {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 11px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #f5f7fb;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+.footer-socials a:hover {
+  border-color: rgba(255, 255, 255, 0.24);
+  background: rgba(255, 255, 255, 0.13);
+  transform: translateY(-2px);
+}
+.footer-socials a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+.footer-socials svg {
+  width: 19px;
+  height: 19px;
+  fill: currentColor;
+}
+.footer-socials rect,
+.footer-socials circle:not(.footer-social-dot) {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+}
+.footer-socials .footer-social-dot {
+  fill: currentColor;
+}
 .footer-app {
   display: flex;
   align-items: center;
