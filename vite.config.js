@@ -20,4 +20,13 @@ function waitlistApi() {
 
 export default defineConfig({
   plugins: [tailwindcss(), waitlistApi()],
+  build: {
+    rollupOptions: {
+      input: {
+        main: "index.html",
+        privacyPolicy: "privacy-policy/index.html",
+        termsAndUse: "terms-and-use/index.html",
+      },
+    },
+  },
 });
