@@ -264,92 +264,87 @@ if (
 }
 
 const phoneScene = document.querySelector(".phone-scene");
-const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-if (phoneScene && !reducedMotionQuery.matches) {
-  document.documentElement.classList.add("has-phone-assembly");
+if (phoneScene) {
+  phoneScene.classList.add("is-content-pending");
+  import("./phone-experience.js")
+    .then(({ initPhoneExperience }) => initPhoneExperience(phoneScene))
+    .catch(() => {
+      // Keep the product demo usable if an enhancement chunk or WebGL fails.
+      phoneScene.classList.remove("is-content-pending");
+      phoneScene.classList.add("is-ready");
+      const addMealButton = phoneScene.querySelector(".reference-add");
+      const cameraScreen = phoneScene.querySelector(".meal-camera-screen");
+      const closeCameraButton = phoneScene.querySelector(".meal-camera-close");
+      const shutterButton = phoneScene.querySelector(".meal-camera-shutter");
+      const cameraModes = [...phoneScene.querySelectorAll(".meal-camera-mode")];
+      const demoScreens = new Map(
+        [...phoneScene.querySelectorAll("[data-phone-demo-screen]")].map((screen) => [
+          screen.dataset.phoneDemoScreen,
+          screen,
+        ]),
+      );
 
-  const assemblyField = document.createElement("div");
-  assemblyField.className = "assembly-field";
-  assemblyField.setAttribute("aria-hidden", "true");
+      const setFallbackView = (view) => {
+        const cameraActive = view === "camera";
+        if (cameraScreen) {
+          cameraScreen.inert = !cameraActive;
+          cameraScreen.setAttribute("aria-hidden", String(!cameraActive));
+        }
+        demoScreens.forEach((screen, name) => {
+          const active = name === view;
+          screen.inert = !active;
+          screen.setAttribute("aria-hidden", String(!active));
+          screen.classList.toggle("is-active", active);
+        });
+        phoneScene.dataset.phoneView = view;
+      };
 
-  phoneScene.prepend(assemblyField);
+      const closeFallbackCamera = () => {
+        phoneScene.classList.remove("is-camera-open");
+        delete phoneScene.dataset.phoneView;
+        cameraScreen?.setAttribute("inert", "");
+        cameraScreen?.setAttribute("aria-hidden", "true");
+        demoScreens.forEach((screen) => {
+          screen.inert = true;
+          screen.setAttribute("aria-hidden", "true");
+          screen.classList.remove("is-active");
+        });
+        addMealButton?.focus({ preventScroll: true });
+      };
 
-  let bootTimer;
-  let brandTimer;
-  let assemblyTimer;
-  let guideTimer;
-
-  const addMealButton = phoneScene.querySelector(".reference-add");
-  const cameraScreen = phoneScene.querySelector(".meal-camera-screen");
-  const closeCameraButton = phoneScene.querySelector(".meal-camera-close");
-
-  const finishAssembly = () => {
-    phoneScene.classList.remove(
-      "is-booting",
-      "is-branding",
-      "is-assembling",
-      "is-pending",
-    );
-    phoneScene.classList.add("is-assembled");
-    guideTimer = window.setTimeout(() => {
-      phoneScene.classList.add("is-plus-guided");
-    }, 350);
-  };
-
-  const playAssembly = () => {
-    window.clearTimeout(bootTimer);
-    window.clearTimeout(brandTimer);
-    window.clearTimeout(assemblyTimer);
-    window.clearTimeout(guideTimer);
-    phoneScene.classList.remove(
-      "is-pending",
-      "is-assembled",
-      "is-booting",
-      "is-branding",
-      "is-assembling",
-      "is-plus-guided",
-    );
-    void phoneScene.offsetWidth;
-    phoneScene.classList.add("is-booting");
-
-    bootTimer = window.setTimeout(() => {
-      phoneScene.classList.remove("is-booting");
-      phoneScene.classList.add("is-branding");
-
-      brandTimer = window.setTimeout(() => {
-        phoneScene.classList.remove("is-branding");
-        void phoneScene.offsetWidth;
-        phoneScene.classList.add("is-assembling");
-        assemblyTimer = window.setTimeout(finishAssembly, 3200);
-      }, 1100);
-    }, 850);
-  };
-
-  if ("IntersectionObserver" in window) {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (!entries.some((entry) => entry.isIntersecting)) return;
-        observer.disconnect();
-        playAssembly();
-      },
-      { threshold: 0.28 },
-    );
-    observer.observe(phoneScene);
-  } else {
-    playAssembly();
-  }
-
-  addMealButton?.addEventListener("click", () => {
-    window.clearTimeout(guideTimer);
-    window.dispatchEvent(new CustomEvent("fitroom:demo-engaged"));
-    phoneScene.classList.remove("is-plus-guided");
-    phoneScene.classList.add("is-camera-open");
-    cameraScreen?.setAttribute("aria-hidden", "false");
-  });
-
-  closeCameraButton?.addEventListener("click", () => {
-    phoneScene.classList.remove("is-camera-open");
-    cameraScreen?.setAttribute("aria-hidden", "true");
-  });
+      addMealButton?.addEventListener("click", () => {
+        phoneScene.classList.add("is-camera-open");
+        setFallbackView("camera");
+        closeCameraButton?.focus({ preventScroll: true });
+      });
+      closeCameraButton?.addEventListener("click", closeFallbackCamera);
+      shutterButton?.addEventListener("click", () => setFallbackView("result"));
+      cameraModes[1]?.addEventListener("click", () => setFallbackView("manual"));
+      cameraModes[2]?.addEventListener("click", () => setFallbackView("gallery"));
+      phoneScene.querySelectorAll("[data-gallery-photo]").forEach((tile) => {
+        tile.addEventListener("click", () => setFallbackView("result"));
+      });
+      phoneScene.querySelector("[data-manual-generate]")?.addEventListener("click", () => {
+        setFallbackView("result");
+      });
+      phoneScene.querySelector("[data-result-fix]")?.addEventListener("click", () => {
+        setFallbackView("manual");
+      });
+      phoneScene.querySelector("[data-result-done]")?.addEventListener(
+        "click",
+        closeFallbackCamera,
+      );
+      phoneScene.querySelectorAll("[data-phone-demo-action]").forEach((button) => {
+        button.addEventListener("click", () => setFallbackView("camera"));
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key !== "Escape" || !phoneScene.classList.contains("is-camera-open")) {
+          return;
+        }
+        event.preventDefault();
+        if (phoneScene.dataset.phoneView === "camera") closeFallbackCamera();
+        else setFallbackView("camera");
+      });
+    });
 }
