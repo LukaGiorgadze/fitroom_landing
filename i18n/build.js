@@ -268,10 +268,13 @@ export const createRootRedirect = () => {
   <head>
     <meta charset="UTF-8" />
     <meta name="robots" content="noindex,follow" />
-    <meta http-equiv="refresh" content="0;url=/en/" />
     <link rel="canonical" href="${siteUrl}/en/" />
     <title>${title}</title>
-    <script>window.location.replace("/en/" + window.location.hash);</script>
+    <script>
+      const browserLanguage = (navigator.languages?.[0] || navigator.language || "").toLowerCase();
+      const locale = browserLanguage === "ka" || browserLanguage.startsWith("ka-") ? "ka" : "en";
+      window.location.replace("/" + locale + "/" + window.location.search + window.location.hash);
+    </script>
   </head>
   <body><a href="/en/">${title}</a></body>
 </html>

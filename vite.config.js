@@ -45,8 +45,6 @@ function prioritizeStylesheets(html) {
 
 function staticLocalization() {
   const developmentRedirects = new Map([
-    ["/", "/en/"],
-    ["/index.html", "/en/"],
     ["/terms", "/en/terms-of-use/"],
     ["/terms/", "/en/terms-of-use/"],
     ["/terms-and-use", "/en/terms-of-use/"],
@@ -82,6 +80,13 @@ function staticLocalization() {
         if (request.method !== "GET" && request.method !== "HEAD") return next();
 
         const pathname = new URL(request.url, "http://localhost").pathname;
+        if (pathname === "/" || pathname === "/index.html") {
+          response.statusCode = 200;
+          response.setHeader("Content-Type", "text/html; charset=utf-8");
+          response.end(request.method === "HEAD" ? undefined : createRootRedirect());
+          return;
+        }
+
         const redirect = developmentRedirects.get(pathname);
         if (redirect) {
           response.statusCode = 302;

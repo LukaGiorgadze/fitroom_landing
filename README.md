@@ -17,6 +17,9 @@ The site is rendered as static, indexable HTML for English and Georgian:
 - `/en/privacy-policy/` and `/ka/privacy-policy/`
 - `/en/terms-of-use/` and `/ka/terms-of-use/`
 
+The root page uses the browser's primary language to send Georgian (`ka` or
+`ka-*`) users to `/ka/`; all other users are sent to `/en/`.
+
 English copy lives in `locales/en.json`, and Georgian copy lives in
 `locales/ka.json`. The build renders both catalogs into their language-specific
 routes and adds canonical, `hreflang`, sitemap, and language-switcher links.
