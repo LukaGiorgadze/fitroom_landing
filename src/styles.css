@@ -1397,11 +1397,9 @@ a {
   min-height: 0;
   min-width: 0;
   padding: 0 28px;
-  border-inline-start: 1px solid var(--hairline);
 }
 .steps-grid .step-item:first-child {
   padding-inline-start: 0;
-  border-inline-start: 0;
 }
 .steps-grid .step-item:last-child {
   padding-inline-end: 0;
@@ -2387,9 +2385,6 @@ footer > span {
 .card-copy p {
   color: var(--muted);
 }
-.steps-grid .step-item {
-  border-color: var(--border-card);
-}
 .step-shot {
   background: var(--background);
 }
@@ -3289,15 +3284,12 @@ footer > span {
   .steps-grid .step-item {
     min-height: 0;
     padding: 0 0 40px;
-    border-inline-start: 0;
-    border-bottom: 1px solid var(--border-card);
   }
   .steps-grid .step-item + .step-item {
     padding-top: 40px;
   }
   .steps-grid .step-item:last-child {
     padding-bottom: 0;
-    border-bottom: 0;
   }
   .split-heading {
     margin-bottom: 40px;
