@@ -1369,7 +1369,21 @@ a {
   line-height: 1.6;
 }
 .how-section {
-  background: #fff;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 8% 42%,
+      rgba(119, 151, 255, 0.13),
+      transparent 27%
+    ),
+    radial-gradient(
+      circle at 92% 68%,
+      rgba(101, 214, 201, 0.12),
+      transparent 26%
+    ),
+    linear-gradient(180deg, var(--card) 0%, #f8fbff 48%, var(--card) 100%);
 }
 .steps-grid {
   max-width: 1180px;
@@ -1395,7 +1409,9 @@ a {
 .step-shot {
   overflow: hidden;
   aspect-ratio: 4 / 5;
+  border-radius: 26px;
   background: #f1f4f8;
+  box-shadow: 0 18px 45px rgba(37, 50, 82, 0.12);
 }
 .step-shot img {
   display: block;
@@ -1407,11 +1423,30 @@ a {
   padding: 26px 0 0;
 }
 .step-number {
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  height: 24px;
   margin-bottom: 12px;
+  padding: 0 9px;
+  border-radius: 999px;
   color: var(--soft-text);
-  font-size: 10px;
+  font-size: 11px;
+  font-weight: 600;
   letter-spacing: 0.08em;
+}
+.step-item:nth-child(1) .step-number {
+  background: rgba(119, 151, 255, 0.15);
+  color: #5d70bd;
+}
+.step-item:nth-child(2) .step-number {
+  background: rgba(101, 214, 201, 0.18);
+  color: #397d75;
+}
+.step-item:nth-child(3) .step-number {
+  background: rgba(247, 181, 93, 0.2);
+  color: #9b6421;
 }
 .steps-grid h3 {
   margin: 0 0 10px;
@@ -2363,9 +2398,6 @@ footer > span {
 .card-copy p {
   color: var(--muted);
 }
-.how-section {
-  background: var(--card);
-}
 .steps-grid .step-item {
   border-color: var(--border-card);
 }
@@ -2376,10 +2408,6 @@ footer > span {
   font-weight: 500;
   letter-spacing: 0;
 }
-.step-number {
-  color: var(--soft-text);
-}
-
 .input-cycle {
   position: relative;
   display: inline-grid;
