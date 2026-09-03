@@ -186,31 +186,47 @@
           <p>
             {{pages.home.track_calories_and_macros_in_seconds_fitroom_app_recogni}}
           </p>
-          <div class="hero-actions store-buttons">
-            <a
-              href="#download"
-              class="store-button"
+          <div class="hero-actions">
+            <button
+              class="trial-offer-cta"
+              type="button"
               data-waitlist-trigger
-              data-waitlist-source="appstore-header"
-              aria-label="{{common.fitroom_on_the_app_store}}"
-              ><img
-                src="/appstore.svg"
-                width="1331"
-                height="382"
-                alt="{{common.download_on_the_app_store}}"
-            /></a>
-            <a
-              href="#download"
-              class="store-button"
-              data-waitlist-trigger
-              data-waitlist-source="googleplay-header"
-              aria-label="{{common.fitroom_on_google_play}}"
-              ><img
-                src="/playstore.svg"
-                width="5334"
-                height="1538"
-                alt="{{common.get_it_on_google_play}}"
-            /></a>
+              data-waitlist-source="trial-offer-header"
+            >
+              <span>{{pages.home.get_3_months_free}}</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </button>
+            <p class="trial-offer-note">
+              {{pages.home.promo_code_email_note}}
+            </p>
+            <div class="store-buttons">
+              <a
+                href="https://apps.apple.com/app/fitroom-calorie-tracker/id6785002301"
+                class="store-button"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="{{common.fitroom_on_the_app_store}}"
+                ><img
+                  src="/appstore.svg"
+                  width="1331"
+                  height="382"
+                  alt="{{common.download_on_the_app_store}}"
+              /></a>
+              <a
+                href="#download"
+                class="store-button"
+                data-waitlist-trigger
+                data-waitlist-source="googleplay-header"
+                aria-label="{{common.fitroom_on_google_play}}"
+                ><img
+                  src="/playstore.svg"
+                  width="5334"
+                  height="1538"
+                  alt="{{common.get_it_on_google_play}}"
+              /></a>
+            </div>
           </div>
           <div class="hero-reviews">
             <div class="review-top">
@@ -278,25 +294,6 @@
                   ><strong>5.0</strong>
                 </div>
               </div>
-            </div>
-            <div class="review-partner">
-              <span class="review-partner__by">{{pages.home.by}}</span>
-              <span class="review-partner__mark">
-                <img
-                  class="review-partner__logo"
-                  src="/assets/fitroom-logo-dark-160.webp"
-                  srcset="
-                    /assets/fitroom-logo-dark-160.webp 160w,
-                    /assets/fitroom-logo-dark-320.webp 320w,
-                    /assets/fitroom-logo-dark-640.webp 640w
-                  "
-                  sizes="74px"
-                  width="160"
-                  height="54"
-                  alt="{{common.fitroom}}"
-                  title="Fitroom team"
-                />
-              </span>
             </div>
           </div>
         </div>
@@ -638,6 +635,25 @@
               </div>
             </div>
           </div>
+        </div>
+        <div class="review-partner hero-partner">
+          <span class="review-partner__by">{{pages.home.by}}</span>
+          <span class="review-partner__mark">
+            <img
+              class="review-partner__logo"
+              src="/assets/fitroom-logo-dark-160.webp"
+              srcset="
+                /assets/fitroom-logo-dark-160.webp 160w,
+                /assets/fitroom-logo-dark-320.webp 320w,
+                /assets/fitroom-logo-dark-640.webp 640w
+              "
+              sizes="74px"
+              width="160"
+              height="54"
+              alt="{{common.fitroom}}"
+              title="Fitroom team"
+            />
+          </span>
         </div>
       </section>
 
@@ -1260,30 +1276,43 @@
             </p>
           </div>
         </div>
-        <div class="store-buttons footer-store-buttons">
-          <a
-            href="#top"
-            class="store-button"
+        <div class="footer-download-actions">
+          <button
+            class="trial-offer-cta trial-offer-cta-footer"
+            type="button"
             data-waitlist-trigger
-            data-waitlist-source="appstore-footer"
-            aria-label="{{common.fitroom_on_the_app_store}}"
-            ><img
-              src="/appstore.svg"
-              width="1331"
-              height="382"
-              alt="{{common.download_on_the_app_store}}" /></a
-          ><a
-            href="#top"
-            class="store-button"
-            data-waitlist-trigger
-            data-waitlist-source="googleplay-footer"
-            aria-label="{{common.fitroom_on_google_play}}"
-            ><img
-              src="/playstore.svg"
-              width="5334"
-              height="1538"
-              alt="{{common.get_it_on_google_play}}"
-          /></a>
+            data-waitlist-source="trial-offer-footer"
+          >
+            <span>{{pages.home.get_3_months_free}}</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </button>
+          <div class="store-buttons footer-store-buttons">
+            <a
+              href="https://apps.apple.com/app/fitroom-calorie-tracker/id6785002301"
+              class="store-button"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="{{common.fitroom_on_the_app_store}}"
+              ><img
+                src="/appstore.svg"
+                width="1331"
+                height="382"
+                alt="{{common.download_on_the_app_store}}" /></a
+            ><a
+              href="#top"
+              class="store-button"
+              data-waitlist-trigger
+              data-waitlist-source="googleplay-footer"
+              aria-label="{{common.fitroom_on_google_play}}"
+              ><img
+                src="/playstore.svg"
+                width="5334"
+                height="1538"
+                alt="{{common.get_it_on_google_play}}"
+            /></a>
+          </div>
         </div>
       </div>
       <div class="footer-bottom">
