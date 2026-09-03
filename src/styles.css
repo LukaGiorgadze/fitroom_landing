@@ -5340,7 +5340,7 @@ body.modal-open > .site-footer {
     width: 88px;
   }
   .hero-partner {
-    top: calc(100svh - 76px);
+    display: none;
   }
 }
 @media (max-width: 440px) {
