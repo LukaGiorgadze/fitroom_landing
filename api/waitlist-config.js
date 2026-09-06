@@ -11,4 +11,6 @@ export const validWaitlistSources = new Set([
   "googleplay-header",
   "googleplay-footer",
   "manual-modal",
+  "trial-offer-header",
+  "trial-offer-footer",
 ]);
