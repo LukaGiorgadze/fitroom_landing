@@ -1,0 +1,302 @@
+{
+  "p0": {
+    "userErrors": [],
+    "product": {
+      "id": "gid://shopify/Product/8995456352453",
+      "seo": {
+        "title": null,
+        "description": "Material: Nylon / Spandex"
+      }
+    }
+  },
+  "p1": {
+    "userErrors": [],
+    "product": {
+      "id": "gid://shopify/Product/8995456385221",
+      "seo": {
+        "title": null,
+        "description": "Material: Nylon / Polyester"
+      }
+    }
+  },
+  "p2": {
+    "userErrors": [],
+    "product": {
+      "id": "gid://shopify/Product/8995456450757",
+      "seo": {
+        "title": null,
+        "description": "Material: Nylon"
+      }
+    }
+  },
+  "p3": {
+    "userErrors": [],
+    "product": {
+      "id": "gid://shopify/Product/8995456483525",
+      "seo": {
+        "title": null,
+        "description": "Material: Spandex / Polyester"
+      }
+    }
+  },
+  "p4": {
+    "userErrors": [],
+    "product": {
+      "id": "gid://shopify/Product/8995456516293",
+      "seo": {
+        "title": null,
+        "description": "Material: Spandex / Polyester"
+      }
+    }
+  },
+  "p5": {
+    "userErrors": [],
+    "product": {
+      "id": "gid://shopify/Product/8995456581829",
+      "seo": {
+        "title": null,
+        "description": "Material: Nylon / Polyester"
+      }
+    }
+  },
+  "p6": {
+    "userErrors": [],
+    "product": {
+      "id": "gid://shopify/Product/8995456614597",
+      "seo": {
+        "title": null,
+        "description": "Material: Nylon / Polyester"
+      }
+    }
+  },
+  "p7": {
+    "userErrors": [],
+    "product": {
+      "id": "gid://shopify/Product/8995456647365",
+      "seo": {
+        "title": null,
+        "description": "Material: Nylon / Polyester"
+      }
+    }
+  },
+  "p8": {
+    "userErrors": [],
+    "product": {
+      "id": "gid://shopify/Product/8995456712901",
+      "seo": {
+        "title": null,
+        "description": "Material: Nylon / Polyester"
+      }
+    }
+  },
+  "p9": {
+    "userErrors": [],
+    "product": {
+      "id": "gid://shopify/Product/8995456745669",
+      "seo": {
+        "title": null,
+        "description": "Material: Nylon / Spandex. Feel: Seamless"
+      }
+    }
+  },
+  "p10": {
+    "userErrors": [],
+    "product": {
+      "id": "gid://shopify/Product/8995456778437",
+      "seo": {
+        "title": null,
+        "description": "Material: Nylon / Spandex. Feel: Seamless"
+      }
+    }
+  },
+  "p11": {
+    "userErrors": [],
+    "product": {
+      "id": "gid://shopify/Product/8995456811205",
+      "seo": {
+        "title": null,
+        "description": "Material: Nylon / Polyester"
+      }
+    }
+  },
+  "p12": {
+    "userErrors": [],
+    "product": {
+      "id": "gid://shopify/Product/8995456843973",
+      "seo": {
+        "title": null,
+        "description": "Material: Nylon / Polyester"
+      }
+    }
+  },
+  "p13": {
+    "userErrors": [],
+    "product": {
+      "id": "gid://shopify/Product/8995456876741",
+      "seo": {
+        "title": null,
+        "description": "Material: Nylon / Spandex"
+      }
+    }
+  },
+  "p14": {
+    "userErrors": [],
+    "product": {
+      "id": "gid://shopify/Product/8995456909509",
+      "seo": {
+        "title": null,
+        "description": "Material: Nylon / Polyester"
+      }
+    }
+  },
+  "p15": {
+    "userErrors": [],
+    "product": {
+      "id": "gid://shopify/Product/8995456942277",
+      "seo": {
+        "title": null,
+        "description": "Material: Nylon"
+      }
+    }
+  },
+  "p16": {
+    "userErrors": [],
+    "product": {
+      "id": "gid://shopify/Product/8995457040581",
+      "seo": {
+        "title": null,
+        "description": "Material: Nylon / Polyester"
+      }
+    }
+  },
+  "p17": {
+    "userErrors": [],
+    "product": {
+      "id": "gid://shopify/Product/8995457073349",
+      "seo": {
+        "title": null,
+        "description": "Material: Spandex / Polyester"
+      }
+    }
+  },
+  "p18": {
+    "userErrors": [],
+    "product": {
+      "id": "gid://shopify/Product/8995457138885",
+      "seo": {
+        "title": null,
+        "description": "Material: Nylon / Polyester"
+      }
+    }
+  },
+  "p19": {
+    "userErrors": [],
+    "product": {
+      "id": "gid://shopify/Product/8995457204421",
+      "seo": {
+        "title": null,
+        "description": "Material: Nylon / Polyester"
+      }
+    }
+  },
+  "p20": {
+    "userErrors": [],
+    "product": {
+      "id": "gid://shopify/Product/8995457237189",
+      "seo": {
+        "title": null,
+        "description": "Material: Nylon / Polyester"
+      }
+    }
+  },
+  "p21": {
+    "userErrors": [],
+    "product": {
+      "id": "gid://shopify/Product/8995457269957",
+      "seo": {
+        "title": null,
+        "description": "Material: Spandex / Polyester. Feel: Thick"
+      }
+    }
+  },
+  "p22": {
+    "userErrors": [],
+    "product": {
+      "id": "gid://shopify/Product/8995457302725",
+      "seo": {
+        "title": null,
+        "description": "Material: 90% Nylon / 10% Spandex. Feel: Soft, Seamless"
+      }
+    }
+  },
+  "p23": {
+    "userErrors": [],
+    "product": {
+      "id": "gid://shopify/Product/8995457335493",
+      "seo": {
+        "title": null,
+        "description": "Material: Nylon / Spandex. Feel: Seamless"
+      }
+    }
+  },
+  "p24": {
+    "userErrors": [],
+    "product": {
+      "id": "gid://shopify/Product/8995457368261",
+      "seo": {
+        "title": null,
+        "description": "Material: Spandex / Polyester"
+      }
+    }
+  },
+  "p25": {
+    "userErrors": [],
+    "product": {
+      "id": "gid://shopify/Product/8995457433797",
+      "seo": {
+        "title": null,
+        "description": "Material: Spandex / Polyester"
+      }
+    }
+  },
+  "p26": {
+    "userErrors": [],
+    "product": {
+      "id": "gid://shopify/Product/8995457466565",
+      "seo": {
+        "title": null,
+        "description": "Material: Nylon / Spandex"
+      }
+    }
+  },
+  "p27": {
+    "userErrors": [],
+    "product": {
+      "id": "gid://shopify/Product/8995457532101",
+      "seo": {
+        "title": null,
+        "description": "Material: Nylon / Spandex"
+      }
+    }
+  },
+  "p28": {
+    "userErrors": [],
+    "product": {
+      "id": "gid://shopify/Product/8995457597637",
+      "seo": {
+        "title": null,
+        "description": "Material: 90% Nylon / 10% Spandex. Feel: Soft, Seamless"
+      }
+    }
+  },
+  "p29": {
+    "userErrors": [],
+    "product": {
+      "id": "gid://shopify/Product/8995457630405",
+      "seo": {
+        "title": null,
+        "description": "Material: 90% Nylon / 10% Spandex. Feel: Soft, Seamless"
+      }
+    }
+  }
+}
