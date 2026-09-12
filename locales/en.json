@@ -105,7 +105,6 @@
       "footer_navigation": "Footer navigation",
       "close_waitlist": "Close offer form",
       "get_3_months_free": "Get 3 months free",
-      "promo_code_email_note": "We’ll email your promo code.",
       "get_3_months_of": "Get 3 months of",
       "pro": "Pro",
       "free": "free",
@@ -130,7 +129,14 @@
       "sa": "S",
       "su": "S",
       "tu": "T",
-      "th": "T"
+      "th": "T",
+      "launch_announcement": "App launch",
+      "launch_banner": "iOS & Android · Sep 20",
+      "launch_hero": "Launching Sep 20",
+      "launch_countdown": "Time until launch",
+      "launch_units": "d,h,m,s",
+      "launch_date_arrived": "Launch day is here!",
+      "launch_join": "Join us, launching in"
     },
     "privacyPolicy": {
       "privacy_policy_for_fitroom_calorie_tracker_the_fitroom_a": "Privacy Policy for Fitroom: Calorie Tracker, the Fitroom App, and related services.",

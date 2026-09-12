@@ -105,7 +105,6 @@
       "footer_navigation": "ქვედა ნავიგაცია",
       "close_waitlist": "შეთავაზების ფორმის დახურვა",
       "get_3_months_free": "მიიღე 3 თვე უფასოდ",
-      "promo_code_email_note": "პრომოკოდს ელ.ფოსტაზე გამოგიგზავნით.",
       "get_3_months_of": "მიიღე 3 თვე",
       "pro": "Pro",
       "free": "უფასოდ",
@@ -130,7 +129,14 @@
       "sa": "შ",
       "su": "კ",
       "tu": "ს",
-      "th": "ხ"
+      "th": "ხ",
+      "launch_announcement": "აპლიკაციის გაშვება",
+      "launch_banner": "აპლიკაცია გაეშვება 20 სექტემბერს",
+      "launch_hero": "გაეშვება 20 სექტემბერს",
+      "launch_countdown": "გაშვებამდე დარჩენილი დრო",
+      "launch_units": "დ,სთ,წთ,წმ",
+      "launch_date_arrived": "გაშვების დღე დადგა!",
+      "launch_join": "შემოგვიერთდი, გაშვებამდე დარჩა"
     },
     "privacyPolicy": {
       "privacy_policy_for_fitroom_calorie_tracker_the_fitroom_a": "Fitroom კალორიების ტრეკერის, აპლიკაციისა და დაკავშირებული სერვისების კონფიდენციალურობის პოლიტიკა.",
