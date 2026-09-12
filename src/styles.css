@@ -2417,6 +2417,8 @@ footer > span {
   height: auto;
 }
 .hero-partner {
+  /* Temporarily hide the hero attribution; keep its markup for later. */
+  display: none;
   position: absolute;
   z-index: 4;
   top: calc(100svh - 50px);
