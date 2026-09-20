@@ -129,14 +129,7 @@
       "sa": "S",
       "su": "S",
       "tu": "T",
-      "th": "T",
-      "launch_announcement": "App launch",
-      "launch_banner": "iOS & Android · Sep 20",
-      "launch_hero": "Launching Sep 20",
-      "launch_countdown": "Time until launch",
-      "launch_units": "d,h,m,s",
-      "launch_date_arrived": "Launch day is here!",
-      "launch_join": "Join us, launching in"
+      "th": "T"
     },
     "privacyPolicy": {
       "privacy_policy_for_fitroom_calorie_tracker_the_fitroom_a": "Privacy Policy for Fitroom: Calorie Tracker, the Fitroom App, and related services.",

@@ -73,15 +73,10 @@
     <script type="module" src="/src/i18n.js"></script>
     <script type="module" src="/src/liquid-glass-nav.js"></script>
     <script type="module" src="/src/main.js"></script>
-    <script type="module" src="/src/launch-countdown.js"></script>
     <script type="application/ld+json">{{seo.structuredData}}</script>
     <title>{{pages.home.seo_title}}</title>
   </head>
-  <body data-locale="{{locale}}" data-launch-units="{{pages.home.launch_units}}">
-    <aside class="launch-banner" aria-label="{{pages.home.launch_announcement}}">
-      <span class="launch-banner__copy"><span class="launch-dot" aria-hidden="true"></span><span data-launch-copy data-launched="{{pages.home.launch_date_arrived}}">{{pages.home.launch_banner}}</span></span>
-      <span class="launch-timer launch-timer--banner" data-launch-timer role="timer" aria-label="{{pages.home.launch_countdown}}" hidden></span>
-    </aside>
+  <body data-locale="{{locale}}">
     <nav
       class="liquid-nav"
       data-liquid-nav
@@ -193,22 +188,15 @@
           </p>
           <div class="hero-actions">
             <button
-              class="trial-offer-cta launch-offer"
+              class="trial-offer-cta"
               type="button"
               data-waitlist-trigger
               data-waitlist-source="trial-offer-header"
-              aria-label="{{pages.home.get_3_months_free}}"
             >
-              <span class="launch-offer__headline">
-                <span>{{pages.home.get_3_months_free}}</span>
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M5 12h14M13 6l6 6-6 6" />
-                </svg>
-              </span>
-              <span class="launch-offer__countdown">
-                <span class="launch-offer__copy" data-launch-copy data-launched="{{pages.home.launch_date_arrived}}">{{pages.home.launch_join}}</span>
-                <span class="launch-timer" data-launch-timer role="timer" aria-label="{{pages.home.launch_countdown}}" hidden></span>
-              </span>
+              <span>{{pages.home.get_3_months_free}}</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
             </button>
             <div class="store-buttons">
               <a
