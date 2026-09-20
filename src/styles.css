@@ -292,6 +292,11 @@ a {
     background-color 0.2s ease,
     border-color 0.2s ease;
 }
+/* The launch promotion has ended; retain the offer markup for a future campaign. */
+.trial-offer-cta,
+.waitlist-modal {
+  display: none !important;
+}
 .trial-offer-cta svg {
   width: 34px;
   height: 34px;
