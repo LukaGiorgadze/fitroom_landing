@@ -7,6 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "test": "node --test",
+    "test:routes": "npm run build && node scripts/check-download-routes.mjs",
     "i18n:extract": "node scripts/extract-i18n.mjs"
   },
   "devDependencies": {

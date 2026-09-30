@@ -2,6 +2,7 @@ import { defineConfig } from "vite";
 import tailwindcss from "@tailwindcss/vite";
 import { readFile } from "node:fs/promises";
 import waitlistHandler from "./api/waitlist.js";
+import { onRequest as downloadHandler } from "./functions/get.js";
 import {
   createRootRedirect,
   createSitemap,
@@ -13,6 +14,37 @@ import {
   renderLocalizedHtml,
   siteUrl,
 } from "./i18n/build.js";
+
+function appDownloadRedirect() {
+  const middleware = (request, response, next) => {
+    if (request.method !== "GET" && request.method !== "HEAD") return next();
+    const url = new URL(request.url, "http://localhost");
+    if (!/^\/get\/?$/.test(url.pathname)) return next();
+
+    const redirect = downloadHandler({
+      request: new Request(url, { method: request.method, headers: request.headers }),
+      next: () => null,
+    });
+    if (!redirect) {
+      // Vite preview does not resolve directory indexes without a trailing slash.
+      if (url.pathname === "/get") request.url = `/get/${url.search}`;
+      return next();
+    }
+
+    response.writeHead(redirect.status, Object.fromEntries(redirect.headers));
+    response.end();
+  };
+
+  return {
+    name: "fitroom-app-download-redirect",
+    configureServer(server) {
+      server.middlewares.use(middleware);
+    },
+    configurePreviewServer(server) {
+      server.middlewares.use(middleware);
+    },
+  };
+}
 
 function waitlistApi() {
   const middleware = (request, response, next) => {
@@ -95,10 +127,13 @@ function staticLocalization() {
           return;
         }
 
-        const route = findLocalizedRoute(pathname);
+        const isDownloadEntry = /^\/get\/?$/.test(pathname);
+        const route = isDownloadEntry
+          ? findLocalizedRoute("/en/get/")
+          : findLocalizedRoute(pathname);
         if (!route) return next();
 
-        if (pathname !== route.pathname) {
+        if (!isDownloadEntry && pathname !== route.pathname) {
           response.statusCode = 302;
           response.setHeader("Location", route.pathname);
           response.end();
@@ -139,8 +174,13 @@ function staticLocalization() {
         }
         builtTemplate = prioritizeStylesheets(builtTemplate);
         builtTemplates.set(pageKey, builtTemplate);
-        if (pageKey === "home") asset.source = createRootRedirect();
-        else delete bundle[page.bundleFile];
+        if (pageKey === "home") {
+          asset.source = createRootRedirect();
+        } else if (pageKey === "get") {
+          asset.source = renderLocalizedHtml(builtTemplate, "en", "get");
+        } else {
+          delete bundle[page.bundleFile];
+        }
       }
 
       for (const route of localizedRoutes) {
@@ -180,12 +220,13 @@ Sitemap: ${siteUrl}/sitemap.xml
 }
 
 export default defineConfig({
-  plugins: [tailwindcss(), waitlistApi(), staticLocalization()],
+  plugins: [tailwindcss(), waitlistApi(), appDownloadRedirect(), staticLocalization()],
   build: {
     rollupOptions: {
       input: {
         analytics: "src/analytics.js",
         main: "index.html",
+        get: "get/index.html",
         privacyPolicy: "privacy-policy/index.html",
         termsAndUse: "terms-and-use/index.html",
       },

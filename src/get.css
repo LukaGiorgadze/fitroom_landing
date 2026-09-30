@@ -1,0 +1,73 @@
+.get-page {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 32px 20px;
+}
+
+.get-card {
+  width: min(100%, 560px);
+  padding: clamp(28px, 6vw, 56px);
+  border: 1px solid var(--border-card);
+  border-radius: 32px;
+  background: var(--surface-card);
+  box-shadow: var(--shadow-card);
+  text-align: center;
+}
+
+.get-logo {
+  display: block;
+  width: 88px;
+  height: 88px;
+  margin: 0 auto 28px;
+  border-radius: 22px;
+}
+
+.get-card h1 {
+  margin: 0;
+  font-size: clamp(28px, 5vw, 40px);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+}
+
+.get-card p {
+  margin: 18px 0 28px;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.get-card .store-buttons {
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.get-card .store-button img {
+  height: auto;
+}
+
+.get-card a:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 5px;
+}
+
+.get-home-link {
+  display: inline-block;
+  margin-top: 28px;
+  color: var(--muted);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.get-card .page-language-switcher {
+  display: flex;
+  width: fit-content;
+  margin: 28px auto 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .get-card .store-button {
+    transition: none;
+  }
+}

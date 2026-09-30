@@ -1,6 +1,7 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { appStores } from "../src/app-stores.js";
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
@@ -22,6 +23,11 @@ export const pages = Object.freeze({
     sourceFile: path.join(projectRoot, "index.html"),
     bundleFile: "index.html",
     slug: "",
+  },
+  get: {
+    sourceFile: path.join(projectRoot, "get/index.html"),
+    bundleFile: "get/index.html",
+    slug: "get",
   },
   privacyPolicy: {
     sourceFile: path.join(projectRoot, "privacy-policy/index.html"),
@@ -172,6 +178,7 @@ const pageContext = (locale, pageKey) => {
 
   return {
     locale,
+    stores: appStores,
     routes,
     alternates,
     switchRoutes,
