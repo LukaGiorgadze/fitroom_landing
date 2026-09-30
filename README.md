@@ -9,6 +9,23 @@ npm run dev
 
 Create a production build with `npm run build`.
 
+## App download link
+
+Share `https://app.fitroom.ge/get` to send iPhone visitors directly to the
+App Store and Android visitors directly to Google Play. Other devices see the
+same download badges as the homepage and can choose a store. The chooser is
+available in English and Georgian, with Georgian selected for browsers whose
+primary language is Georgian. The buttons also work without JavaScript.
+
+Store URLs are shared by the homepage, chooser and redirect in
+`src/app-stores.js`. Cloudflare Pages uses `functions/get.js` for temporary,
+non-cacheable mobile redirects, and Vite dev/preview uses the same handler.
+The chooser includes a client-side redirect for static hosting as well.
+
+Run `npm test` for device routing, response headers, localization and fallback
+checks. Run `npm run test:routes` to build the production output and test actual
+HTTP responses in Vite dev and preview, including the exact `/get` path.
+
 ## Localization
 
 The site is rendered as static, indexable HTML for English and Georgian:
@@ -16,6 +33,7 @@ The site is rendered as static, indexable HTML for English and Georgian:
 - `/en/` and `/ka/`
 - `/en/privacy-policy/` and `/ka/privacy-policy/`
 - `/en/terms-of-use/` and `/ka/terms-of-use/`
+- `/en/get/` and `/ka/get/`
 
 The root page uses the browser's primary language to send Georgian (`ka` or
 `ka-*`) users to `/ka/`; all other users are sent to `/en/`.

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="{{locale}}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f8faff" />
+    <meta name="description" content="{{pages.get.choose_store}}" />
+    <link rel="canonical" href="{{seo.canonical}}" />
+    <link rel="alternate" hreflang="en" href="{{alternates.en}}" />
+    <link rel="alternate" hreflang="ka" href="{{alternates.ka}}" />
+    <link rel="alternate" hreflang="x-default" href="https://app.fitroom.ge/get" />
+    <link rel="icon" type="image/png" href="/assets/fitroom-app-dark-96.png" />
+    <link rel="stylesheet" href="/src/styles.css" />
+    <link rel="stylesheet" href="/src/i18n.css" />
+    <link rel="stylesheet" href="/src/get.css" />
+    <script type="module" src="/src/get.js"></script>
+    <title>{{pages.get.download_fitroom}}</title>
+  </head>
+  <body class="get-page" data-locale="{{locale}}">
+    <main class="get-card">
+      <img
+        class="get-logo"
+        src="/assets/fitroom-app-dark-192.png"
+        width="192"
+        height="192"
+        alt=""
+      />
+      <h1>{{pages.get.download_fitroom}}</h1>
+      <p>{{pages.get.choose_store}}</p>
+      <div class="store-buttons">
+        <a
+          href="{{stores.appStore}}"
+          class="store-button"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="{{common.fitroom_on_the_app_store}}"
+          ><img
+            src="/appstore.svg"
+            width="1331"
+            height="382"
+            alt="{{common.download_on_the_app_store}}"
+        /></a>
+        <a
+          href="{{stores.googlePlay}}"
+          class="store-button"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="{{common.fitroom_on_google_play}}"
+          ><img
+            src="/playstore.svg"
+            width="5334"
+            height="1538"
+            alt="{{common.get_it_on_google_play}}"
+        /></a>
+      </div>
+      <a class="get-home-link" href="{{routes.home}}">{{common.home}}</a>
+      <nav class="page-language-switcher" aria-label="{{common.language_selector}}">
+        <a
+          href="{{switchRoutes.en}}"
+          data-language="en"
+          lang="en"
+          aria-label="{{common.view_this_page_in_english}}"
+          >EN</a>
+        <a
+          href="{{switchRoutes.ka}}"
+          data-language="ka"
+          lang="ka"
+          aria-label="{{common.view_this_page_in_georgian}}"
+          >KA</a>
+      </nav>
+    </main>
+  </body>
+</html>

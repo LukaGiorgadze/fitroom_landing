@@ -345,6 +345,10 @@
       "17_changes_notices_and_contact": "17. ცვლილებები და კონტაქტი",
       "we_may_update_these_terms_we_will_post_the_revised_versi": "ჩვენ შეგვიძლია განვაახლოთ ეს პირობები. გაგრძელებით თქვენ ეთანხმებით ახალ წესებს. წინააღმდეგ შემთხვევაში, შეწყვიტეთ სარგებლობა.",
       "if_any_provision_is_unenforceable_it_will_be_limited_to": "თუ რომელიმე პუნქტი ბათილად იქნა ცნობილი, დანარჩენი ძალაში რჩება. წესების სხვა პირისთვის გადაცემა ჩვენი თანხმობის გარეშე აკრძალულია."
+    },
+    "get": {
+      "download_fitroom": "ჩამოტვირთე Fitroom",
+      "choose_store": "აირჩიე App Store ან Google Play აპის ჩამოსატვირთად."
     }
   },
   "common": {

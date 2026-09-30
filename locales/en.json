@@ -345,6 +345,10 @@
       "17_changes_notices_and_contact": "17. Changes, notices, and contact",
       "we_may_update_these_terms_we_will_post_the_revised_versi": "We may update these Terms. We will post the revised version here and update the date above. If a change materially reduces your rights, we will provide additional notice where required. Continued use after the effective date means you accept the revised Terms; if you disagree, stop using the Service and cancel any future renewal.",
       "if_any_provision_is_unenforceable_it_will_be_limited_to": "If any provision is unenforceable, it will be limited to the minimum extent necessary and the rest will remain effective. Our failure to enforce a provision is not a waiver. You may not assign these Terms without our consent; we may assign them in connection with a merger, acquisition, reorganization, or sale of the Service, subject to applicable law."
+    },
+    "get": {
+      "download_fitroom": "Download Fitroom",
+      "choose_store": "Choose the App Store or Google Play to download the app."
     }
   },
   "common": {
